@@ -103,6 +103,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### Claude Code ###
+.claude/settings.local.json
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json

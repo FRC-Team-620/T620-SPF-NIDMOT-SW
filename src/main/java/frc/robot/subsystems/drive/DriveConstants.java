@@ -15,7 +15,82 @@ import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.util.Units;
 
 public class DriveConstants {
-  public static final double maxSpeedMetersPerSec = 4.8;
+
+  public enum MaxSwerveConfig {
+    //                   driveRatio  neoV1   vortex  drivePinion  drivePinionPart      spurTeeth
+    // spurPart           azmRatio          steerPinionTeeth  steerPinionPart
+    LOW(
+        5.50,
+        4.12,
+        4.92,
+        12,
+        "REV-21-3005-P09",
+        22,
+        "REV-21-3005-P11",
+        9424.0 / 203.0,
+        14,
+        "REV-21-3005-P08"),
+    MEDIUM(
+        5.08,
+        4.46,
+        5.33,
+        13,
+        "REV-21-3005-P22",
+        22,
+        "REV-21-3005-P11",
+        9424.0 / 203.0,
+        14,
+        "REV-21-3005-P08"),
+    HIGH(
+        4.71,
+        4.80,
+        5.74,
+        14,
+        "REV-21-3005-P23",
+        22,
+        "REV-21-3005-P11",
+        9424.0 / 203.0,
+        14,
+        "REV-21-3005-P08");
+
+    public final double gearRatio;
+    public final double freeSpeedNeoV1Mps;
+    public final double freeSpeedNeoVortexMps;
+    public final int drivePinionTeeth;
+    public final String drivePinionPartNumber;
+    public final int spurTeeth;
+    public final String spurPartNumber;
+    public final double azimuthRatio;
+    public final int steeringPinionTeeth;
+    public final String steeringPinionPartNumber;
+
+    MaxSwerveConfig(
+        double gearRatio,
+        double freeSpeedNeoV1Mps,
+        double freeSpeedNeoVortexMps,
+        int drivePinionTeeth,
+        String drivePinionPartNumber,
+        int spurTeeth,
+        String spurPartNumber,
+        double azimuthRatio,
+        int steeringPinionTeeth,
+        String steeringPinionPartNumber) {
+      this.gearRatio = gearRatio;
+      this.freeSpeedNeoV1Mps = freeSpeedNeoV1Mps;
+      this.freeSpeedNeoVortexMps = freeSpeedNeoVortexMps;
+      this.drivePinionTeeth = drivePinionTeeth;
+      this.drivePinionPartNumber = drivePinionPartNumber;
+      this.spurTeeth = spurTeeth;
+      this.spurPartNumber = spurPartNumber;
+      this.azimuthRatio = azimuthRatio;
+      this.steeringPinionTeeth = steeringPinionTeeth;
+      this.steeringPinionPartNumber = steeringPinionPartNumber;
+    }
+  }
+
+  public static final MaxSwerveConfig driveConfig = MaxSwerveConfig.HIGH;
+
+  public static final double maxSpeedMetersPerSec = driveConfig.freeSpeedNeoV1Mps;
   public static final double odometryFrequency = 100.0; // Hz
   public static final double trackWidth = Units.inchesToMeters(26.5);
   public static final double wheelBase = Units.inchesToMeters(26.5);
@@ -50,9 +125,7 @@ public class DriveConstants {
   // Drive motor configuration
   public static final int driveMotorCurrentLimit = 50;
   public static final double wheelRadiusMeters = Units.inchesToMeters(1.5);
-  public static final double driveMotorReduction =
-      (45.0 * 22.0) / (14.0 * 15.0); // MAXSwerve with 14 pinion teeth
-  // and 22 spur teeth
+  public static final double driveMotorReduction = driveConfig.gearRatio;
   public static final DCMotor driveGearbox = DCMotor.getNeoVortex(1);
 
   // Drive encoder configuration
@@ -76,7 +149,7 @@ public class DriveConstants {
   // Turn motor configuration
   public static final boolean turnInverted = false;
   public static final int turnMotorCurrentLimit = 20;
-  public static final double turnMotorReduction = 9424.0 / 203.0;
+  public static final double turnMotorReduction = driveConfig.azimuthRatio;
   public static final DCMotor turnGearbox = DCMotor.getNeo550(1);
 
   // Turn encoder configuration
