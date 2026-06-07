@@ -8,8 +8,7 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 public class IntakeRollerIOSpark implements IntakeRollerIO {
-  private final SparkBase leader =
-      new SparkMax(IntakeConstants.leaderCanId, MotorType.kBrushless);
+  private final SparkBase leader = new SparkMax(IntakeConstants.leaderCanId, MotorType.kBrushless);
   private final SparkBase follower =
       new SparkMax(IntakeConstants.followerCanId, MotorType.kBrushless);
 

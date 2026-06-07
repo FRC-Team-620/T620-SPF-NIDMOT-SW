@@ -11,7 +11,6 @@ import com.pathplanner.lib.config.ModuleConfig;
 import com.pathplanner.lib.config.RobotConfig;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.util.Units;
 import frc.robot.subsystems.drive.MAXSwerveModuleConfig.DriveMotor;
 import frc.robot.subsystems.drive.MAXSwerveModuleConfig.GearConfig;
 import frc.robot.subsystems.drive.MAXSwerveModuleConfig.TurnMotor;
@@ -76,7 +75,7 @@ public class DriveConstants {
   // Drive motor configuration
   // -------------------------------------------------------------------------
   public static final int driveMotorCurrentLimit = 50;
-  public static final double wheelRadiusMeters = Units.inchesToMeters(1.5);
+  public static final double wheelRadiusMeters = driveConfig.wheelRadiusMeters;
   public static final double driveMotorReduction = driveConfig.gearRatio;
   public static final edu.wpi.first.math.system.plant.DCMotor driveGearbox = driveMotorConfig.motor;
 

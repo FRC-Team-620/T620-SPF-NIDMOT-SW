@@ -8,6 +8,7 @@
 package frc.robot.subsystems.drive;
 
 import edu.wpi.first.math.system.plant.DCMotor;
+import edu.wpi.first.math.util.Units;
 
 /**
  * Hardware configuration enums for the REV MAXSwerve module (REV-21-3005).
@@ -86,7 +87,8 @@ public class MAXSwerveModuleConfig {
         "REV-21-3005-P11",
         9424.0 / 203.0,
         14,
-        "REV-21-3005-P08"),
+        "REV-21-3005-P08",
+        Units.inchesToMeters(3)),
     MEDIUM(
         5.08,
         4.46,
@@ -97,7 +99,8 @@ public class MAXSwerveModuleConfig {
         "REV-21-3005-P11",
         9424.0 / 203.0,
         14,
-        "REV-21-3005-P08"),
+        "REV-21-3005-P08",
+        Units.inchesToMeters(3)),
     HIGH(
         4.71,
         4.80,
@@ -108,7 +111,8 @@ public class MAXSwerveModuleConfig {
         "REV-21-3005-P11",
         9424.0 / 203.0,
         14,
-        "REV-21-3005-P08");
+        "REV-21-3005-P08",
+        Units.inchesToMeters(1.5));
 
     /** Overall drive gear reduction (motor rotations per wheel rotation). */
     public final double gearRatio;
@@ -130,6 +134,8 @@ public class MAXSwerveModuleConfig {
     public final int steeringPinionTeeth;
     /** REV part number for the steering pinion. */
     public final String steeringPinionPartNumber;
+    /** Wheel radius in meters */
+    public final double wheelRadiusMeters;
 
     GearConfig(
         double gearRatio,
@@ -141,7 +147,8 @@ public class MAXSwerveModuleConfig {
         String spurPartNumber,
         double azimuthRatio,
         int steeringPinionTeeth,
-        String steeringPinionPartNumber) {
+        String steeringPinionPartNumber,
+        double wheelRadiusMeters) {
       this.gearRatio = gearRatio;
       this.freeSpeedNeoV1Mps = freeSpeedNeoV1Mps;
       this.freeSpeedNeoVortexMps = freeSpeedNeoVortexMps;
@@ -152,6 +159,7 @@ public class MAXSwerveModuleConfig {
       this.azimuthRatio = azimuthRatio;
       this.steeringPinionTeeth = steeringPinionTeeth;
       this.steeringPinionPartNumber = steeringPinionPartNumber;
+      this.wheelRadiusMeters = wheelRadiusMeters;
     }
   }
 
