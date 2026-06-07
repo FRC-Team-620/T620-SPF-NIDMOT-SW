@@ -23,6 +23,9 @@ import frc.robot.subsystems.drive.GyroIOPigeon2;
 import frc.robot.subsystems.drive.ModuleIO;
 import frc.robot.subsystems.drive.ModuleIOSim;
 import frc.robot.subsystems.drive.ModuleIOSpark;
+import frc.robot.subsystems.intake.IntakeRoller;
+import frc.robot.subsystems.intake.IntakeRollerIO;
+import frc.robot.subsystems.intake.IntakeRollerIOSpark;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -34,6 +37,7 @@ import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 public class RobotContainer {
   // Subsystems
   private final Drive drive;
+  private final IntakeRoller intakeRoller;
 
   // Controller
   private final CommandXboxController controller = new CommandXboxController(0);
@@ -53,6 +57,7 @@ public class RobotContainer {
                 new ModuleIOSpark(1),
                 new ModuleIOSpark(2),
                 new ModuleIOSpark(3));
+        intakeRoller = new IntakeRoller(new IntakeRollerIOSpark());
         break;
 
       case SIM:
@@ -64,6 +69,7 @@ public class RobotContainer {
                 new ModuleIOSim(),
                 new ModuleIOSim(),
                 new ModuleIOSim());
+        intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
         break;
 
       default:
@@ -75,6 +81,7 @@ public class RobotContainer {
                 new ModuleIO() {},
                 new ModuleIO() {},
                 new ModuleIO() {});
+        intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
         break;
     }
 
@@ -108,6 +115,10 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    // Intake roller speed mapped 1:1 to left trigger
+    intakeRoller.setDefaultCommand(
+        Commands.run(() -> intakeRoller.setSpeed(controller.getLeftTriggerAxis()), intakeRoller));
+
     // Default command, normal field-relative drive
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(

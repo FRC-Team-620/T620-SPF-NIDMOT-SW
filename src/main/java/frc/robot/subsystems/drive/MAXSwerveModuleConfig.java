@@ -20,7 +20,9 @@ import edu.wpi.first.math.system.plant.DCMotor;
  * following the same pattern and update the imports in DriveConstants accordingly.
  *
  * <p>Pinion/gear data: https://www.revrobotics.com/rev-21-3005/
- * <p>AK template ref: https://docs.advantagekit.org/getting-started/template-projects/spark-swerve-template
+ *
+ * <p>AK template ref:
+ * https://docs.advantagekit.org/getting-started/template-projects/spark-swerve-template
  */
 public class MAXSwerveModuleConfig {
 
@@ -172,9 +174,7 @@ public class MAXSwerveModuleConfig {
 
     /** Returns the free speed (m/s) for this motor in the given gear config. */
     public double freeSpeedMps(GearConfig gearConfig) {
-      return this == NEO_VORTEX
-          ? gearConfig.freeSpeedNeoVortexMps
-          : gearConfig.freeSpeedNeoV1Mps;
+      return this == NEO_VORTEX ? gearConfig.freeSpeedNeoVortexMps : gearConfig.freeSpeedNeoV1Mps;
     }
   }
 
