@@ -110,17 +110,18 @@ public class DriveConstants {
   public static final Rotation2d backRightZeroRotation = new Rotation2d(0.0);
 
   // Device CAN IDs
-  public static final int pigeonCanId = 9;
+  // Ref: https://docs.google.com/spreadsheets/d/1E2qQl7P2I0ImZtpcdnKNVKiHB-iJdpjz9EQkrZBmuj4/edit?usp=sharing
+  public static final int pigeonCanId = 62;
 
-  public static final int frontLeftDriveCanId = 1;
-  public static final int backLeftDriveCanId = 3;
-  public static final int frontRightDriveCanId = 5;
-  public static final int backRightDriveCanId = 7;
+  public static final int frontLeftDriveCanId = 10;
+  public static final int backLeftDriveCanId = 12;
+  public static final int frontRightDriveCanId = 11;
+  public static final int backRightDriveCanId = 13;
 
-  public static final int frontLeftTurnCanId = 2;
-  public static final int backLeftTurnCanId = 4;
-  public static final int frontRightTurnCanId = 6;
-  public static final int backRightTurnCanId = 8;
+  public static final int frontLeftTurnCanId = 20;
+  public static final int backLeftTurnCanId = 22;
+  public static final int frontRightTurnCanId = 21;
+  public static final int backRightTurnCanId = 23;
 
   // Drive motor configuration
   public static final int driveMotorCurrentLimit = 50;

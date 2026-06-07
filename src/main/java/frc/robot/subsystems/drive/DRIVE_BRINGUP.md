@@ -1,7 +1,7 @@
 # Drive Subsystem Bringup — T620-SPF-NIDMOT-SW
 
-Hardware: REV MAXSwerve | SPARK MAX | NEO (drive) | NEO 550 (turn)  
-Template: AdvantageKit v26.0.2 Spark Swerve  
+Hardware: REV MAXSwerve | SPARK MAX | NEO (drive) | NEO 550 (turn)
+Template: AdvantageKit v26.0.2 Spark Swerve
 Ref: https://docs.advantagekit.org/getting-started/template-projects/spark-swerve-template
 
 ---
@@ -20,15 +20,18 @@ Ref: https://docs.advantagekit.org/getting-started/template-projects/spark-swerv
 
 Open **REV Hardware Client** and confirm every controller is visible and assigned the correct CAN ID matching `DriveConstants.java`:
 
-| Module      | Drive CAN ID | Turn CAN ID |
-|-------------|-------------|------------|
-| Front Left  | 1           | 2          |
-| Back Left   | 3           | 4          |
-| Front Right | 5           | 6          |
-| Back Right  | 7           | 8          |
-| NavX / Gyro | —           | —          |
+| Module        | Drive CAN ID | Turn CAN ID |
+|---------------|-------------|------------|
+| Front Left    | 10          | 20         |
+| Front Right   | 11          | 21         |
+| Back Left     | 12          | 22         |
+| Back Right    | 13          | 23         |
+| Pigeon 2 IMU  | 62          | —          |
 
-> **Note:** The template is configured for a NavX gyro (`GyroIONavX`). If using Pigeon 2, switch to `GyroIOPigeon2` in `RobotContainer` and set `pigeonCanId = 9`.
+IDs sourced from Harley-2025 electronics spreadsheet:
+https://docs.google.com/spreadsheets/d/1E2qQl7P2I0ImZtpcdnKNVKiHB-iJdpjz9EQkrZBmuj4/edit?usp=sharing
+
+> **Note:** The template defaults to NavX (`GyroIONavX`). This project uses a **Pigeon 2** — switch to `GyroIOPigeon2` in `RobotContainer` and confirm `pigeonCanId = 62`.
 
 In REV Hardware Client, also verify:
 - Firmware is current on all SPARK MAX units
