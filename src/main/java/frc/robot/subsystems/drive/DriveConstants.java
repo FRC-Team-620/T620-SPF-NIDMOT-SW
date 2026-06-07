@@ -31,8 +31,14 @@ public class DriveConstants {
   // -------------------------------------------------------------------------
   public static final double maxSpeedMetersPerSec = driveMotorConfig.freeSpeedMps(driveConfig); // m/s
   public static final double odometryFrequency = 100.0; // Hz
-  public static final double trackWidth = Units.inchesToMeters(26.5);
-  public static final double wheelBase = Units.inchesToMeters(26.5);
+
+  // Outer frame dimensions (to edge of swerve module housing), in inches.
+  // Wheel inset is sourced from MAXSwerveModuleConfig — see ASCII diagram there.
+  public static final double frameWidthInches  = 26.5;
+  public static final double frameLengthInches = 26.5;
+
+  public static final double trackWidth = MAXSwerveModuleConfig.getTrackWidth(frameWidthInches);
+  public static final double wheelBase  = MAXSwerveModuleConfig.getWheelBase(frameLengthInches);
   public static final double driveBaseRadius = Math.hypot(trackWidth / 2.0, wheelBase / 2.0);
   public static final Translation2d[] moduleTranslations =
       new Translation2d[] {

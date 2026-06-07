@@ -25,6 +25,50 @@ import edu.wpi.first.math.system.plant.DCMotor;
 public class MAXSwerveModuleConfig {
 
   // -------------------------------------------------------------------------
+  // Physical module geometry
+  //
+  // Top-down view — one module in a corner:
+  //
+  //   ┌──────────────────────────┐  ← outer frame edge
+  //   │◄─ inset ─►●              │  ● = wheel center
+  //   │           │              │
+  //   └───────────┼──────────────┘
+  //
+  // Full robot top-down:
+  //
+  //   ├─────────── frameWidth ───────────┤
+  //   ┌──────────────────────────────────┐ ─┐
+  //   │  ●────────────────────────────●  │  │
+  //   │  FL         trackWidth        FR │  │ frameLength
+  //   │  ●────────────────────────────●  │  │
+  //   │  BL                           BR │  │
+  //   └──────────────────────────────────┘ ─┘
+  //      ├──────── trackWidth ────────┤
+  //         └── wheelBase (front-back)
+  //
+  //   trackWidth = frameWidth  − 2 × WHEEL_INSET_INCHES
+  //   wheelBase  = frameLength − 2 × WHEEL_INSET_INCHES
+  // -------------------------------------------------------------------------
+
+  /** Distance from the outer edge of the module housing to the wheel center, in inches. */
+  public static final double WHEEL_INSET_INCHES = 1.75;
+
+  /** Distance from the outer edge of the module housing to the wheel center, in meters. */
+  public static double wheelInsetMeters() {
+    return edu.wpi.first.math.util.Units.inchesToMeters(WHEEL_INSET_INCHES);
+  }
+
+  /** Track width (m) from outer frame width (in). */
+  public static double getTrackWidth(double frameWidthInches) {
+    return edu.wpi.first.math.util.Units.inchesToMeters(frameWidthInches - 2 * WHEEL_INSET_INCHES);
+  }
+
+  /** Wheel base (m) from outer frame length (in). */
+  public static double getWheelBase(double frameLengthInches) {
+    return edu.wpi.first.math.util.Units.inchesToMeters(frameLengthInches - 2 * WHEEL_INSET_INCHES);
+  }
+
+  // -------------------------------------------------------------------------
   // MAXSwerve module gear configuration (Base Kit, REV-21-3005)
   // Selects the drive pinion installed in the module.
   // -------------------------------------------------------------------------
