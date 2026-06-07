@@ -5,22 +5,25 @@ import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 public class IntakeRollerIOSpark implements IntakeRollerIO {
-  private static final int leftCanId = 31;
-  private static final int rightCanId = 32;
-
-  private final SparkBase leader = new SparkMax(leftCanId, MotorType.kBrushless);
-  private final SparkBase follower = new SparkMax(rightCanId, MotorType.kBrushless);
+  private final SparkBase leader =
+      new SparkMax(IntakeConstants.leaderCanId, MotorType.kBrushless);
+  private final SparkBase follower =
+      new SparkMax(IntakeConstants.followerCanId, MotorType.kBrushless);
 
   public IntakeRollerIOSpark() {
     var leaderConfig = new SparkMaxConfig();
-    leaderConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40);
+    leaderConfig
+        .idleMode(IntakeConstants.idleMode)
+        .smartCurrentLimit(IntakeConstants.currentLimitAmps);
 
     var followerConfig = new SparkMaxConfig();
-    followerConfig.idleMode(IdleMode.kBrake).smartCurrentLimit(40).follow(leader, true);
+    followerConfig
+        .idleMode(IntakeConstants.idleMode)
+        .smartCurrentLimit(IntakeConstants.currentLimitAmps)
+        .follow(leader, true);
 
     leader.configure(leaderConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     follower.configure(
