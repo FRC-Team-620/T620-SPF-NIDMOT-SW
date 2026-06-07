@@ -1,6 +1,6 @@
 # Drive Subsystem Bringup — T620-SPF-NIDMOT-SW
 
-Hardware: REV MAXSwerve | SPARK MAX | NEO (drive) | NEO 550 (turn)
+Hardware: REV MAXSwerve | SPARK Flex (drive) + SPARK Max (turn) | NEO V1 (drive) | NEO 550 (turn)
 Template: AdvantageKit v26.0.2 Spark Swerve
 Ref: https://docs.advantagekit.org/getting-started/template-projects/spark-swerve-template
 
@@ -31,7 +31,7 @@ Open **REV Hardware Client** and confirm every controller is visible and assigne
 IDs sourced from Harley-2025 electronics spreadsheet:
 https://docs.google.com/spreadsheets/d/1E2qQl7P2I0ImZtpcdnKNVKiHB-iJdpjz9EQkrZBmuj4/edit?usp=sharing
 
-> **Note:** The template defaults to NavX (`GyroIONavX`). This project uses a **Pigeon 2** — switch to `GyroIOPigeon2` in `RobotContainer` and confirm `pigeonCanId = 62`.
+> **Note:** `RobotContainer` is already wired to `GyroIOPigeon2`. Confirm `pigeonCanId = 62` in `DriveConstants.java` matches the physical device.
 
 In REV Hardware Client, also verify:
 - Firmware is current on all SPARK MAX units
@@ -45,13 +45,17 @@ In REV Hardware Client, also verify:
 Before first deploy, confirm these values in `DriveConstants.java`:
 
 ```java
-// Active swerve config — change here only to swap pinion config
-public static final MaxSwerveConfig driveConfig = MaxSwerveConfig.HIGH;
+// Active hardware selection — edit only these three lines to reconfigure
+public static final GearConfig driveConfig = GearConfig.HIGH;
 // HIGH = 4.71:1 drive ratio, 4.80 m/s free speed, 14T pinion (REV-21-3005-P23)
+public static final DriveMotor driveMotorConfig = DriveMotor.NEO_V1;
+public static final TurnMotor turnMotorConfig = TurnMotor.NEO_550;
 
-public static final double trackWidth  = Units.inchesToMeters(26.5); // measure your actual chassis
-public static final double wheelBase   = Units.inchesToMeters(26.5); // measure your actual chassis
-public static final double wheelRadiusMeters = Units.inchesToMeters(1.5); // MAXSwerve 3in wheel
+// Chassis outer frame dimensions in inches — trackWidth/wheelBase are derived from these
+public static final double frameWidthInches = 26.5; // measure chassis bolt-to-bolt + module housing
+public static final double frameLengthInches = 26.5; // measure chassis bolt-to-bolt + module housing
+// wheelRadiusMeters is derived from driveConfig — HIGH config = 1.5 in (3 in wheel)
+public static final double wheelRadiusMeters = driveConfig.wheelRadiusMeters;
 ```
 
 Set all zero rotations to `0.0` for now — they get calibrated in Step 5:
@@ -93,7 +97,7 @@ In AdvantageScope, subscribe to:
 
 Enable the robot in **Teleop**. Physically rotate each module **counter-clockwise by hand** (when viewed from above). The corresponding `TurnPosition` value must **increase**.
 
-- If it decreases → flip `turnInverted` in `DriveConstants.java`
+- If it decreases → flip `turnInverted` in `DriveConstants.java` (currently `false`)
 - If no change → encoder not reading (wiring or CAN issue)
 
 ---
@@ -104,14 +108,22 @@ Enable the robot in **Teleop**. Physically rotate each module **counter-clockwis
 
 ### Option A — REV MAXSwerve Zeroing Tool (recommended)
 
-The REV zeroing tool burns a specific zero point into each through-bore encoder. After running it, the expected `zeroRotation` values are fixed by module geometry and already defined in `MAXSwerveModuleConfig.ZeroRotations`.
+The REV MAXSwerve Calibration Tool sets a fixed mechanical reference into each through-bore encoder. Because all four modules share the same physical geometry, the expected `zeroRotation` values are constant and already defined in `MAXSwerveModuleConfig.ZeroRotations`.
+
+Full procedure reference: [REV Hardware Client — MAXSwerve Calibration](https://docs.revrobotics.com/rev-hardware-client-2/guides/swerve-calibration#maxswerve-calibration)
 
 **Zeroing procedure (do once per module, or after any encoder replacement):**
 
-1. Download the REV MAXSwerve Zeroing Tool from the [REV MAXSwerve page](https://www.revrobotics.com/rev-21-3005/)
-2. For each module, physically orient the module so the **bevel gear faces the robot center** (toward the middle of the chassis) — the wheel will be pointing to the side, not forward
-3. Run the zeroing tool to burn encoder zero at that position
-4. Repeat for all four modules
+Do each module individually — the SPARK must be connected directly to your computer for this step:
+
+1. Fully assemble the MAXSwerve module with the steering SPARK MAX connected to the Through Bore Encoder
+2. Connect the **steering SPARK MAX directly to your laptop via USB-C** (do not use CAN for this step)
+3. Open **REV Hardware Client** and verify firmware is current under the **Update** tab
+4. Navigate to **Utilities Tab → Absolute Encoder**
+5. Mount the Calibration Tool on the module with its lip facing the module; rotate the wheel and tool together until **the tool's lip drops firmly into position** — the bevel gear must slot into **the cutout side marked with the orange dot** (the side with additional corners and curves)
+6. Once seated, the wheel will be unable to rotate freely — this mechanical lock ensures accurate placement
+7. Click **Set Zero Offset** in the software
+8. Remove the tool and repeat for the remaining three modules
 
 After zeroing all modules, set `DriveConstants.java` to the known geometry values:
 
@@ -154,7 +166,7 @@ In AdvantageScope, subscribe to:
 
 Push the robot **forward** by hand. The value must **increase**. Repeat per module.
 
-- If decreasing → the template handles drive inversion via `driveInverted` in `ModuleIOSpark.java`
+- If decreasing → there is no `driveInverted` constant; add `.inverted(true)` to the `SparkFlexConfig` block in `ModuleIOSpark.java`
 
 ---
 
@@ -179,7 +191,7 @@ Significant drift indicates wrong `wheelRadiusMeters` or `trackWidth`/`wheelBase
 **Goal:** Measure real `driveKs` and `driveKv` from hardware.
 
 1. Place robot on carpet with room to drive straight
-2. In AdvantageScope, select auto routine: **"Drive Simple FF Characterization"**
+2. In the Driver Station dashboard, select **"Drive Simple FF Characterization"** from the `Auto Choices` chooser
 3. Enable in **Auto** — robot will slowly ramp drive motors for 5–10 seconds
 4. Disable when done
 5. Check Driver Station console for printed `kS` and `kV` values
@@ -197,12 +209,13 @@ public static final double driveKv = <printed_value>;
 **Goal:** Precisely measure actual wheel radius (accounting for wear/compression).
 
 1. Place robot on carpet
-2. Select auto routine: **"Drive Wheel Radius Characterization"**
+2. In the Driver Station dashboard, select **"Drive Wheel Radius Characterization"** from the `Auto Choices` chooser
 3. Enable in **Auto** — robot spins in place for at least one full rotation
 4. Console prints corrected `wheelRadiusMeters`
-5. Update `DriveConstants.java`:
+5. Update `DriveConstants.java` — change the derived field to a measured literal:
 
 ```java
+// Replace: public static final double wheelRadiusMeters = driveConfig.wheelRadiusMeters;
 public static final double wheelRadiusMeters = <printed_value>;
 ```
 
@@ -230,13 +243,13 @@ For turn PID, plot:
 
 ## Step 11 — Max Speed Measurement
 
-1. Select auto routine: **"Drive FF Characterization"** or drive at full stick in Teleop
+1. In the Driver Station dashboard, select **"Drive Simple FF Characterization"** from the `Auto Choices` chooser, or drive at full stick in Teleop
 2. In AdvantageScope plot `/Drive/Module0/DriveVelocityRadPerSec`
 3. Record the plateau velocity, convert to m/s: `v_mps = v_rad_per_sec × wheelRadiusMeters`
-4. If measured max differs significantly from `4.80 m/s` (HIGH config theoretical), update:
+4. If measured max differs significantly from `4.80 m/s` (HIGH + NEO V1 theoretical), update `DriveConstants.java` — change the derived field to a measured literal:
 
 ```java
-// maxSpeedMetersPerSec is sourced from driveConfig — only override if measured differs
+// Replace: public static final double maxSpeedMetersPerSec = driveMotorConfig.freeSpeedMps(driveConfig);
 public static final double maxSpeedMetersPerSec = <measured_value>;
 ```
 
@@ -254,12 +267,12 @@ public static final double maxSpeedMetersPerSec = <measured_value>;
 
 ## Step 13 — PathPlanner Configuration
 
-Update `DriveConstants.java` with real robot weight and MOI before running any PP autos:
+Verify/update `DriveConstants.java` with real robot weight and MOI before running any PP autos (initial values are filled in but need confirmation):
 
 ```java
-public static final double robotMassKg = <actual_kg>;   // weigh the robot
-public static final double robotMOI    = <actual_moi>;  // estimate or measure
-public static final double wheelCOF    = 1.2;           // typical for carpet, adjust if needed
+public static final double robotMassKg = 74.088; // weigh the robot and update
+public static final double robotMOI    = 6.883;  // estimate or measure; update if autos arc badly
+public static final double wheelCOF    = 1.2;    // typical for carpet, adjust if needed
 ```
 
 Verify PathPlanner can plan and follow a straight 1m path before using complex autos.
@@ -287,7 +300,7 @@ Log files saved to USB stick on roboRIO. Open with `File → Open Log` in Advant
 |---|---|---|
 | Module spins to wrong angle | Zero offset not set | Redo Step 5 |
 | Odometry drifts sideways | `trackWidth`/`wheelBase` wrong | Measure chassis bolt-to-bolt |
-| Drive goes backwards | Drive motor inverted | Check `driveInverted` in `ModuleIOSpark` |
+| Drive goes backwards | Drive motor inverted | Add `.inverted(true)` to `SparkFlexConfig` in `ModuleIOSpark` |
 | Alert: CAN device missing | Wrong CAN ID or disconnected | REV Hardware Client, check bus |
 | Oscillating turn | `turnKp` too high | Reduce in `DriveConstants` |
 | Robot curves when driving straight | Zero offsets off | Re-run Step 5 with tubing alignment |
