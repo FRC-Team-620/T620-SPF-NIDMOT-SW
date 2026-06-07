@@ -100,9 +100,35 @@ Enable the robot in **Teleop**. Physically rotate each module **counter-clockwis
 
 ## Step 5 — Zero Offset Calibration
 
-**Goal:** Record absolute encoder offsets so each module knows its forward-facing position.
+**Goal:** Set absolute encoder offsets so each module knows its forward-facing position.
 
-1. Physically align all four modules so the drive wheels point **straight forward** (use a long piece of aluminum tubing laid against the wheels for accuracy)
+### Option A — REV MAXSwerve Zeroing Tool (recommended)
+
+The REV zeroing tool burns a specific zero point into each through-bore encoder. After running it, the expected `zeroRotation` values are fixed by module geometry and already defined in `MAXSwerveModuleConfig.ZeroRotations`.
+
+**Zeroing procedure (do once per module, or after any encoder replacement):**
+
+1. Download the REV MAXSwerve Zeroing Tool from the [REV MAXSwerve page](https://www.revrobotics.com/rev-21-3005/)
+2. For each module, physically orient the module so the **bevel gear faces the robot center** (toward the middle of the chassis) — the wheel will be pointing to the side, not forward
+3. Run the zeroing tool to burn encoder zero at that position
+4. Repeat for all four modules
+
+After zeroing all modules, set `DriveConstants.java` to the known geometry values:
+
+```java
+public static final Rotation2d frontLeftZeroRotation  = MAXSwerveModuleConfig.ZeroRotations.FRONT_LEFT;   // -π/2
+public static final Rotation2d frontRightZeroRotation = MAXSwerveModuleConfig.ZeroRotations.FRONT_RIGHT;  //  0
+public static final Rotation2d backLeftZeroRotation   = MAXSwerveModuleConfig.ZeroRotations.BACK_LEFT;    //  π
+public static final Rotation2d backRightZeroRotation  = MAXSwerveModuleConfig.ZeroRotations.BACK_RIGHT;   //  π/2
+```
+
+Deploy and verify: all four modules should snap to **straight forward** on enable.
+
+> If a module points slightly off after zeroing, the bevel gear was not perfectly centered during the zeroing step. Fine-tune using Option B below.
+
+### Option B — Manual alignment (fallback / fine-tune)
+
+1. Physically align all four wheels **straight forward** using a long piece of aluminum tubing laid against both wheels on each side
 2. In AdvantageScope, read the current `TurnPosition` values for all four modules
 3. Update `DriveConstants.java` with the recorded values:
 
@@ -113,7 +139,7 @@ public static final Rotation2d backLeftZeroRotation   = new Rotation2d(<recorded
 public static final Rotation2d backRightZeroRotation  = new Rotation2d(<recorded_value>);
 ```
 
-4. Redeploy and verify: when the robot powers on, all modules should snap to forward-facing.
+4. Redeploy and verify: all modules snap to forward on enable.
 
 ---
 

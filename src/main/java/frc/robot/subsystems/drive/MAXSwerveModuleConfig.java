@@ -194,4 +194,34 @@ public class MAXSwerveModuleConfig {
       this.motor = motor;
     }
   }
+
+  // -------------------------------------------------------------------------
+  // Per-module zero rotations after running the REV MAXSwerve Zeroing Tool
+  //
+  // The REV zeroing tool sets the through-bore encoder to 0 when the bevel
+  // gear faces the robot center. Because each module housing is rotated
+  // differently on the chassis, "encoder = 0" maps to a different wheel
+  // direction per corner. These constants are the encoder readings when the
+  // wheel points straight forward, i.e. the values to use for
+  // DriveConstants.*ZeroRotation immediately after running the zeroing tool.
+  //
+  // Physical zero position (bevel gear facing robot center):
+  //   FL → wheel points right  (+90° from fwd) → forward is at  -π/2
+  //   FR → wheel points forward (0° from fwd)  → forward is at   0
+  //   BL → wheel points backward (180°)        → forward is at   π
+  //   BR → wheel points left   (-90° from fwd) → forward is at  +π/2
+  //
+  // Ref: REV MAXSwerve Java template Constants.java kFront/BackLeft/RightChassisAngularOffset
+  // -------------------------------------------------------------------------
+
+  public static final class ZeroRotations {
+    public static final edu.wpi.first.math.geometry.Rotation2d FRONT_LEFT =
+        edu.wpi.first.math.geometry.Rotation2d.fromRadians(-Math.PI / 2);
+    public static final edu.wpi.first.math.geometry.Rotation2d FRONT_RIGHT =
+        edu.wpi.first.math.geometry.Rotation2d.fromRadians(0);
+    public static final edu.wpi.first.math.geometry.Rotation2d BACK_LEFT =
+        edu.wpi.first.math.geometry.Rotation2d.fromRadians(Math.PI);
+    public static final edu.wpi.first.math.geometry.Rotation2d BACK_RIGHT =
+        edu.wpi.first.math.geometry.Rotation2d.fromRadians(Math.PI / 2);
+  }
 }
