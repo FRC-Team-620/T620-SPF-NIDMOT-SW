@@ -1,6 +1,6 @@
 # Drive Subsystem Bringup — T620-SPF-NIDMOT-SW
 
-Hardware: REV MAXSwerve | SPARK Flex (drive) + SPARK Max (turn) | NEO V1 (drive) | NEO 550 (turn)
+Hardware: REV MAXSwerve | SPARK Max (drive) + SPARK Max (turn) | NEO V1 (drive) | NEO 550 (turn)
 Template: AdvantageKit v26.0.2 Spark Swerve
 Ref: https://docs.advantagekit.org/getting-started/template-projects/spark-swerve-template
 
@@ -8,7 +8,7 @@ Ref: https://docs.advantagekit.org/getting-started/template-projects/spark-swerv
 
 ## Prerequisites
 
-- [ ] roboRIO 2 imaged and on network
+- [ ] roboRIO 1 imaged and on network
 - [ ] All SPARK MAX controllers updated to latest firmware via REV Hardware Client
 - [ ] FAT32-formatted USB stick inserted in roboRIO (required for AdvantageKit log files)
 - [ ] AdvantageScope installed on driver station laptop

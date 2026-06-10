@@ -34,8 +34,8 @@ public class DriveConstants {
 
   // Outer frame dimensions (to edge of swerve module housing), in inches.
   // Wheel inset is sourced from MAXSwerveModuleConfig — see ASCII diagram there.
-  public static final double frameWidthInches = 26.5;
-  public static final double frameLengthInches = 26.5;
+  public static final double frameWidthInches = 26;
+  public static final double frameLengthInches = 26;
 
   public static final double trackWidth = MAXSwerveModuleConfig.getTrackWidth(frameWidthInches);
   public static final double wheelBase = MAXSwerveModuleConfig.getWheelBase(frameLengthInches);
