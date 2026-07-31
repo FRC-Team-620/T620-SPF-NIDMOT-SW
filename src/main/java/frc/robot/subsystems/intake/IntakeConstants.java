@@ -9,6 +9,7 @@ public class IntakeConstants {
   // -------------------------------------------------------------------------
   public static final int leaderCanId = 31;
   public static final int followerCanId = 32;
+  public static final int pivotCanId = 33;
 
   // -------------------------------------------------------------------------
   // Motor configuration

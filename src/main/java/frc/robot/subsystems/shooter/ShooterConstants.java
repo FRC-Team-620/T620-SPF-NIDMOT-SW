@@ -2,6 +2,8 @@ package frc.robot.subsystems.shooter;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
+// hood - 62
+// indexer - 50s
 public class ShooterConstants {
 
   // -------------------------------------------------------------------------
