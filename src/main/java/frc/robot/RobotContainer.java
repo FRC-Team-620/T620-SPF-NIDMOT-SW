@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.DriveCommands;
+import frc.robot.commands.ShooterCommands;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.GyroIO;
 import frc.robot.subsystems.drive.GyroIOPigeon2;
@@ -26,6 +27,9 @@ import frc.robot.subsystems.drive.ModuleIOSpark;
 import frc.robot.subsystems.intake.IntakeRoller;
 import frc.robot.subsystems.intake.IntakeRollerIO;
 import frc.robot.subsystems.intake.IntakeRollerIOSpark;
+import frc.robot.subsystems.shooter.Shooter;
+import frc.robot.subsystems.shooter.ShooterIO;
+import frc.robot.subsystems.shooter.ShooterIOSpark;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -38,9 +42,11 @@ public class RobotContainer {
   // Subsystems
   private final Drive drive;
   private final IntakeRoller intakeRoller;
+  private final Shooter shooter;
 
   // Controller
   private final CommandXboxController controller = new CommandXboxController(0);
+  private final CommandXboxController op = new CommandXboxController(1);
 
   // Dashboard inputs
   private final LoggedDashboardChooser<Command> autoChooser;
@@ -58,6 +64,7 @@ public class RobotContainer {
                 new ModuleIOSpark(2),
                 new ModuleIOSpark(3));
         intakeRoller = new IntakeRoller(new IntakeRollerIOSpark());
+        shooter = new Shooter(new ShooterIOSpark());
         break;
 
       case SIM:
@@ -70,6 +77,7 @@ public class RobotContainer {
                 new ModuleIOSim(),
                 new ModuleIOSim());
         intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
+        shooter = new Shooter(new ShooterIO() {});
         break;
 
       default:
@@ -82,6 +90,7 @@ public class RobotContainer {
                 new ModuleIO() {},
                 new ModuleIO() {});
         intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
+        shooter = new Shooter(new ShooterIO() {});
         break;
     }
 
@@ -115,16 +124,25 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    // Shooter tuning via SmartDashboard ("Shooter/Enable", "Shooter/DutyCycle")
+    shooter.setDefaultCommand(ShooterCommands.shooterTuning(shooter));
+
     // Intake roller speed mapped 1:1 to left trigger
+    double intakeSpeedModifier = 1;
     intakeRoller.setDefaultCommand(
-        Commands.run(() -> intakeRoller.setSpeed(controller.getLeftTriggerAxis()), intakeRoller));
+        Commands.run(
+            () ->
+                intakeRoller.setSpeed(
+                    (op.getLeftTriggerAxis() - op.getRightTriggerAxis()) * intakeSpeedModifier),
+            intakeRoller));
 
     // Default command, normal field-relative drive
+    double speedModifier = 0.9;
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> -controller.getLeftY(),
-            () -> -controller.getLeftX(),
+            () -> -controller.getLeftY() * speedModifier,
+            () -> -controller.getLeftX() * speedModifier,
             () -> -controller.getRightX()));
 
     // Lock to 0° when A button is held
