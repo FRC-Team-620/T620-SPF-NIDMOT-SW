@@ -180,15 +180,15 @@ public class RobotContainer {
     SmartDashboard.putData(
         "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
 
-    // Idle shooter at 500 RPM by default
+    // Idle shooter at 750 RPM by default; spin up to preset for entire auto period
     shooter.setDefaultCommand(
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
+    RobotModeTriggers.autonomous()
+        .whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
 
     // Spin shooter at preset RPM while Y is held
-    driver
-        .y()
-        .whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
-   
+    driver.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+
     op.x().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
     op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
@@ -238,10 +238,7 @@ public class RobotContainer {
         .a()
         .whileTrue(
             DriveCommands.joystickDriveAtAngle(
-                drive,
-                () -> -driver.getLeftY(),
-                () -> -driver.getLeftX(),
-                () -> Rotation2d.kZero));
+                drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () -> Rotation2d.kZero));
 
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));

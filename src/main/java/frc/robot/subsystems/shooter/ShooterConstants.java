@@ -45,5 +45,5 @@ public class ShooterConstants {
   public static final double shooterKD = 0.0;
   public static final double shooterKS = 0.190783; // volts, static friction offset
   public static final double shooterKV = 0.00182048; // volts per RPM
-  public static final double shooterVelocityToleranceRPM = 3200.0;
+  public static final double shooterVelocityToleranceRPM = 3700.0;
 }
