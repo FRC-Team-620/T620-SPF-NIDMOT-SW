@@ -13,6 +13,10 @@ public class ShooterCommands {
    * loop. Set Enable to true and adjust DutyCycle [-1, 1] while the robot is enabled to spin the
    * shooter without deploying code.
    */
+  public static Command runAtDutyCycle(Shooter shooter, double dutyCycle) {
+    return Commands.runEnd(() -> shooter.setDutyCycle(dutyCycle), shooter::stop, shooter);
+  }
+
   public static Command shooterTuning(Shooter shooter) {
     SmartDashboard.putBoolean("Shooter/Enable", false);
     SmartDashboard.putNumber("Shooter/DutyCycle", 0.0);

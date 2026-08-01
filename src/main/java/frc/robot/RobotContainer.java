@@ -135,6 +135,9 @@ public class RobotContainer {
     // Shooter tuning via SmartDashboard ("Shooter/Enable", "Shooter/DutyCycle")
     shooter.setDefaultCommand(ShooterCommands.shooterTuning(shooter));
 
+    // Spin shooter at 30% while left D-pad is held
+    controller.povLeft().whileTrue(ShooterCommands.runAtDutyCycle(shooter, 0.3));
+
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
@@ -155,8 +158,7 @@ public class RobotContainer {
             drive,
             () -> controller.getLeftY() * speedModifier,
             () -> controller.getLeftX() * speedModifier,
-            () -> -
-            controller.getRightX()));
+            () -> -controller.getRightX()));
 
     // Lock to 0° when A button is held
     controller
