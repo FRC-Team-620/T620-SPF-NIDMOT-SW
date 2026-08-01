@@ -139,7 +139,7 @@ public class RobotContainer {
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
     // Intake roller speed mapped 1:1 to left trigger
-    double intakeSpeedModifier = 0.2;
+    double intakeSpeedModifier = 0.4;
     intakeRoller.setDefaultCommand(
         Commands.run(
             () ->
@@ -149,13 +149,14 @@ public class RobotContainer {
             intakeRoller));
 
     // Default command, normal field-relative drive
-    double speedModifier = 0.5;
+    double speedModifier = 1;
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> -controller.getLeftY() * speedModifier,
-            () -> -controller.getLeftX() * speedModifier,
-            () -> -controller.getRightX()));
+            () -> controller.getLeftY() * speedModifier,
+            () -> controller.getLeftX() * speedModifier,
+            () -> -
+            controller.getRightX()));
 
     // Lock to 0° when A button is held
     controller
