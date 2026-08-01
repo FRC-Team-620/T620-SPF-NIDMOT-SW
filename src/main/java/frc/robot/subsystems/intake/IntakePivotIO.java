@@ -14,5 +14,7 @@ public interface IntakePivotIO {
 
   default void resetEncoder() {}
 
+  default void setDutyCycle(double speed) {}
+
   default void setIdleMode(com.revrobotics.spark.config.SparkBaseConfig.IdleMode mode) {}
 }

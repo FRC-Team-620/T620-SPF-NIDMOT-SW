@@ -14,12 +14,14 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.IndexerCommands;
+import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.GyroIO;
@@ -71,6 +73,7 @@ public class RobotContainer {
     switch (Constants.currentMode) {
       case REAL:
         // Real robot, instantiate hardware IO implementations
+        SmartDashboard.putData(CommandScheduler.getInstance());
         drive =
             new Drive(
                 new GyroIOPigeon2(),
@@ -182,6 +185,10 @@ public class RobotContainer {
 
     // Run indexer at 50% while RB is held
     controller.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.5));
+
+    // Intake pivot position control: stow on D-pad down, extend on D-pad up
+    controller.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
+    controller.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
     // Intake roller speed mapped 1:1 to left trigger
     double intakeSpeedModifier = 0.4;

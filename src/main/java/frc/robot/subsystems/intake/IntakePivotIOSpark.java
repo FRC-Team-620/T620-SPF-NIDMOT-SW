@@ -26,6 +26,11 @@ public class IntakePivotIOSpark implements IntakePivotIO {
   }
 
   @Override
+  public void setDutyCycle(double speed) {
+    motor.set(speed);
+  }
+
+  @Override
   public void resetEncoder() {
     motor.getEncoder().setPosition(0.0);
   }
