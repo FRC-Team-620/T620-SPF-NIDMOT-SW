@@ -179,13 +179,13 @@ public class RobotContainer {
     shooter.setDefaultCommand(ShooterCommands.shooterTuning(shooter));
 
     // Spin shooter at 30% while left D-pad is held
-    controller.povLeft().whileTrue(ShooterCommands.runAtDutyCycle(shooter, 0.3));
+    controller.y().whileTrue(ShooterCommands.runAtDutyCycle(shooter, 0.4));
 
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
     // Run indexer at 50% while RB is held
-    controller.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.5));
+    controller.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
 
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
     controller.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
@@ -196,12 +196,12 @@ public class RobotContainer {
     controller.rightStick().onTrue(HoodCommands.extend(hood));
 
     // Intake roller speed mapped 1:1 to left trigger
-    double intakeSpeedModifier = 0.4;
+    double intakeSpeedModifier = 0.9;
     intakeRoller.setDefaultCommand(
         Commands.run(
             () ->
                 intakeRoller.setSpeed(
-                    (controller.getLeftTriggerAxis() - controller.getRightTriggerAxis())
+                    (controller.getRightTriggerAxis() - controller.getLeftTriggerAxis())
                         * intakeSpeedModifier),
             intakeRoller));
 
