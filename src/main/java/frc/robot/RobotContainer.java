@@ -12,9 +12,11 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.IndexerCommands;
@@ -28,9 +30,15 @@ import frc.robot.subsystems.drive.ModuleIOSpark;
 import frc.robot.subsystems.indexer.Indexer;
 import frc.robot.subsystems.indexer.IndexerIO;
 import frc.robot.subsystems.indexer.IndexerIOSpark;
+import frc.robot.subsystems.intake.IntakePivot;
+import frc.robot.subsystems.intake.IntakePivotIO;
+import frc.robot.subsystems.intake.IntakePivotIOSpark;
 import frc.robot.subsystems.intake.IntakeRoller;
 import frc.robot.subsystems.intake.IntakeRollerIO;
 import frc.robot.subsystems.intake.IntakeRollerIOSpark;
+import frc.robot.subsystems.shooter.Hood;
+import frc.robot.subsystems.shooter.HoodIO;
+import frc.robot.subsystems.shooter.HoodIOSpark;
 import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.shooter.ShooterIO;
 import frc.robot.subsystems.shooter.ShooterIOSpark;
@@ -46,7 +54,9 @@ public class RobotContainer {
   // Subsystems
   private final Drive drive;
   private final Indexer indexer;
+  private final IntakePivot intakePivot;
   private final IntakeRoller intakeRoller;
+  private final Hood hood;
   private final Shooter shooter;
 
   // Controller
@@ -69,7 +79,9 @@ public class RobotContainer {
                 new ModuleIOSpark(2),
                 new ModuleIOSpark(3));
         indexer = new Indexer(new IndexerIOSpark());
+        intakePivot = new IntakePivot(new IntakePivotIOSpark());
         intakeRoller = new IntakeRoller(new IntakeRollerIOSpark());
+        hood = new Hood(new HoodIOSpark());
         shooter = new Shooter(new ShooterIOSpark());
         break;
 
@@ -83,7 +95,9 @@ public class RobotContainer {
                 new ModuleIOSim(),
                 new ModuleIOSim());
         indexer = new Indexer(new IndexerIO() {});
+        intakePivot = new IntakePivot(new IntakePivotIO() {});
         intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
+        hood = new Hood(new HoodIO() {});
         shooter = new Shooter(new ShooterIO() {});
         break;
 
@@ -97,7 +111,9 @@ public class RobotContainer {
                 new ModuleIO() {},
                 new ModuleIO() {});
         indexer = new Indexer(new IndexerIO() {});
+        intakePivot = new IntakePivot(new IntakePivotIO() {});
         intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
+        hood = new Hood(new HoodIO() {});
         shooter = new Shooter(new ShooterIO() {});
         break;
     }
@@ -132,6 +148,29 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    // Coast on disable, brake on enable
+    RobotModeTriggers.disabled()
+        .onTrue(
+            Commands.runOnce(
+                    () -> {
+                      intakePivot.setBrakeMode(false);
+                      hood.setBrakeMode(false);
+                    })
+                .ignoringDisable(true))
+        .onFalse(
+            Commands.runOnce(
+                () -> {
+                  intakePivot.setBrakeMode(true);
+                  hood.setBrakeMode(true);
+                }));
+
+    // Zero-encoder buttons (usable while disabled)
+    SmartDashboard.putData(
+        "IntakePivot/ZeroEncoder",
+        Commands.runOnce(intakePivot::resetEncoder, intakePivot).ignoringDisable(true));
+    SmartDashboard.putData(
+        "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
+
     // Shooter tuning via SmartDashboard ("Shooter/Enable", "Shooter/DutyCycle")
     shooter.setDefaultCommand(ShooterCommands.shooterTuning(shooter));
 

@@ -2,8 +2,6 @@ package frc.robot.subsystems.shooter;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
-// hood - 62
-// indexer - 50s
 public class ShooterConstants {
 
   // -------------------------------------------------------------------------
@@ -13,11 +11,13 @@ public class ShooterConstants {
   public static final int leftFollowerCanId = 42;
   public static final int rightLeaderCanId = 43;
   public static final int rightFollowerCanId = 44;
+  public static final int hoodCanId = 62;
 
   // -------------------------------------------------------------------------
   // Motor configuration
   // -------------------------------------------------------------------------
   public static final IdleMode idleMode = IdleMode.kCoast;
+  public static final IdleMode hoodIdleMode = IdleMode.kBrake;
   public static final int currentLimitAmps = 40;
 
   // -------------------------------------------------------------------------
