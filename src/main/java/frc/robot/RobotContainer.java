@@ -64,8 +64,8 @@ public class RobotContainer {
   private final Hood hood;
   private final Shooter shooter;
 
-  // Controller
-  private final CommandXboxController controller = new CommandXboxController(0);
+  // Controller, controller = driver, op = operator
+  private final CommandXboxController driver = new CommandXboxController(0);
   private final CommandXboxController op = new CommandXboxController(1);
 
   // Dashboard inputs
@@ -185,7 +185,7 @@ public class RobotContainer {
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
     // Spin shooter at preset RPM while Y is held
-    controller
+    driver
         .y()
         .whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
     op.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
@@ -196,18 +196,18 @@ public class RobotContainer {
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
     // Run indexer at 50% while RB is held
-    controller.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
+    driver.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
     op.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
-    controller.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
-    controller.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
+    driver.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
+    driver.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
     // op.rightBumper().onTrue(IntakePivotCommands.stow(intakePivot));
     // op.leftBumper().onTrue(IntakePivotCommands.extend(intakePivot));
 
     // Hood position control: stow on L3, extend on R3
-    controller.leftStick().onTrue(HoodCommands.stow(hood));
-    controller.rightStick().onTrue(HoodCommands.extend(hood));
+    driver.leftStick().onTrue(HoodCommands.stow(hood));
+    driver.rightStick().onTrue(HoodCommands.extend(hood));
 
     // Hood position trim: op POV left raises, op POV right lowers
     op.povLeft().onTrue(HoodCommands.adjustPosition(hood, ShooterConstants.hoodAdjustDelta));
@@ -219,7 +219,7 @@ public class RobotContainer {
         Commands.run(
             () ->
                 intakeRoller.setSpeed(
-                    (controller.getRightTriggerAxis() - controller.getLeftTriggerAxis())
+                    (driver.getRightTriggerAxis() - driver.getLeftTriggerAxis())
                         * intakeSpeedModifier),
             intakeRoller));
 
@@ -228,25 +228,25 @@ public class RobotContainer {
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> controller.getLeftY() * speedModifier,
-            () -> controller.getLeftX() * speedModifier,
-            () -> -controller.getRightX()));
+            () -> driver.getLeftY() * speedModifier,
+            () -> driver.getLeftX() * speedModifier,
+            () -> -driver.getRightX()));
 
     // Lock to 0° when A button is held
-    controller
+    driver
         .a()
         .whileTrue(
             DriveCommands.joystickDriveAtAngle(
                 drive,
-                () -> -controller.getLeftY(),
-                () -> -controller.getLeftX(),
+                () -> -driver.getLeftY(),
+                () -> -driver.getLeftX(),
                 () -> Rotation2d.kZero));
 
     // Switch to X pattern when X button is pressed
-    controller.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
+    driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
 
     // Reset gyro to 0° when B button is pressed
-    controller
+    driver
         .b()
         .onTrue(
             Commands.runOnce(
