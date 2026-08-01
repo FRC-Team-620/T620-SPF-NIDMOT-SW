@@ -141,6 +141,9 @@ public class RobotContainer {
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
+    // Run indexer at 50% while RB is held
+    controller.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.5));
+
     // Intake roller speed mapped 1:1 to left trigger
     double intakeSpeedModifier = 0.4;
     intakeRoller.setDefaultCommand(

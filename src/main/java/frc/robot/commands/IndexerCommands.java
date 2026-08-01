@@ -13,6 +13,10 @@ public class IndexerCommands {
    * loop. Set Enable to true and adjust DutyCycle [-1, 1] while the robot is enabled to spin the
    * indexer without deploying code.
    */
+  public static Command runAtDutyCycle(Indexer indexer, double dutyCycle) {
+    return Commands.runEnd(() -> indexer.setDutyCycle(dutyCycle), indexer::stop, indexer);
+  }
+
   public static Command indexerTuning(Indexer indexer) {
     SmartDashboard.putBoolean("Indexer/Enable", false);
     SmartDashboard.putNumber("Indexer/DutyCycle", 0.0);
