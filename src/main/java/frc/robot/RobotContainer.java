@@ -137,7 +137,7 @@ public class RobotContainer {
             intakeRoller));
 
     // Default command, normal field-relative drive
-    double speedModifier = 0.9;
+    double speedModifier = 1;
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,

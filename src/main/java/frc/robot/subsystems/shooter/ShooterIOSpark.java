@@ -3,8 +3,8 @@ package frc.robot.subsystems.shooter;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkBase;
-import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
 public class ShooterIOSpark implements ShooterIO {

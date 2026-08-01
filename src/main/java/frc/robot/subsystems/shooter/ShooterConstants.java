@@ -23,6 +23,6 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   // Bank inversion — configure once on the real robot
   // -------------------------------------------------------------------------
-  public static final boolean invertLeftBank = false;
+  public static final boolean invertLeftBank = true;
   public static final boolean invertRightBank = false;
 }
