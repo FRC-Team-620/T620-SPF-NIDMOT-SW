@@ -37,6 +37,15 @@ public class Hood extends SubsystemBase {
     targetPosition = target;
   }
 
+  public void adjustTargetPosition(double delta) {
+    positionControlEnabled = true;
+    targetPosition =
+        MathUtil.clamp(
+            targetPosition + delta,
+            ShooterConstants.hoodExtendPosition,
+            ShooterConstants.hoodStowPosition);
+  }
+
   public void stopPositionControl() {
     positionControlEnabled = false;
     io.setDutyCycle(0.0);

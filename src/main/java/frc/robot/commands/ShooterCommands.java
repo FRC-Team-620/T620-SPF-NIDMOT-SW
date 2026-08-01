@@ -17,6 +17,31 @@ public class ShooterCommands {
     return Commands.runEnd(() -> shooter.setDutyCycle(dutyCycle), shooter::stop, shooter);
   }
 
+  public static Command runAtVelocity(Shooter shooter, double rpm) {
+    return Commands.runEnd(
+        () -> shooter.setTargetVelocity(rpm), shooter::stopVelocityControl, shooter);
+  }
+
+  public static Command stopShooter(Shooter shooter) {
+    return Commands.run(shooter::stopVelocityControl, shooter);
+  }
+
+  public static Command shooterVoltageTuning(Shooter shooter) {
+    SmartDashboard.putBoolean("Shooter/VoltageEnable", false);
+    SmartDashboard.putNumber("Shooter/Voltage", 0.0);
+
+    return Commands.runEnd(
+        () -> {
+          if (SmartDashboard.getBoolean("Shooter/VoltageEnable", false)) {
+            shooter.setVoltage(SmartDashboard.getNumber("Shooter/Voltage", 0.0));
+          } else {
+            shooter.stop();
+          }
+        },
+        shooter::stop,
+        shooter);
+  }
+
   public static Command shooterTuning(Shooter shooter) {
     SmartDashboard.putBoolean("Shooter/Enable", false);
     SmartDashboard.putNumber("Shooter/DutyCycle", 0.0);

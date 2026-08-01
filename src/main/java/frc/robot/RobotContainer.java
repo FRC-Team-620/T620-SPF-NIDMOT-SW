@@ -43,6 +43,7 @@ import frc.robot.subsystems.shooter.Hood;
 import frc.robot.subsystems.shooter.HoodIO;
 import frc.robot.subsystems.shooter.HoodIOSpark;
 import frc.robot.subsystems.shooter.Shooter;
+import frc.robot.subsystems.shooter.ShooterConstants;
 import frc.robot.subsystems.shooter.ShooterIO;
 import frc.robot.subsystems.shooter.ShooterIOSpark;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
@@ -175,25 +176,38 @@ public class RobotContainer {
     SmartDashboard.putData(
         "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
 
-    // Shooter tuning via SmartDashboard ("Shooter/Enable", "Shooter/DutyCycle")
-    shooter.setDefaultCommand(ShooterCommands.shooterTuning(shooter));
+    // Idle shooter at 500 RPM by default
+    shooter.setDefaultCommand(
+        ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
-    // Spin shooter at 30% while left D-pad is held
-    controller.y().whileTrue(ShooterCommands.runAtDutyCycle(shooter, 0.4));
+    // Spin shooter at preset RPM while Y is held
+    controller
+        .y()
+        .whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+    op.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+    // Op A toggles idle: off = stopped, on = 750 RPM default resumes
+    op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
 
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
     // Run indexer at 50% while RB is held
     controller.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
-
+    op.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
     controller.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
     controller.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
+    // op.rightBumper().onTrue(IntakePivotCommands.stow(intakePivot));
+    // op.leftBumper().onTrue(IntakePivotCommands.extend(intakePivot));
+
     // Hood position control: stow on L3, extend on R3
     controller.leftStick().onTrue(HoodCommands.stow(hood));
     controller.rightStick().onTrue(HoodCommands.extend(hood));
+
+    // Hood position trim: op POV left raises, op POV right lowers
+    op.povLeft().onTrue(HoodCommands.adjustPosition(hood, ShooterConstants.hoodAdjustDelta));
+    op.povRight().onTrue(HoodCommands.adjustPosition(hood, -ShooterConstants.hoodAdjustDelta));
 
     // Intake roller speed mapped 1:1 to left trigger
     double intakeSpeedModifier = 0.9;
