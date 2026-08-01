@@ -25,4 +25,11 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   public static final boolean invertLeftBank = true;
   public static final boolean invertRightBank = false;
+
+  // -------------------------------------------------------------------------
+  // Hood positions (primary encoder counts)
+  // -------------------------------------------------------------------------
+  public static final double hoodStowPosition = 0.0;
+  public static final double hoodExtendPosition = -8.0;
+  public static final double hoodMaxOutput = 0.75;
 }

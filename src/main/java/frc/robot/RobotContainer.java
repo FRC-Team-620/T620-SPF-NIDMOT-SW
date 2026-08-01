@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.DriveCommands;
+import frc.robot.commands.HoodCommands;
 import frc.robot.commands.IndexerCommands;
 import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
@@ -189,6 +190,10 @@ public class RobotContainer {
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
     controller.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
     controller.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
+
+    // Hood position control: stow on L3, extend on R3
+    controller.leftStick().onTrue(HoodCommands.stow(hood));
+    controller.rightStick().onTrue(HoodCommands.extend(hood));
 
     // Intake roller speed mapped 1:1 to left trigger
     double intakeSpeedModifier = 0.4;
