@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.DriveCommands;
+import frc.robot.commands.IndexerCommands;
 import frc.robot.commands.ShooterCommands;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.GyroIO;
@@ -24,6 +25,9 @@ import frc.robot.subsystems.drive.GyroIOPigeon2;
 import frc.robot.subsystems.drive.ModuleIO;
 import frc.robot.subsystems.drive.ModuleIOSim;
 import frc.robot.subsystems.drive.ModuleIOSpark;
+import frc.robot.subsystems.indexer.Indexer;
+import frc.robot.subsystems.indexer.IndexerIO;
+import frc.robot.subsystems.indexer.IndexerIOSpark;
 import frc.robot.subsystems.intake.IntakeRoller;
 import frc.robot.subsystems.intake.IntakeRollerIO;
 import frc.robot.subsystems.intake.IntakeRollerIOSpark;
@@ -41,6 +45,7 @@ import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 public class RobotContainer {
   // Subsystems
   private final Drive drive;
+  private final Indexer indexer;
   private final IntakeRoller intakeRoller;
   private final Shooter shooter;
 
@@ -63,6 +68,7 @@ public class RobotContainer {
                 new ModuleIOSpark(1),
                 new ModuleIOSpark(2),
                 new ModuleIOSpark(3));
+        indexer = new Indexer(new IndexerIOSpark());
         intakeRoller = new IntakeRoller(new IntakeRollerIOSpark());
         shooter = new Shooter(new ShooterIOSpark());
         break;
@@ -76,6 +82,7 @@ public class RobotContainer {
                 new ModuleIOSim(),
                 new ModuleIOSim(),
                 new ModuleIOSim());
+        indexer = new Indexer(new IndexerIO() {});
         intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
         shooter = new Shooter(new ShooterIO() {});
         break;
@@ -89,6 +96,7 @@ public class RobotContainer {
                 new ModuleIO() {},
                 new ModuleIO() {},
                 new ModuleIO() {});
+        indexer = new Indexer(new IndexerIO() {});
         intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
         shooter = new Shooter(new ShooterIO() {});
         break;
@@ -127,17 +135,21 @@ public class RobotContainer {
     // Shooter tuning via SmartDashboard ("Shooter/Enable", "Shooter/DutyCycle")
     shooter.setDefaultCommand(ShooterCommands.shooterTuning(shooter));
 
+    // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
+    indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
+
     // Intake roller speed mapped 1:1 to left trigger
-    double intakeSpeedModifier = 1;
+    double intakeSpeedModifier = 0.2;
     intakeRoller.setDefaultCommand(
         Commands.run(
             () ->
                 intakeRoller.setSpeed(
-                    (op.getLeftTriggerAxis() - op.getRightTriggerAxis()) * intakeSpeedModifier),
+                    (controller.getLeftTriggerAxis() - controller.getRightTriggerAxis())
+                        * intakeSpeedModifier),
             intakeRoller));
 
     // Default command, normal field-relative drive
-    double speedModifier = 1;
+    double speedModifier = 0.5;
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
