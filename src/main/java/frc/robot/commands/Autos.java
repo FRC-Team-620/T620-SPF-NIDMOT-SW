@@ -13,18 +13,18 @@ public class Autos {
 
   public static Command centerFrontShoot(
       Shooter shooter, Hood hood, IntakePivot intakePivot, Indexer indexer) {
-    double autoHoodPosition =
-        ShooterConstants.hoodStowPosition - 2 * ShooterConstants.hoodAdjustDelta;
+    double autoHoodPosition = -3;
+    double shooterRPM = ShooterConstants.shooterPresetRPM;
+    // double shooterRPM = 1250; // testing RPM
     return Commands.sequence(
         Commands.runOnce(() -> hood.setTargetPosition(autoHoodPosition), hood),
         Commands.deadline(
-            Commands.waitUntil(shooter::isAtTargetVelocity).withTimeout(5.0),
-            ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM),
+            Commands.waitUntil(shooter::isAtTargetVelocity).withTimeout(3.0),
+            ShooterCommands.runAtVelocity(shooter, shooterRPM),
             IntakePivotCommands.extend(intakePivot)),
         Commands.parallel(
-                ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM),
-                IntakePivotCommands.extend(intakePivot),
+                ShooterCommands.runAtVelocity(shooter, shooterRPM),
                 IndexerCommands.runAtDutyCycle(indexer, 0.85))
-            .withTimeout(2.0));
+            .withTimeout(5.0));
   }
 }
