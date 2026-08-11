@@ -1,0 +1,317 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1781044025.9221723,
+    "ast_hash": "ae6429c6b33721769723e3e48c3db22e",
+    "semantic_hash": "ae6429c6b33721769723e3e48c3db22e"
+  },
+  ".vscode/extensions.json": {
+    "mtime": 1781044025.9221723,
+    "ast_hash": "24fd3ad5c6c8df54ade911585586c54f",
+    "semantic_hash": "24fd3ad5c6c8df54ade911585586c54f"
+  },
+  ".vscode/launch.json": {
+    "mtime": 1781044025.9221723,
+    "ast_hash": "f20e13db10e1fb3937d03647d3b8035a",
+    "semantic_hash": "f20e13db10e1fb3937d03647d3b8035a"
+  },
+  ".vscode/settings.json": {
+    "mtime": 1785594749.6104748,
+    "ast_hash": "318db48f9eb495eafefdafdabe51a11d",
+    "semantic_hash": "318db48f9eb495eafefdafdabe51a11d"
+  },
+  ".wpilib/wpilib_preferences.json": {
+    "mtime": 1781049708.4013987,
+    "ast_hash": "73ff875fa614702298c975ef5641d395",
+    "semantic_hash": "73ff875fa614702298c975ef5641d395"
+  },
+  "AdvantageScope Swerve Calibration.json": {
+    "mtime": 1781044025.9259636,
+    "ast_hash": "8f9c8e04a004717f593e2b357dd28d9e",
+    "semantic_hash": "8f9c8e04a004717f593e2b357dd28d9e"
+  },
+  "build.gradle": {
+    "mtime": 1781044025.9259636,
+    "ast_hash": "f3aff2a0b238cc3aae5758c217140da3",
+    "semantic_hash": "f3aff2a0b238cc3aae5758c217140da3"
+  },
+  "gradlew": {
+    "mtime": 1781044025.9259636,
+    "ast_hash": "d71558d06a8c97628fdb0e38b0c36a2d",
+    "semantic_hash": "d71558d06a8c97628fdb0e38b0c36a2d"
+  },
+  "settings.gradle": {
+    "mtime": 1781044025.9324384,
+    "ast_hash": "24798b6cdfe0d70d3e2596a0749880e3",
+    "semantic_hash": "24798b6cdfe0d70d3e2596a0749880e3"
+  },
+  "src/main/deploy/pathplanner/navgrid.json": {
+    "mtime": 1781044025.9324384,
+    "ast_hash": "f5b7189a44063c7ea74e0dd8d6043a65",
+    "semantic_hash": "f5b7189a44063c7ea74e0dd8d6043a65"
+  },
+  "src/main/deploy/pathplanner/settings.json": {
+    "mtime": 1781044025.9324384,
+    "ast_hash": "03257ee827b097302b24c349ea96f0b8",
+    "semantic_hash": "03257ee827b097302b24c349ea96f0b8"
+  },
+  "src/main/java/frc/robot/Constants.java": {
+    "mtime": 1781044025.9324384,
+    "ast_hash": "eb34abc0f10fb5d63ff8c817a17c9ced",
+    "semantic_hash": "eb34abc0f10fb5d63ff8c817a17c9ced"
+  },
+  "src/main/java/frc/robot/Main.java": {
+    "mtime": 1781044025.9324384,
+    "ast_hash": "6ab284fceb27e38274bcf84fc2c013be",
+    "semantic_hash": "6ab284fceb27e38274bcf84fc2c013be"
+  },
+  "src/main/java/frc/robot/Robot.java": {
+    "mtime": 1781044025.9324384,
+    "ast_hash": "cde8a7fd92c1e4457db37948d28e965e",
+    "semantic_hash": "cde8a7fd92c1e4457db37948d28e965e"
+  },
+  "src/main/java/frc/robot/RobotContainer.java": {
+    "mtime": 1785594423.7628536,
+    "ast_hash": "8edd5f779e081b9f95093e1c01b897f0",
+    "semantic_hash": "8edd5f779e081b9f95093e1c01b897f0"
+  },
+  "src/main/java/frc/robot/commands/Autos.java": {
+    "mtime": 1785595915.931765,
+    "ast_hash": "847eb7fe74177266aeae15bbf3240353",
+    "semantic_hash": "847eb7fe74177266aeae15bbf3240353"
+  },
+  "src/main/java/frc/robot/commands/DriveCommands.java": {
+    "mtime": 1781044025.9324384,
+    "ast_hash": "486be426d074adeced7ca7d03268832a",
+    "semantic_hash": "486be426d074adeced7ca7d03268832a"
+  },
+  "src/main/java/frc/robot/commands/HoodCommands.java": {
+    "mtime": 1785566227.6164408,
+    "ast_hash": "dafd7d8247c76b1721093658ad455c45",
+    "semantic_hash": "dafd7d8247c76b1721093658ad455c45"
+  },
+  "src/main/java/frc/robot/commands/IndexerCommands.java": {
+    "mtime": 1785555731.7521496,
+    "ast_hash": "22723b9241e33f7c9ac2d1adcce766a0",
+    "semantic_hash": "22723b9241e33f7c9ac2d1adcce766a0"
+  },
+  "src/main/java/frc/robot/commands/IntakePivotCommands.java": {
+    "mtime": 1785557930.0297067,
+    "ast_hash": "4ca11ea8486ebdeca0aa1237366c68a9",
+    "semantic_hash": "4ca11ea8486ebdeca0aa1237366c68a9"
+  },
+  "src/main/java/frc/robot/commands/ShooterCommands.java": {
+    "mtime": 1785568395.2267072,
+    "ast_hash": "5956b0369187f9f00ab61770f9d3a4ff",
+    "semantic_hash": "5956b0369187f9f00ab61770f9d3a4ff"
+  },
+  "src/main/java/frc/robot/subsystems/drive/Drive.java": {
+    "mtime": 1781055971.8918524,
+    "ast_hash": "a14af96fba26c40ea41e8bb9eb6b0f2b",
+    "semantic_hash": "a14af96fba26c40ea41e8bb9eb6b0f2b"
+  },
+  "src/main/java/frc/robot/subsystems/drive/DriveConstants.java": {
+    "mtime": 1785519573.1533697,
+    "ast_hash": "f50fcda6f62849e0d9eb8b26ab791095",
+    "semantic_hash": "f50fcda6f62849e0d9eb8b26ab791095"
+  },
+  "src/main/java/frc/robot/subsystems/drive/GyroIO.java": {
+    "mtime": 1781044025.9427187,
+    "ast_hash": "839827b878226c35d9a397bb9d2d6cd1",
+    "semantic_hash": "839827b878226c35d9a397bb9d2d6cd1"
+  },
+  "src/main/java/frc/robot/subsystems/drive/GyroIONavX.java": {
+    "mtime": 1781044025.9427187,
+    "ast_hash": "2d75f3a4c5218a52dc1dcffd55af8961",
+    "semantic_hash": "2d75f3a4c5218a52dc1dcffd55af8961"
+  },
+  "src/main/java/frc/robot/subsystems/drive/GyroIOPigeon2.java": {
+    "mtime": 1785554647.7227204,
+    "ast_hash": "59c0d6bb3b3a635019783c98d4f9c444",
+    "semantic_hash": "59c0d6bb3b3a635019783c98d4f9c444"
+  },
+  "src/main/java/frc/robot/subsystems/drive/MAXSwerveModuleConfig.java": {
+    "mtime": 1781044025.9427187,
+    "ast_hash": "2ddc828b15adbf9d6c91af02ea7d4708",
+    "semantic_hash": "2ddc828b15adbf9d6c91af02ea7d4708"
+  },
+  "src/main/java/frc/robot/subsystems/drive/Module.java": {
+    "mtime": 1781044025.9427187,
+    "ast_hash": "6c0c5656226096ba1f6edbb9fa203c3b",
+    "semantic_hash": "6c0c5656226096ba1f6edbb9fa203c3b"
+  },
+  "src/main/java/frc/robot/subsystems/drive/ModuleIO.java": {
+    "mtime": 1781044025.9427187,
+    "ast_hash": "1a707406b616f5da5e2b62f6f9b2865c",
+    "semantic_hash": "1a707406b616f5da5e2b62f6f9b2865c"
+  },
+  "src/main/java/frc/robot/subsystems/drive/ModuleIOSim.java": {
+    "mtime": 1781044025.9427187,
+    "ast_hash": "71d7dcb80ac7d943b6ed5a7350be2f30",
+    "semantic_hash": "71d7dcb80ac7d943b6ed5a7350be2f30"
+  },
+  "src/main/java/frc/robot/subsystems/drive/ModuleIOSpark.java": {
+    "mtime": 1785554265.5332916,
+    "ast_hash": "bb0cf28e1c3ccd91b9a81d5f48529ea6",
+    "semantic_hash": "bb0cf28e1c3ccd91b9a81d5f48529ea6"
+  },
+  "src/main/java/frc/robot/subsystems/drive/SparkOdometryThread.java": {
+    "mtime": 1781044025.9427187,
+    "ast_hash": "0c65aed0435e570e21e296f8d3290cb2",
+    "semantic_hash": "0c65aed0435e570e21e296f8d3290cb2"
+  },
+  "src/main/java/frc/robot/subsystems/indexer/Indexer.java": {
+    "mtime": 1785544746.6767733,
+    "ast_hash": "dac2c23fa15bfd1b94709df31370d23c",
+    "semantic_hash": "dac2c23fa15bfd1b94709df31370d23c"
+  },
+  "src/main/java/frc/robot/subsystems/indexer/IndexerConstants.java": {
+    "mtime": 1785560652.4731104,
+    "ast_hash": "0bd9dd41e56c3009fb69298bf703815d",
+    "semantic_hash": "0bd9dd41e56c3009fb69298bf703815d"
+  },
+  "src/main/java/frc/robot/subsystems/indexer/IndexerIO.java": {
+    "mtime": 1785544746.7177794,
+    "ast_hash": "01c7256702ebe8601a7a697fbeab4d2d",
+    "semantic_hash": "01c7256702ebe8601a7a697fbeab4d2d"
+  },
+  "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java": {
+    "mtime": 1785544746.7453065,
+    "ast_hash": "7b9d94b2c401b82ce8d840d781a6f32f",
+    "semantic_hash": "7b9d94b2c401b82ce8d840d781a6f32f"
+  },
+  "src/main/java/frc/robot/subsystems/intake/IntakeConstants.java": {
+    "mtime": 1785559854.6655023,
+    "ast_hash": "b8f69fe6d748e9862468bfd7e3993cbf",
+    "semantic_hash": "b8f69fe6d748e9862468bfd7e3993cbf"
+  },
+  "src/main/java/frc/robot/subsystems/intake/IntakePivot.java": {
+    "mtime": 1785559368.011249,
+    "ast_hash": "9f0834d25567461044c8fb7af17c1306",
+    "semantic_hash": "9f0834d25567461044c8fb7af17c1306"
+  },
+  "src/main/java/frc/robot/subsystems/intake/IntakePivotIO.java": {
+    "mtime": 1785557668.2558029,
+    "ast_hash": "bb320646e701ade1c6d2f8e57f607500",
+    "semantic_hash": "bb320646e701ade1c6d2f8e57f607500"
+  },
+  "src/main/java/frc/robot/subsystems/intake/IntakePivotIOSpark.java": {
+    "mtime": 1785557679.846496,
+    "ast_hash": "56fe39b3e1deea3fe9f254e007c63893",
+    "semantic_hash": "56fe39b3e1deea3fe9f254e007c63893"
+  },
+  "src/main/java/frc/robot/subsystems/intake/IntakeRoller.java": {
+    "mtime": 1781054172.5683515,
+    "ast_hash": "8a646f0a0c38fe5338844464454f8278",
+    "semantic_hash": "8a646f0a0c38fe5338844464454f8278"
+  },
+  "src/main/java/frc/robot/subsystems/intake/IntakeRollerIO.java": {
+    "mtime": 1781044025.9488347,
+    "ast_hash": "bad0697d83758eeb3f727db2227729a7",
+    "semantic_hash": "bad0697d83758eeb3f727db2227729a7"
+  },
+  "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java": {
+    "mtime": 1785551741.049704,
+    "ast_hash": "10f0e7430e2e11f9bc11d8e32e1082b9",
+    "semantic_hash": "10f0e7430e2e11f9bc11d8e32e1082b9"
+  },
+  "src/main/java/frc/robot/subsystems/shooter/Hood.java": {
+    "mtime": 1785566220.704712,
+    "ast_hash": "9036f19f3309f898fd393ec35c63e621",
+    "semantic_hash": "9036f19f3309f898fd393ec35c63e621"
+  },
+  "src/main/java/frc/robot/subsystems/shooter/HoodIO.java": {
+    "mtime": 1785559442.7567205,
+    "ast_hash": "3d4b92f7710ffd8e3ee19134c585c375",
+    "semantic_hash": "3d4b92f7710ffd8e3ee19134c585c375"
+  },
+  "src/main/java/frc/robot/subsystems/shooter/HoodIOSpark.java": {
+    "mtime": 1785559447.787843,
+    "ast_hash": "191ca5cdaead08b62bd1b5205ce23f5a",
+    "semantic_hash": "191ca5cdaead08b62bd1b5205ce23f5a"
+  },
+  "src/main/java/frc/robot/subsystems/shooter/Shooter.java": {
+    "mtime": 1785588957.626191,
+    "ast_hash": "f44900c9c3f02a0a161b3b837768945a",
+    "semantic_hash": "f44900c9c3f02a0a161b3b837768945a"
+  },
+  "src/main/java/frc/robot/subsystems/shooter/ShooterConstants.java": {
+    "mtime": 1785593584.8478413,
+    "ast_hash": "3a43c4d9cf9ef5f99d3cc0c74deac7a3",
+    "semantic_hash": "3a43c4d9cf9ef5f99d3cc0c74deac7a3"
+  },
+  "src/main/java/frc/robot/subsystems/shooter/ShooterIO.java": {
+    "mtime": 1785564905.803993,
+    "ast_hash": "4ffd562ca08fd2870cb72dba4c2aa1e3",
+    "semantic_hash": "4ffd562ca08fd2870cb72dba4c2aa1e3"
+  },
+  "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java": {
+    "mtime": 1785567711.1694424,
+    "ast_hash": "01a123db533588d844a13f4f9d37ead9",
+    "semantic_hash": "01a123db533588d844a13f4f9d37ead9"
+  },
+  "src/main/java/frc/robot/util/LocalADStarAK.java": {
+    "mtime": 1781044025.9488347,
+    "ast_hash": "fd7b3da04652e6afdaf4b6fbe9b43059",
+    "semantic_hash": "fd7b3da04652e6afdaf4b6fbe9b43059"
+  },
+  "src/main/java/frc/robot/util/SparkUtil.java": {
+    "mtime": 1781044025.9488347,
+    "ast_hash": "bffcb592f0bce650c5873beea51007b3",
+    "semantic_hash": "bffcb592f0bce650c5873beea51007b3"
+  },
+  "vendordeps/AdvantageKit.json": {
+    "mtime": 1781044025.9517796,
+    "ast_hash": "190feb90972966ceac5cd1d9c172aeb1",
+    "semantic_hash": "190feb90972966ceac5cd1d9c172aeb1"
+  },
+  "vendordeps/PathplannerLib.json": {
+    "mtime": 1781044025.9517796,
+    "ast_hash": "704f98cbfcc3c5747c97177b04aa4ff3",
+    "semantic_hash": "704f98cbfcc3c5747c97177b04aa4ff3"
+  },
+  "vendordeps/Phoenix6.json": {
+    "mtime": 1781044025.952789,
+    "ast_hash": "1aa481b9d39d082325a631fb3e2c3887",
+    "semantic_hash": "1aa481b9d39d082325a631fb3e2c3887"
+  },
+  "vendordeps/REVLib.json": {
+    "mtime": 1781044025.952789,
+    "ast_hash": "c0ab59944a8019b45b963c37873272c7",
+    "semantic_hash": "c0ab59944a8019b45b963c37873272c7"
+  },
+  "vendordeps/Studica.json": {
+    "mtime": 1781044025.952789,
+    "ast_hash": "f77f9a79df04b6906e3d3781bd48ac4d",
+    "semantic_hash": "f77f9a79df04b6906e3d3781bd48ac4d"
+  },
+  "vendordeps/URCL.json": {
+    "mtime": 1781044025.952789,
+    "ast_hash": "d5c091c19a47d8f525ccca2704e36c41",
+    "semantic_hash": "d5c091c19a47d8f525ccca2704e36c41"
+  },
+  "vendordeps/WPILibNewCommands.json": {
+    "mtime": 1781044025.952789,
+    "ast_hash": "0c99fb8711812edce458bf053ce83184",
+    "semantic_hash": "0c99fb8711812edce458bf053ce83184"
+  },
+  ".github/workflows/build.yml": {
+    "mtime": 1781044025.9221723,
+    "ast_hash": "529cc5a64d23e10e73e96ba9ae468d22",
+    "semantic_hash": "529cc5a64d23e10e73e96ba9ae468d22"
+  },
+  "AdvantageKit-License.md": {
+    "mtime": 1781044025.9259636,
+    "ast_hash": "812d5681e604f97c377d11cfb8d9a83b",
+    "semantic_hash": "812d5681e604f97c377d11cfb8d9a83b"
+  },
+  "WPILib-License.md": {
+    "mtime": 1781044025.9259636,
+    "ast_hash": "d8edcad7555b83ebba1d0aa395977cc8",
+    "semantic_hash": "d8edcad7555b83ebba1d0aa395977cc8"
+  },
+  "src/main/java/frc/robot/subsystems/drive/DRIVE_BRINGUP.md": {
+    "mtime": 1781044301.098546,
+    "ast_hash": "e29fa617404807e71fd92177b5a4a1ae",
+    "semantic_hash": "e29fa617404807e71fd92177b5a4a1ae"
+  }
+}

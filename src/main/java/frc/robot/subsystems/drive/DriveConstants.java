@@ -21,7 +21,7 @@ public class DriveConstants {
   // Active hardware selection — edit only these three lines to reconfigure.
   // Enum definitions and their data live in DriveModuleConfig.java (READONLY).
   // -------------------------------------------------------------------------
-  public static final GearConfig driveConfig = GearConfig.HIGH;
+  public static final GearConfig driveConfig = GearConfig.LOW;
   public static final DriveMotor driveMotorConfig = DriveMotor.NEO_V1;
   public static final TurnMotor turnMotorConfig = TurnMotor.NEO_550;
 
@@ -34,8 +34,8 @@ public class DriveConstants {
 
   // Outer frame dimensions (to edge of swerve module housing), in inches.
   // Wheel inset is sourced from MAXSwerveModuleConfig — see ASCII diagram there.
-  public static final double frameWidthInches = 26.5;
-  public static final double frameLengthInches = 26.5;
+  public static final double frameWidthInches = 27;
+  public static final double frameLengthInches = 27;
 
   public static final double trackWidth = MAXSwerveModuleConfig.getTrackWidth(frameWidthInches);
   public static final double wheelBase = MAXSwerveModuleConfig.getWheelBase(frameLengthInches);

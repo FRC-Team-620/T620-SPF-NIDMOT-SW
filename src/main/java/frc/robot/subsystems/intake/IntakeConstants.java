@@ -9,10 +9,18 @@ public class IntakeConstants {
   // -------------------------------------------------------------------------
   public static final int leaderCanId = 31;
   public static final int followerCanId = 32;
+  public static final int pivotCanId = 33;
 
   // -------------------------------------------------------------------------
   // Motor configuration
   // -------------------------------------------------------------------------
   public static final IdleMode idleMode = IdleMode.kBrake;
   public static final int currentLimitAmps = 40;
+
+  // -------------------------------------------------------------------------
+  // Pivot positions (primary encoder counts)
+  // -------------------------------------------------------------------------
+  public static final double pivotStowPosition = 5.0;
+  public static final double pivotExtendPosition = 24.0;
+  public static final double pivotMaxOutput = 0.5;
 }
