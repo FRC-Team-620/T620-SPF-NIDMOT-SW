@@ -251,6 +251,12 @@ public class RobotContainer {
             () -> driver.getLeftX() * speedModifier,
             () -> -driver.getRightX()));
 
+    // Auto-aim at boiler while left bumper is held
+    driver
+        .leftBumper()
+        .whileTrue(
+            DriveCommands.autoAim(drive, () -> -driver.getLeftY(), () -> -driver.getLeftX()));
+
     // Lock to 0° when A button is held
     driver
         .a()

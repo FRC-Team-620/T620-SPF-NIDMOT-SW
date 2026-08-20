@@ -117,6 +117,14 @@ public class DriveConstants {
   public static final double turnPIDMaxInput = 2 * Math.PI; // Radians
 
   // -------------------------------------------------------------------------
+  // Auto-aim target AprilTag IDs (2026 Rebuilt field)
+  // Blue alliance scores into the blue boiler (left cluster, tags 18-21, 24-27)
+  // Red alliance scores into the red boiler (right cluster, tags 2-5, 8-11)
+  // -------------------------------------------------------------------------
+  public static final int[] autoAimTagIdsBlue = {18, 19, 20, 21, 24, 25, 26, 27};
+  public static final int[] autoAimTagIdsRed = {2, 3, 4, 5, 8, 9, 10, 11};
+
+  // -------------------------------------------------------------------------
   // PathPlanner configuration
   // -------------------------------------------------------------------------
   public static final double robotMassKg = 74.088;

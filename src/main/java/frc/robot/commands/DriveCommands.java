@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.DriveConstants;
+import frc.robot.subsystems.vision.VisionConstants;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.LinkedList;
@@ -149,6 +150,47 @@ public class DriveCommands {
 
         // Reset PID controller when command starts
         .beforeStarting(() -> angleController.reset(drive.getRotation().getRadians()));
+  }
+
+  /**
+   * Field relative drive command that rotates the robot to point its shooter at the boiler for the
+   * current alliance, while the driver retains full translational control via joysticks.
+   *
+   * <p>Target positions are derived from the 2026 Rebuilt AprilTag layout: blue alliance aims at
+   * the blue boiler (tags 18-21, 24-27) and red alliance at the red boiler (tags 2-5, 8-11). The
+   * centroid of each tag cluster is computed once when the command is constructed.
+   */
+  public static Command autoAim(Drive drive, DoubleSupplier xSupplier, DoubleSupplier ySupplier) {
+    Translation2d blueTarget = boilerCenter(DriveConstants.autoAimTagIdsBlue);
+    Translation2d redTarget = boilerCenter(DriveConstants.autoAimTagIdsRed);
+
+    return joystickDriveAtAngle(
+        drive,
+        xSupplier,
+        ySupplier,
+        () -> {
+          boolean isRed =
+              DriverStation.getAlliance().isPresent()
+                  && DriverStation.getAlliance().get() == Alliance.Red;
+          Translation2d target = isRed ? redTarget : blueTarget;
+          Translation2d toTarget = target.minus(drive.getPose().getTranslation());
+          return new Rotation2d(toTarget.getX(), toTarget.getY());
+        });
+  }
+
+  private static Translation2d boilerCenter(int[] tagIds) {
+    double sumX = 0;
+    double sumY = 0;
+    int count = 0;
+    for (int id : tagIds) {
+      var pose = VisionConstants.aprilTagLayout.getTagPose(id);
+      if (pose.isPresent()) {
+        sumX += pose.get().getX();
+        sumY += pose.get().getY();
+        count++;
+      }
+    }
+    return count > 0 ? new Translation2d(sumX / count, sumY / count) : Translation2d.kZero;
   }
 
   /**
