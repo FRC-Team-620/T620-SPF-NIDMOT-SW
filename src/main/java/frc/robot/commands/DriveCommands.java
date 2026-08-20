@@ -178,6 +178,22 @@ public class DriveCommands {
         });
   }
 
+  /**
+   * Returns a supplier that reports the distance (meters) from the robot's current pose to the
+   * boiler center for the active alliance. Intended for use alongside {@link #autoAim} to drive
+   * hood angle from the same target reference.
+   */
+  public static DoubleSupplier distanceToBoiler(Drive drive) {
+    Translation2d blue = boilerCenter(DriveConstants.autoAimTagIdsBlue);
+    Translation2d red = boilerCenter(DriveConstants.autoAimTagIdsRed);
+    return () -> {
+      boolean isRed =
+          DriverStation.getAlliance().isPresent()
+              && DriverStation.getAlliance().get() == Alliance.Red;
+      return drive.getPose().getTranslation().getDistance(isRed ? red : blue);
+    };
+  }
+
   private static Translation2d boilerCenter(int[] tagIds) {
     double sumX = 0;
     double sumY = 0;

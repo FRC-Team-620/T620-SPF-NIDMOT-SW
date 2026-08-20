@@ -51,6 +51,7 @@ import frc.robot.subsystems.vision.VisionConstants;
 import frc.robot.subsystems.vision.VisionIO;
 import frc.robot.subsystems.vision.VisionIOPhotonVision;
 import frc.robot.subsystems.vision.VisionIOPhotonVisionSim;
+import java.util.function.DoubleSupplier;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -251,11 +252,15 @@ public class RobotContainer {
             () -> driver.getLeftX() * speedModifier,
             () -> -driver.getRightX()));
 
-    // Auto-aim at boiler while left bumper is held
+    // Auto-aim at boiler while left bumper is held: rotate drive toward target and adjust hood
+    // angle
+    DoubleSupplier distanceToBoiler = DriveCommands.distanceToBoiler(drive);
     driver
         .leftBumper()
         .whileTrue(
-            DriveCommands.autoAim(drive, () -> -driver.getLeftY(), () -> -driver.getLeftX()));
+            Commands.parallel(
+                DriveCommands.autoAim(drive, () -> -driver.getLeftY(), () -> -driver.getLeftX()),
+                HoodCommands.autoAim(hood, distanceToBoiler)));
 
     // Lock to 0° when A button is held
     driver
