@@ -1,1 +1,431 @@
-{"nodes": [{"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java", "label": "Shooter.java", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L1"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "label": "Shooter", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L9", "_callable": true, "_callable_class": true}, {"id": "subsystembase", "label": "SubsystemBase", "file_type": "code", "source_file": "", "source_location": ""}, {"id": "shooterio", "label": "ShooterIO", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Shooter.java"}, {"id": "shooterioinputsautologged", "label": "ShooterIOInputsAutoLogged", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Shooter.java"}, {"id": "pidcontroller", "label": "PIDController", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Shooter.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_shooter", "label": ".Shooter()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L19", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic", "label": ".periodic()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L24", "_callable": true}, {"id": "override", "label": "Override", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Shooter.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_settargetvelocity", "label": ".setTargetVelocity()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L37", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stopvelocitycontrol", "label": ".stopVelocityControl()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L42", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_getvelocityrpm", "label": ".getVelocityRPM()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L47", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_isattargetvelocity", "label": ".isAtTargetVelocity()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L51", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setvoltage", "label": ".setVoltage()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L57", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setdutycycle", "label": ".setDutyCycle()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L61", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stop", "label": ".stop()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L65", "_callable": true}], "edges": [{"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java", "target": "mathutil", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L3", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java", "target": "pidcontroller", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L4", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java", "target": "smartdashboard", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L5", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java", "target": "subsystembase", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L6", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java", "target": "logger", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L7", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "relation": "contains", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L9", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "subsystembase", "relation": "inherits", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L9", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "shooterio", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L10", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "shooterioinputsautologged", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L11", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "pidcontroller", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L13", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_shooter", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L19", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_shooter", "target": "shooterio", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L19", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L24", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L24", "weight": 1.0, "context": "attribute"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_settargetvelocity", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L37", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stopvelocitycontrol", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L42", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_getvelocityrpm", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L47", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_isattargetvelocity", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L51", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setvoltage", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L57", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setdutycycle", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L61", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stop", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L65", "weight": 1.0}], "raw_calls": [{"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_shooter", "callee": "putData", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L21", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic", "callee": "updateInputs", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L26", "receiver": "io", "lang": "java", "receiver_type": "ShooterIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic", "callee": "processInputs", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L27", "receiver": "Logger", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic", "callee": "calculate", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L32", "receiver": "pid", "lang": "java", "receiver_type": "PIDController"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic", "callee": "setDutyCycle", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L33", "receiver": "io", "lang": "java", "receiver_type": "ShooterIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic", "callee": "clamp", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L33", "receiver": "MathUtil", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stopvelocitycontrol", "callee": "setDutyCycle", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L44", "receiver": "io", "lang": "java", "receiver_type": "ShooterIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setvoltage", "callee": "setVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L58", "receiver": "io", "lang": "java", "receiver_type": "ShooterIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setdutycycle", "callee": "setDutyCycle", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L62", "receiver": "io", "lang": "java", "receiver_type": "ShooterIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stop", "callee": "setDutyCycle", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java", "source_location": "L66", "receiver": "io", "lang": "java", "receiver_type": "ShooterIO"}]}
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java",
+      "label": "Shooter.java",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "label": "Shooter",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L9",
+      "_callable": true,
+      "_callable_class": true
+    },
+    {
+      "id": "subsystembase",
+      "label": "SubsystemBase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "shooterio",
+      "label": "ShooterIO",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Shooter.java"
+    },
+    {
+      "id": "shooterioinputsautologged",
+      "label": "ShooterIOInputsAutoLogged",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Shooter.java"
+    },
+    {
+      "id": "pidcontroller",
+      "label": "PIDController",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Shooter.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_shooter",
+      "label": ".Shooter()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L19",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic",
+      "label": ".periodic()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L24",
+      "_callable": true
+    },
+    {
+      "id": "override",
+      "label": "Override",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Shooter.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_settargetvelocity",
+      "label": ".setTargetVelocity()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L37",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stopvelocitycontrol",
+      "label": ".stopVelocityControl()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L42",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_getvelocityrpm",
+      "label": ".getVelocityRPM()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L47",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_isattargetvelocity",
+      "label": ".isAtTargetVelocity()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L51",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setvoltage",
+      "label": ".setVoltage()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L57",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setdutycycle",
+      "label": ".setDutyCycle()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L61",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stop",
+      "label": ".stop()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L65",
+      "_callable": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java",
+      "target": "mathutil",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java",
+      "target": "pidcontroller",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java",
+      "target": "smartdashboard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java",
+      "target": "subsystembase",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java",
+      "target": "logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_java",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "subsystembase",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "shooterio",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "shooterioinputsautologged",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "pidcontroller",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_shooter",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_shooter",
+      "target": "shooterio",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "attribute"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_settargetvelocity",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stopvelocitycontrol",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_getvelocityrpm",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_isattargetvelocity",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setvoltage",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setdutycycle",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stop",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L65",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_shooter",
+      "callee": "putData",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L21",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic",
+      "callee": "updateInputs",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L26",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "ShooterIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic",
+      "callee": "processInputs",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L27",
+      "receiver": "Logger",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic",
+      "callee": "calculate",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L32",
+      "receiver": "pid",
+      "lang": "java",
+      "receiver_type": "PIDController"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic",
+      "callee": "setDutyCycle",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L33",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "ShooterIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_periodic",
+      "callee": "clamp",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L33",
+      "receiver": "MathUtil",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stopvelocitycontrol",
+      "callee": "setDutyCycle",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L44",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "ShooterIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setvoltage",
+      "callee": "setVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L58",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "ShooterIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_setdutycycle",
+      "callee": "setDutyCycle",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L62",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "ShooterIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooter_shooter_stop",
+      "callee": "setDutyCycle",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Shooter.java",
+      "source_location": "L66",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "ShooterIO"
+    }
+  ]
+}

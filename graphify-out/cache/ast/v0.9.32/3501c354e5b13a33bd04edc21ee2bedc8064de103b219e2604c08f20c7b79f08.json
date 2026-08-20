@@ -1,1 +1,455 @@
-{"nodes": [{"id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java", "label": "IndexerIOSpark.java", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L1"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "label": "IndexerIOSpark", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L10", "_callable": true, "_callable_class": true}, {"id": "indexerio", "label": "IndexerIO", "file_type": "code", "source_file": "", "source_location": ""}, {"id": "sparkbase", "label": "SparkBase", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "label": ".IndexerIOSpark()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L18", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "label": ".updateInputs()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L45", "_callable": true}, {"id": "indexerioinputs", "label": "IndexerIOInputs", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java"}, {"id": "override", "label": "Override", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_setdutycycle", "label": ".setDutyCycle()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L54", "_callable": true}], "edges": [{"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java", "target": "persistmode", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L3", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java", "target": "resetmode", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L4", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java", "target": "sparkbase", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L5", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java", "target": "sparkflex", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L6", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java", "target": "motortype", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L7", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java", "target": "sparkflexconfig", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L8", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "relation": "contains", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L10", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "target": "indexerio", "relation": "implements", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L10", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L11", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L13", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L15", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L18", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L45", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "target": "indexerioinputs", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L45", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L45", "weight": 1.0, "context": "attribute"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_setdutycycle", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L54", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_setdutycycle", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L54", "weight": 1.0, "context": "attribute"}], "raw_calls": [{"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "SparkFlexConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L19", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L20", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L20", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "inverted", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L20", "receiver": "leftLeaderConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "SparkFlexConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L25", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "follow", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L26", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L26", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L26", "receiver": "leftFollowerConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "SparkFlexConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L31", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L32", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L32", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "inverted", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L32", "receiver": "rightMotorConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L37", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L39", "receiver": "leftFollower", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L41", "receiver": "rightMotor", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "callee": "getAppliedOutput", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L47", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "callee": "getBusVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L47", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L48", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L49", "receiver": "leftFollower", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "callee": "getAppliedOutput", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L50", "receiver": "rightMotor", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "callee": "getBusVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L50", "receiver": "rightMotor", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java", "source_location": "L51", "receiver": "rightMotor", "lang": "java", "receiver_type": "SparkBase"}]}
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java",
+      "label": "IndexerIOSpark.java",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "label": "IndexerIOSpark",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L10",
+      "_callable": true,
+      "_callable_class": true
+    },
+    {
+      "id": "indexerio",
+      "label": "IndexerIO",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "sparkbase",
+      "label": "SparkBase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "label": ".IndexerIOSpark()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L18",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "label": ".updateInputs()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L45",
+      "_callable": true
+    },
+    {
+      "id": "indexerioinputs",
+      "label": "IndexerIOInputs",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java"
+    },
+    {
+      "id": "override",
+      "label": "Override",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_setdutycycle",
+      "label": ".setDutyCycle()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L54",
+      "_callable": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java",
+      "target": "persistmode",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java",
+      "target": "resetmode",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java",
+      "target": "sparkbase",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java",
+      "target": "sparkflex",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java",
+      "target": "motortype",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java",
+      "target": "sparkflexconfig",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_java",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "target": "indexerio",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "target": "indexerioinputs",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "attribute"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_setdutycycle",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_setdutycycle",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L54",
+      "weight": 1.0,
+      "context": "attribute"
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "SparkFlexConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L19",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L20",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L20",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "inverted",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L20",
+      "receiver": "leftLeaderConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "SparkFlexConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L25",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "follow",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L26",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L26",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L26",
+      "receiver": "leftFollowerConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "SparkFlexConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L31",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L32",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L32",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "inverted",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L32",
+      "receiver": "rightMotorConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L37",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L39",
+      "receiver": "leftFollower",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_indexeriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L41",
+      "receiver": "rightMotor",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "callee": "getAppliedOutput",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L47",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "callee": "getBusVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L47",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L48",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L49",
+      "receiver": "leftFollower",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "callee": "getAppliedOutput",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L50",
+      "receiver": "rightMotor",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "callee": "getBusVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L50",
+      "receiver": "rightMotor",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_indexer_indexeriospark_indexeriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/indexer/IndexerIOSpark.java",
+      "source_location": "L51",
+      "receiver": "rightMotor",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    }
+  ]
+}
