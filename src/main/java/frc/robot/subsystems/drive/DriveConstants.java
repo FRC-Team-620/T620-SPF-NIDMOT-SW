@@ -21,7 +21,7 @@ public class DriveConstants {
   // Active hardware selection — edit only these three lines to reconfigure.
   // Enum definitions and their data live in DriveModuleConfig.java (READONLY).
   // -------------------------------------------------------------------------
-  public static final GearConfig driveConfig = GearConfig.LOW;
+  public static final GearConfig driveConfig = GearConfig.HIGH;
   public static final DriveMotor driveMotorConfig = DriveMotor.NEO_V1;
   public static final TurnMotor turnMotorConfig = TurnMotor.NEO_550;
 
