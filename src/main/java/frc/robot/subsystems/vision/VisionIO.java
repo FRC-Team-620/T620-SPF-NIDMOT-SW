@@ -34,7 +34,8 @@ public interface VisionIO {
       PoseObservationType type) {}
 
   enum PoseObservationType {
-    PHOTONVISION
+    PHOTONVISION,
+    LIMELIGHT
   }
 
   default void updateInputs(VisionIOInputs inputs) {}

@@ -49,6 +49,7 @@ import frc.robot.subsystems.shooter.ShooterIOSpark;
 import frc.robot.subsystems.vision.Vision;
 import frc.robot.subsystems.vision.VisionConstants;
 import frc.robot.subsystems.vision.VisionIO;
+import frc.robot.subsystems.vision.VisionIOLimelight;
 import frc.robot.subsystems.vision.VisionIOPhotonVision;
 import frc.robot.subsystems.vision.VisionIOPhotonVisionSim;
 import java.util.function.DoubleSupplier;
@@ -98,9 +99,9 @@ public class RobotContainer {
         vision =
             new Vision(
                 drive::addVisionMeasurement,
-                new VisionIOPhotonVision(
+                new VisionIOLimelight(
                     VisionConstants.camera0Name, VisionConstants.robotToCamera0),
-                new VisionIOPhotonVision(
+                new VisionIOLimelight(
                     VisionConstants.camera1Name, VisionConstants.robotToCamera1));
         break;
 
