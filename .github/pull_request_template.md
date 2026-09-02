@@ -25,6 +25,7 @@ Work Item:
 - [ ] I ran the applicable tests locally and they **passed**
 - [ ] I verified that no secrets, credentials, tokens or sensitive data is being committed
 - [ ] I commented the code
+- [ ] I ran the code on the robot and it works
 
 ## Testing Performed
 
