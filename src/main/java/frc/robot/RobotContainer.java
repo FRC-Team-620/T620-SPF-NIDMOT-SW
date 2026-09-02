@@ -32,7 +32,6 @@ import frc.robot.subsystems.drive.ModuleIOSim;
 import frc.robot.subsystems.drive.ModuleIOSpark;
 import frc.robot.subsystems.indexer.Indexer;
 import frc.robot.subsystems.indexer.IndexerIO;
-import frc.robot.subsystems.indexer.IndexerIOSpark;
 import frc.robot.subsystems.intake.IntakePivot;
 import frc.robot.subsystems.intake.IntakePivotIO;
 import frc.robot.subsystems.intake.IntakePivotIOSpark;
@@ -45,7 +44,6 @@ import frc.robot.subsystems.shooter.HoodIOSpark;
 import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.shooter.ShooterConstants;
 import frc.robot.subsystems.shooter.ShooterIO;
-import frc.robot.subsystems.shooter.ShooterIOSpark;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -83,11 +81,13 @@ public class RobotContainer {
                 new ModuleIOSpark(1),
                 new ModuleIOSpark(2),
                 new ModuleIOSpark(3));
-        indexer = new Indexer(new IndexerIOSpark());
+        // indexer = new Indexer(new IndexerIOSpark());
+        indexer = new Indexer(new IndexerIO() {});
         intakePivot = new IntakePivot(new IntakePivotIOSpark());
         intakeRoller = new IntakeRoller(new IntakeRollerIOSpark());
         hood = new Hood(new HoodIOSpark());
-        shooter = new Shooter(new ShooterIOSpark());
+        // shooter = new Shooter(new ShooterIOSpark());
+        shooter = new Shooter(new ShooterIO() {});
         break;
 
       case SIM:

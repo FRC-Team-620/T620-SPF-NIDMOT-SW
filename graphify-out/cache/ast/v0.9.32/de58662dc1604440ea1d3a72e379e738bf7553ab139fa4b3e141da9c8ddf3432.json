@@ -1,1 +1,423 @@
-{"nodes": [{"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java", "label": "Hood.java", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L1"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "label": "Hood", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L10", "_callable": true, "_callable_class": true}, {"id": "subsystembase", "label": "SubsystemBase", "file_type": "code", "source_file": "", "source_location": ""}, {"id": "hoodio", "label": "HoodIO", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Hood.java"}, {"id": "hoodioinputsautologged", "label": "HoodIOInputsAutoLogged", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Hood.java"}, {"id": "pidcontroller", "label": "PIDController", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Hood.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_hood", "label": ".Hood()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L18", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic", "label": ".periodic()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L23", "_callable": true}, {"id": "override", "label": "Override", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Hood.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_settargetposition", "label": ".setTargetPosition()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L35", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_adjusttargetposition", "label": ".adjustTargetPosition()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L40", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_stoppositioncontrol", "label": ".stopPositionControl()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L49", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_getposition", "label": ".getPosition()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L54", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_resetencoder", "label": ".resetEncoder()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L58", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_setbrakemode", "label": ".setBrakeMode()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L62", "_callable": true}], "edges": [{"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java", "target": "idlemode", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L3", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java", "target": "mathutil", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L4", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java", "target": "pidcontroller", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L5", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java", "target": "smartdashboard", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L6", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java", "target": "subsystembase", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L7", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java", "target": "logger", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L8", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "relation": "contains", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L10", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "subsystembase", "relation": "inherits", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L10", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "hoodio", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L11", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "hoodioinputsautologged", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L12", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "pidcontroller", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L14", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_hood", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L18", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_hood", "target": "hoodio", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L18", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L23", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L23", "weight": 1.0, "context": "attribute"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_settargetposition", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L35", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_adjusttargetposition", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L40", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_stoppositioncontrol", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L49", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_getposition", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L54", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_resetencoder", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L58", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_setbrakemode", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L62", "weight": 1.0}], "raw_calls": [{"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_hood", "callee": "putData", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L20", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic", "callee": "updateInputs", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L25", "receiver": "io", "lang": "java", "receiver_type": "HoodIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic", "callee": "processInputs", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L26", "receiver": "Logger", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic", "callee": "calculate", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L29", "receiver": "pid", "lang": "java", "receiver_type": "PIDController"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic", "callee": "setDutyCycle", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L30", "receiver": "io", "lang": "java", "receiver_type": "HoodIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic", "callee": "clamp", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L31", "receiver": "MathUtil", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_adjusttargetposition", "callee": "clamp", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L43", "receiver": "MathUtil", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_stoppositioncontrol", "callee": "setDutyCycle", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L51", "receiver": "io", "lang": "java", "receiver_type": "HoodIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_resetencoder", "callee": "resetEncoder", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L59", "receiver": "io", "lang": "java", "receiver_type": "HoodIO"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_setbrakemode", "callee": "setIdleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java", "source_location": "L63", "receiver": "io", "lang": "java", "receiver_type": "HoodIO"}]}
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java",
+      "label": "Hood.java",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "label": "Hood",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L10",
+      "_callable": true,
+      "_callable_class": true
+    },
+    {
+      "id": "subsystembase",
+      "label": "SubsystemBase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "hoodio",
+      "label": "HoodIO",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Hood.java"
+    },
+    {
+      "id": "hoodioinputsautologged",
+      "label": "HoodIOInputsAutoLogged",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Hood.java"
+    },
+    {
+      "id": "pidcontroller",
+      "label": "PIDController",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Hood.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_hood",
+      "label": ".Hood()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L18",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic",
+      "label": ".periodic()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L23",
+      "_callable": true
+    },
+    {
+      "id": "override",
+      "label": "Override",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/Hood.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_settargetposition",
+      "label": ".setTargetPosition()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L35",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_adjusttargetposition",
+      "label": ".adjustTargetPosition()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L40",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_stoppositioncontrol",
+      "label": ".stopPositionControl()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L49",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_getposition",
+      "label": ".getPosition()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L54",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_resetencoder",
+      "label": ".resetEncoder()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L58",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_setbrakemode",
+      "label": ".setBrakeMode()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L62",
+      "_callable": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java",
+      "target": "idlemode",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java",
+      "target": "mathutil",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java",
+      "target": "pidcontroller",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java",
+      "target": "smartdashboard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java",
+      "target": "subsystembase",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java",
+      "target": "logger",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_java",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "subsystembase",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "hoodio",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "hoodioinputsautologged",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "pidcontroller",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_hood",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_hood",
+      "target": "hoodio",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "attribute"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_settargetposition",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_adjusttargetposition",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_stoppositioncontrol",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_getposition",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_resetencoder",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_setbrakemode",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L62",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_hood",
+      "callee": "putData",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L20",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic",
+      "callee": "updateInputs",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L25",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "HoodIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic",
+      "callee": "processInputs",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L26",
+      "receiver": "Logger",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic",
+      "callee": "calculate",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L29",
+      "receiver": "pid",
+      "lang": "java",
+      "receiver_type": "PIDController"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic",
+      "callee": "setDutyCycle",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L30",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "HoodIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_periodic",
+      "callee": "clamp",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L31",
+      "receiver": "MathUtil",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_adjusttargetposition",
+      "callee": "clamp",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L43",
+      "receiver": "MathUtil",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_stoppositioncontrol",
+      "callee": "setDutyCycle",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L51",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "HoodIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_resetencoder",
+      "callee": "resetEncoder",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L59",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "HoodIO"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_hood_hood_setbrakemode",
+      "callee": "setIdleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/Hood.java",
+      "source_location": "L63",
+      "receiver": "io",
+      "lang": "java",
+      "receiver_type": "HoodIO"
+    }
+  ]
+}

@@ -1,1 +1,607 @@
-{"nodes": [{"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java", "label": "ShooterIOSpark.java", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L1"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "label": "ShooterIOSpark", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L10", "_callable": true, "_callable_class": true}, {"id": "shooterio", "label": "ShooterIO", "file_type": "code", "source_file": "", "source_location": ""}, {"id": "sparkbase", "label": "SparkBase", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "label": ".ShooterIOSpark()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L20", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "label": ".updateInputs()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L57", "_callable": true}, {"id": "shooterioinputs", "label": "ShooterIOInputs", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java"}, {"id": "override", "label": "Override", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setdutycycle", "label": ".setDutyCycle()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L69", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage", "label": ".setVoltage()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L75", "_callable": true}], "edges": [{"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java", "target": "persistmode", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L3", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java", "target": "resetmode", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L4", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java", "target": "sparkbase", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L5", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java", "target": "sparkflex", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L6", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java", "target": "motortype", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L7", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java", "target": "sparkflexconfig", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L8", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "relation": "contains", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L10", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "shooterio", "relation": "implements", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L10", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L11", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L13", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L15", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L17", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L20", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L57", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "target": "shooterioinputs", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L57", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L57", "weight": 1.0, "context": "attribute"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setdutycycle", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L69", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setdutycycle", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L69", "weight": 1.0, "context": "attribute"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L75", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L75", "weight": 1.0, "context": "attribute"}], "raw_calls": [{"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "SparkFlexConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L21", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L22", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L22", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "inverted", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L22", "receiver": "leftLeaderConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "SparkFlexConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L28", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "follow", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L29", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L29", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L29", "receiver": "leftFollowerConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "SparkFlexConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L34", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L35", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L35", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "inverted", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L35", "receiver": "rightLeaderConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "SparkFlexConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L41", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "follow", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L42", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L42", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L42", "receiver": "rightFollowerConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L47", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L49", "receiver": "leftFollower", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L51", "receiver": "rightLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L53", "receiver": "rightFollower", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getAppliedOutput", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L59", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getBusVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L59", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getVelocity", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L60", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getEncoder", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L60", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L61", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L62", "receiver": "leftFollower", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getAppliedOutput", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L63", "receiver": "rightLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getBusVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L63", "receiver": "rightLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getVelocity", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L64", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getEncoder", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L64", "receiver": "rightLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L65", "receiver": "rightLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L66", "receiver": "rightFollower", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage", "callee": "setVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L77", "receiver": "leftLeader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage", "callee": "setVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java", "source_location": "L78", "receiver": "rightLeader", "lang": "java", "receiver_type": "SparkBase"}]}
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java",
+      "label": "ShooterIOSpark.java",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "label": "ShooterIOSpark",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L10",
+      "_callable": true,
+      "_callable_class": true
+    },
+    {
+      "id": "shooterio",
+      "label": "ShooterIO",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "sparkbase",
+      "label": "SparkBase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "label": ".ShooterIOSpark()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L20",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "label": ".updateInputs()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L57",
+      "_callable": true
+    },
+    {
+      "id": "shooterioinputs",
+      "label": "ShooterIOInputs",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java"
+    },
+    {
+      "id": "override",
+      "label": "Override",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setdutycycle",
+      "label": ".setDutyCycle()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L69",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage",
+      "label": ".setVoltage()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L75",
+      "_callable": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java",
+      "target": "persistmode",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java",
+      "target": "resetmode",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java",
+      "target": "sparkbase",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java",
+      "target": "sparkflex",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java",
+      "target": "motortype",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java",
+      "target": "sparkflexconfig",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_java",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "shooterio",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "target": "shooterioinputs",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L57",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L57",
+      "weight": 1.0,
+      "context": "attribute"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setdutycycle",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setdutycycle",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L69",
+      "weight": 1.0,
+      "context": "attribute"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L75",
+      "weight": 1.0,
+      "context": "attribute"
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "SparkFlexConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L21",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L22",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L22",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "inverted",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L22",
+      "receiver": "leftLeaderConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "SparkFlexConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L28",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "follow",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L29",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L29",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L29",
+      "receiver": "leftFollowerConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "SparkFlexConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L34",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L35",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L35",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "inverted",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L35",
+      "receiver": "rightLeaderConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "SparkFlexConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L41",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "follow",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L42",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L42",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L42",
+      "receiver": "rightFollowerConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L47",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L49",
+      "receiver": "leftFollower",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L51",
+      "receiver": "rightLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_shooteriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L53",
+      "receiver": "rightFollower",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getAppliedOutput",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L59",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getBusVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L59",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getVelocity",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L60",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getEncoder",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L60",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L61",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L62",
+      "receiver": "leftFollower",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getAppliedOutput",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L63",
+      "receiver": "rightLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getBusVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L63",
+      "receiver": "rightLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getVelocity",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L64",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getEncoder",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L64",
+      "receiver": "rightLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L65",
+      "receiver": "rightLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L66",
+      "receiver": "rightFollower",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage",
+      "callee": "setVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L77",
+      "receiver": "leftLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_shooter_shooteriospark_shooteriospark_setvoltage",
+      "callee": "setVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/shooter/ShooterIOSpark.java",
+      "source_location": "L78",
+      "receiver": "rightLeader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    }
+  ]
+}

@@ -1,1 +1,359 @@
-{"nodes": [{"id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java", "label": "IntakeRollerIOSpark.java", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L1"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark", "label": "IntakeRollerIOSpark", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L10", "_callable": true, "_callable_class": true}, {"id": "intakerollerio", "label": "IntakeRollerIO", "file_type": "code", "source_file": "", "source_location": ""}, {"id": "sparkbase", "label": "SparkBase", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "label": ".IntakeRollerIOSpark()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L15", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs", "label": ".updateInputs()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L32", "_callable": true}, {"id": "intakerollerioinputs", "label": "IntakeRollerIOInputs", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java"}, {"id": "override", "label": "Override", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_setspeed", "label": ".setSpeed()", "file_type": "code", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L39", "_callable": true}], "edges": [{"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java", "target": "persistmode", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L3", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java", "target": "resetmode", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L4", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java", "target": "sparkbase", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L5", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java", "target": "motortype", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L6", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java", "target": "sparkmax", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L7", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java", "target": "sparkmaxconfig", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L8", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark", "relation": "contains", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L10", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark", "target": "intakerollerio", "relation": "implements", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L10", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L11", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark", "target": "sparkbase", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L12", "weight": 1.0, "context": "field"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L15", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L32", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs", "target": "intakerollerioinputs", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L32", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L32", "weight": 1.0, "context": "attribute"}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark", "target": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_setspeed", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L39", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_setspeed", "target": "override", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L39", "weight": 1.0, "context": "attribute"}], "raw_calls": [{"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "SparkMaxConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L16", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L17", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L17", "receiver": "leaderConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "SparkMaxConfig", "is_member_call": false, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L21", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "follow", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L22", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "smartCurrentLimit", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L22", "receiver": null, "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "idleMode", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L22", "receiver": "followerConfig", "lang": "java", "receiver_type": "var"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L27", "receiver": "leader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark", "callee": "configure", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L28", "receiver": "follower", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs", "callee": "getAppliedOutput", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L34", "receiver": "leader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs", "callee": "getBusVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L34", "receiver": "leader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L35", "receiver": "leader", "lang": "java", "receiver_type": "SparkBase"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs", "callee": "getOutputCurrent", "is_member_call": true, "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java", "source_location": "L36", "receiver": "follower", "lang": "java", "receiver_type": "SparkBase"}]}
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java",
+      "label": "IntakeRollerIOSpark.java",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark",
+      "label": "IntakeRollerIOSpark",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L10",
+      "_callable": true,
+      "_callable_class": true
+    },
+    {
+      "id": "intakerollerio",
+      "label": "IntakeRollerIO",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "sparkbase",
+      "label": "SparkBase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "label": ".IntakeRollerIOSpark()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L15",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs",
+      "label": ".updateInputs()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L32",
+      "_callable": true
+    },
+    {
+      "id": "intakerollerioinputs",
+      "label": "IntakeRollerIOInputs",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java"
+    },
+    {
+      "id": "override",
+      "label": "Override",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_setspeed",
+      "label": ".setSpeed()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L39",
+      "_callable": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java",
+      "target": "persistmode",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java",
+      "target": "resetmode",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java",
+      "target": "sparkbase",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java",
+      "target": "motortype",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java",
+      "target": "sparkmax",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java",
+      "target": "sparkmaxconfig",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_java",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark",
+      "target": "intakerollerio",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark",
+      "target": "sparkbase",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs",
+      "target": "intakerollerioinputs",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L32",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L32",
+      "weight": 1.0,
+      "context": "attribute"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark",
+      "target": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_setspeed",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_setspeed",
+      "target": "override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "attribute"
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "SparkMaxConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L16",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L17",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L17",
+      "receiver": "leaderConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "SparkMaxConfig",
+      "is_member_call": false,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L21",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "follow",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L22",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "smartCurrentLimit",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L22",
+      "receiver": null,
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "idleMode",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L22",
+      "receiver": "followerConfig",
+      "lang": "java",
+      "receiver_type": "var"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L27",
+      "receiver": "leader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_intakerolleriospark",
+      "callee": "configure",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L28",
+      "receiver": "follower",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs",
+      "callee": "getAppliedOutput",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L34",
+      "receiver": "leader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs",
+      "callee": "getBusVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L34",
+      "receiver": "leader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L35",
+      "receiver": "leader",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_subsystems_intake_intakerolleriospark_intakerolleriospark_updateinputs",
+      "callee": "getOutputCurrent",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/subsystems/intake/IntakeRollerIOSpark.java",
+      "source_location": "L36",
+      "receiver": "follower",
+      "lang": "java",
+      "receiver_type": "SparkBase"
+    }
+  ]
+}

@@ -1,1 +1,468 @@
-{"nodes": [{"id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java", "label": "ShooterCommands.java", "file_type": "code", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L1"}, {"id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands", "label": "ShooterCommands", "file_type": "code", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L8", "_callable": true, "_callable_class": true}, {"id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootercommands", "label": ".ShooterCommands()", "file_type": "code", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L9", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle", "label": ".runAtDutyCycle()", "file_type": "code", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L16", "_callable": true}, {"id": "shooter", "label": "Shooter", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/commands/ShooterCommands.java"}, {"id": "command", "label": "Command", "file_type": "code", "source_file": "", "source_location": "", "origin_file": "$graphify-root$/src/main/java/frc/robot/commands/ShooterCommands.java"}, {"id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity", "label": ".runAtVelocity()", "file_type": "code", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L20", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter", "label": ".stopShooter()", "file_type": "code", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L25", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "label": ".shooterVoltageTuning()", "file_type": "code", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L29", "_callable": true}, {"id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "label": ".shooterTuning()", "file_type": "code", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L45", "_callable": true}], "edges": [{"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java", "target": "smartdashboard", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L3", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java", "target": "command", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L4", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java", "target": "commands", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L5", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java", "target": "shooter", "relation": "imports", "context": "import", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L6", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java", "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands", "relation": "contains", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L8", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands", "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootercommands", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L9", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands", "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L16", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle", "target": "shooter", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L16", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle", "target": "command", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L16", "weight": 1.0, "context": "return_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands", "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L20", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity", "target": "shooter", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L20", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity", "target": "command", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L20", "weight": 1.0, "context": "return_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands", "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L25", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter", "target": "shooter", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L25", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter", "target": "command", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L25", "weight": 1.0, "context": "return_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands", "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L29", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "target": "shooter", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L29", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "target": "command", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L29", "weight": 1.0, "context": "return_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands", "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "relation": "method", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L45", "weight": 1.0}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "target": "shooter", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L45", "weight": 1.0, "context": "parameter_type"}, {"source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "target": "command", "relation": "references", "confidence": "EXTRACTED", "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L45", "weight": 1.0, "context": "return_type"}], "raw_calls": [{"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle", "callee": "runEnd", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L17", "receiver": "Commands", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle", "callee": "setDutyCycle", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L17", "receiver": "shooter", "lang": "java", "receiver_type": "Shooter"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity", "callee": "runEnd", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L21", "receiver": "Commands", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity", "callee": "setTargetVelocity", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L22", "receiver": "shooter", "lang": "java", "receiver_type": "Shooter"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter", "callee": "run", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L26", "receiver": "Commands", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "callee": "putBoolean", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L30", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "callee": "putNumber", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L31", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "callee": "runEnd", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L33", "receiver": "Commands", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "callee": "getBoolean", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L35", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "callee": "setVoltage", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L36", "receiver": "shooter", "lang": "java", "receiver_type": "Shooter"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "callee": "getNumber", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L36", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning", "callee": "stop", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L38", "receiver": "shooter", "lang": "java", "receiver_type": "Shooter"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "callee": "putBoolean", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L46", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "callee": "putNumber", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L47", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "callee": "runEnd", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L49", "receiver": "Commands", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "callee": "getBoolean", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L51", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "callee": "setDutyCycle", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L52", "receiver": "shooter", "lang": "java", "receiver_type": "Shooter"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "callee": "getNumber", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L52", "receiver": "SmartDashboard", "lang": "java"}, {"caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning", "callee": "stop", "is_member_call": true, "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java", "source_location": "L54", "receiver": "shooter", "lang": "java", "receiver_type": "Shooter"}]}
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java",
+      "label": "ShooterCommands.java",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands",
+      "label": "ShooterCommands",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L8",
+      "_callable": true,
+      "_callable_class": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootercommands",
+      "label": ".ShooterCommands()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L9",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle",
+      "label": ".runAtDutyCycle()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L16",
+      "_callable": true
+    },
+    {
+      "id": "shooter",
+      "label": "Shooter",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/commands/ShooterCommands.java"
+    },
+    {
+      "id": "command",
+      "label": "Command",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "origin_file": "$graphify-root$/src/main/java/frc/robot/commands/ShooterCommands.java"
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity",
+      "label": ".runAtVelocity()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L20",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter",
+      "label": ".stopShooter()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L25",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "label": ".shooterVoltageTuning()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L29",
+      "_callable": true
+    },
+    {
+      "id": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "label": ".shooterTuning()",
+      "file_type": "code",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L45",
+      "_callable": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java",
+      "target": "smartdashboard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java",
+      "target": "command",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java",
+      "target": "commands",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java",
+      "target": "shooter",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_java",
+      "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands",
+      "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootercommands",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands",
+      "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle",
+      "target": "shooter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle",
+      "target": "command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands",
+      "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity",
+      "target": "shooter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity",
+      "target": "command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands",
+      "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter",
+      "target": "shooter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter",
+      "target": "command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands",
+      "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "target": "shooter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "target": "command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands",
+      "target": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "target": "shooter",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "target": "command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "return_type"
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle",
+      "callee": "runEnd",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L17",
+      "receiver": "Commands",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatdutycycle",
+      "callee": "setDutyCycle",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L17",
+      "receiver": "shooter",
+      "lang": "java",
+      "receiver_type": "Shooter"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity",
+      "callee": "runEnd",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L21",
+      "receiver": "Commands",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_runatvelocity",
+      "callee": "setTargetVelocity",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L22",
+      "receiver": "shooter",
+      "lang": "java",
+      "receiver_type": "Shooter"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_stopshooter",
+      "callee": "run",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L26",
+      "receiver": "Commands",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "callee": "putBoolean",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L30",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "callee": "putNumber",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L31",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "callee": "runEnd",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L33",
+      "receiver": "Commands",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "callee": "getBoolean",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L35",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "callee": "setVoltage",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L36",
+      "receiver": "shooter",
+      "lang": "java",
+      "receiver_type": "Shooter"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "callee": "getNumber",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L36",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootervoltagetuning",
+      "callee": "stop",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L38",
+      "receiver": "shooter",
+      "lang": "java",
+      "receiver_type": "Shooter"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "callee": "putBoolean",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L46",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "callee": "putNumber",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L47",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "callee": "runEnd",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L49",
+      "receiver": "Commands",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "callee": "getBoolean",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L51",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "callee": "setDutyCycle",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L52",
+      "receiver": "shooter",
+      "lang": "java",
+      "receiver_type": "Shooter"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "callee": "getNumber",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L52",
+      "receiver": "SmartDashboard",
+      "lang": "java"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_main_java_frc_robot_commands_shootercommands_shootercommands_shootertuning",
+      "callee": "stop",
+      "is_member_call": true,
+      "source_file": "src/main/java/frc/robot/commands/ShooterCommands.java",
+      "source_location": "L54",
+      "receiver": "shooter",
+      "lang": "java",
+      "receiver_type": "Shooter"
+    }
+  ]
+}
