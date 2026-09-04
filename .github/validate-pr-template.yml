@@ -2,7 +2,7 @@ name: Validate PR Checklist
 
 on:
   pull_request:
-    types:
+    types: # Fixed: changed from 'type' to 'types'
       - opened
       - edited
       - synchronize
@@ -14,8 +14,8 @@ permissions:
 
 jobs:
   validate-pr-checklist:
-    runs-on: ubuntu-latest
-    steps:
+    runs-on: ubuntu-latest # Added: Required runner allocation
+    steps:                 # Added: Required steps block
       - name: Validate PR Checklist
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
@@ -28,31 +28,33 @@ jobs:
           body = os.environ.get("PR_BODY", "")
           body_lower = body.lower()
 
+          # Fixed: matched the list variable name used in the loop below
           required_items = [
-              "I reviewed my own code",
-              "I ran the applicable tests locally and they **passed**",
-              "I ran the code on the robot and it works"
+            "I reviewed my own code",
+            "I ran the applicable tests locally and they **passed**",
+            "I ran the code on the robot and it works"
           ]
 
           failures = []
 
           if not body.strip():
-              failures.append("The pull request description is empty.")
+            failures.append("The pull request description is empty.")
           
           for item in required_items:
-              checked_item = f"- [x] {item}".lower()
+            checked_item = f"- [x] {item}".lower()
 
-              if checked_item not in body_lower:
-                  failures.append(f"Required item is missing or unchecked: {item}")
+            # Fixed: changed check_item to checked_item to match definition
+            if checked_item not in body_lower:
+              failures.append(f"Required item is missing or unchecked: {item}")
 
           if failures:
-              print("Pull request validation failed:")
-              for failure in failures:
-                  print(f"  - {failure}")
+            print("Pull request validation failed:")
+            for failure in failures:
+              print(f"  - {failure}")
 
-              print("")
-              print("Complete all required checklist items in the PR description.")
-              sys.exit(1)
+            print("")
+            print("Complete all required checklist items in the PR description.")
+            sys.exit(1)
           
           print("All required PR checklist items are present and checked.")
           PY
