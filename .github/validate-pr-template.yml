@@ -2,7 +2,7 @@ name: Validate PR Checklist
 
 on:
   pull_request:
-    type:
+    types:
       - opened
       - edited
       - synchronize
@@ -18,6 +18,7 @@ jobs:
       env:
         PR_BODY: ${{ github.event.pull_request.body }}
       shell: bash
+      runs-on: unbuntu-latest
       run: |
         python3 <<'PY'
         import os
@@ -26,7 +27,7 @@ jobs:
         body = os.environ.get("PR_BODY", "")
         body_lower = body.lower()
 
-        require_items = [
+        required_items = [
           "I reviewed my own code",
           "I ran the applicable tests locally and they **passed**",
           "I ran the code on the robot and it works"
@@ -40,7 +41,7 @@ jobs:
         for item in required_items:
           checked_item = f"- [x] {item}".lower()
 
-          if check_item not in body_lower:
+          if checked_item not in body_lower:
             failures.append(f"Required item is missing or unchecked: {item}")
 
         if failures:
