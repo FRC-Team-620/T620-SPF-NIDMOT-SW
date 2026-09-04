@@ -14,44 +14,45 @@ permissions:
 
 jobs:
   validate-pr-checklist:
-    - name: Validate PR Checklist
-      env:
-        PR_BODY: ${{ github.event.pull_request.body }}
-      shell: bash
-      runs-on: unbuntu-latest
-      run: |
-        python3 <<'PY'
-        import os
-        import sys
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR Checklist
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        shell: bash
+        run: |
+          python3 <<'PY'
+          import os
+          import sys
 
-        body = os.environ.get("PR_BODY", "")
-        body_lower = body.lower()
+          body = os.environ.get("PR_BODY", "")
+          body_lower = body.lower()
 
-        required_items = [
-          "I reviewed my own code",
-          "I ran the applicable tests locally and they **passed**",
-          "I ran the code on the robot and it works"
-        ]
+          required_items = [
+              "I reviewed my own code",
+              "I ran the applicable tests locally and they **passed**",
+              "I ran the code on the robot and it works"
+          ]
 
-        failures = []
+          failures = []
 
-        if not body.strip():
-          failures.append("The pull request description is empty.")
-        
-        for item in required_items:
-          checked_item = f"- [x] {item}".lower()
+          if not body.strip():
+              failures.append("The pull request description is empty.")
+          
+          for item in required_items:
+              checked_item = f"- [x] {item}".lower()
 
-          if checked_item not in body_lower:
-            failures.append(f"Required item is missing or unchecked: {item}")
+              if checked_item not in body_lower:
+                  failures.append(f"Required item is missing or unchecked: {item}")
 
-        if failures:
-          print("Pull request validation failed:")
-          for failure in failures:
-            print(f"  - {failure}")
+          if failures:
+              print("Pull request validation failed:")
+              for failure in failures:
+                  print(f"  - {failure}")
 
-          print("")
-          print("Complete all required checklist items in the PR description.")
-          sys.exit(1)
-        
-        print("All required PR checklist items are present and checked.")
-        PY
+              print("")
+              print("Complete all required checklist items in the PR description.")
+              sys.exit(1)
+          
+          print("All required PR checklist items are present and checked.")
+          PY
