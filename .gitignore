@@ -188,3 +188,6 @@ compile_commands.json
 
 # Version file
 src/main/java/frc/robot/BuildConstants.java
+
+# Graphify knowledge-graph output (regenerated locally, not source)
+graphify-out/
