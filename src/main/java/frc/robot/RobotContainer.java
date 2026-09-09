@@ -46,6 +46,12 @@ import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.shooter.ShooterConstants;
 import frc.robot.subsystems.shooter.ShooterIO;
 import frc.robot.subsystems.shooter.ShooterIOSpark;
+import frc.robot.subsystems.vision.Vision;
+import frc.robot.subsystems.vision.VisionConstants;
+import frc.robot.subsystems.vision.VisionIO;
+import frc.robot.subsystems.vision.VisionIOLimelight;
+import frc.robot.subsystems.vision.VisionIOPhotonVisionSim;
+import java.util.function.DoubleSupplier;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -62,6 +68,7 @@ public class RobotContainer {
   private final IntakeRoller intakeRoller;
   private final Hood hood;
   private final Shooter shooter;
+  private final Vision vision;
 
   // Controller, controller = driver, op = operator
   private final CommandXboxController driver = new CommandXboxController(0);
@@ -88,6 +95,11 @@ public class RobotContainer {
         intakeRoller = new IntakeRoller(new IntakeRollerIOSpark());
         hood = new Hood(new HoodIOSpark());
         shooter = new Shooter(new ShooterIOSpark());
+        vision =
+            new Vision(
+                drive::addVisionMeasurement,
+                new VisionIOLimelight(VisionConstants.camera0Name, VisionConstants.robotToCamera0),
+                new VisionIOLimelight(VisionConstants.camera1Name, VisionConstants.robotToCamera1));
         break;
 
       case SIM:
@@ -104,6 +116,13 @@ public class RobotContainer {
         intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
         hood = new Hood(new HoodIO() {});
         shooter = new Shooter(new ShooterIO() {});
+        vision =
+            new Vision(
+                drive::addVisionMeasurement,
+                new VisionIOPhotonVisionSim(
+                    VisionConstants.camera0Name, VisionConstants.robotToCamera0, drive::getPose),
+                new VisionIOPhotonVisionSim(
+                    VisionConstants.camera1Name, VisionConstants.robotToCamera1, drive::getPose));
         break;
 
       default:
@@ -120,6 +139,7 @@ public class RobotContainer {
         intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
         hood = new Hood(new HoodIO() {});
         shooter = new Shooter(new ShooterIO() {});
+        vision = new Vision(drive::addVisionMeasurement, new VisionIO() {}, new VisionIO() {});
         break;
     }
 
@@ -229,6 +249,16 @@ public class RobotContainer {
             () -> driver.getLeftY() * speedModifier,
             () -> driver.getLeftX() * speedModifier,
             () -> -driver.getRightX()));
+
+    // Auto-aim at boiler while left bumper is held: rotate drive toward target and adjust hood
+    // angle
+    DoubleSupplier distanceToBoiler = DriveCommands.distanceToBoiler(drive);
+    driver
+        .leftBumper()
+        .whileTrue(
+            Commands.parallel(
+                DriveCommands.autoAim(drive, () -> -driver.getLeftY(), () -> -driver.getLeftX()),
+                HoodCommands.autoAim(hood, distanceToBoiler)));
 
     // Lock to 0° when A button is held
     driver

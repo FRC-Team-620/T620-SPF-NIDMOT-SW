@@ -1,6 +1,7 @@
 package frc.robot.subsystems.shooter;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
 
 public class ShooterConstants {
 
@@ -34,6 +35,19 @@ public class ShooterConstants {
   public static final double hoodMaxPosition = -8.0;
   public static final double hoodMaxOutput = 0.75;
   public static final double hoodAdjustDelta = 0.5;
+
+  // -------------------------------------------------------------------------
+  // Hood auto-aim: distance (meters) -> hood encoder position
+  // More negative position = higher launch angle
+  // TODO: replace placeholder entries with values measured on the real robot
+  // -------------------------------------------------------------------------
+  public static final InterpolatingDoubleTreeMap hoodAngleMap = new InterpolatingDoubleTreeMap();
+
+  static {
+    hoodAngleMap.put(1.0, -2.0); // TODO: tune
+    hoodAngleMap.put(3.0, -5.0); // TODO: tune
+    hoodAngleMap.put(5.0, -7.0); // TODO: tune
+  }
 
   // -------------------------------------------------------------------------
   // Shooter velocity control
