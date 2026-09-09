@@ -16,9 +16,33 @@ jobs:
   validate-pr-checklist:
     runs-on: ubuntu-latest # Added: Required runner allocation
     steps:                 # Added: Required steps block
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect robot code changes
+        id: robot_code
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          # Only require robot-testing sign-off when the diff touches something that
+          # actually runs on / affects the robot. Everything else (docs, CI config,
+          # gitignore, graphify cache, etc.) has nothing to run on a robot.
+          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- \
+            'src/main/java' 'src/main/deploy' 'vendordeps' 'build.gradle' 'settings.gradle')
+          if [ -n "$CHANGED" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Validate PR Checklist
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
+          ROBOT_CODE_CHANGED: ${{ steps.robot_code.outputs.changed }}
         shell: bash
         run: |
           python3 <<'PY'
@@ -27,19 +51,21 @@ jobs:
 
           body = os.environ.get("PR_BODY", "")
           body_lower = body.lower()
+          robot_code_changed = os.environ.get("ROBOT_CODE_CHANGED", "true") == "true"
 
           # Fixed: matched the list variable name used in the loop below
-          required_items = [
-            "I reviewed my own code",
-            "I ran the applicable tests locally and they **passed**",
-            "I ran the code on the robot and it works"
-          ]
+          required_items = ["I reviewed my own code"]
+          if robot_code_changed:
+            required_items += [
+              "I ran the applicable tests locally and they **passed**",
+              "I ran the code on the robot and it works",
+            ]
 
           failures = []
 
           if not body.strip():
             failures.append("The pull request description is empty.")
-          
+
           for item in required_items:
             checked_item = f"- [x] {item}".lower()
 
@@ -53,8 +79,14 @@ jobs:
               print(f"  - {failure}")
 
             print("")
+            if not robot_code_changed:
+              print("Note: no robot code (src/main/java, src/main/deploy, vendordeps, "
+                    "build.gradle, settings.gradle) changed in this PR, so the "
+                    "local-test / on-robot items were not required.")
             print("Complete all required checklist items in the PR description.")
             sys.exit(1)
-          
+
+          if not robot_code_changed:
+            print("No robot code changed — skipped local-test / on-robot checklist requirements.")
           print("All required PR checklist items are present and checked.")
           PY
