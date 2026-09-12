@@ -98,8 +98,7 @@ public class RobotContainer {
         vision =
             new Vision(
                 drive::addVisionMeasurement,
-                new VisionIOLimelight(VisionConstants.camera0Name, VisionConstants.robotToCamera0),
-                new VisionIOLimelight(VisionConstants.camera1Name, VisionConstants.robotToCamera1));
+                new VisionIOLimelight(VisionConstants.camera0Name, VisionConstants.robotToCamera0));
         break;
 
       case SIM:
