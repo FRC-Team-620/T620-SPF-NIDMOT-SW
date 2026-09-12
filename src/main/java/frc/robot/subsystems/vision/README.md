@@ -9,7 +9,7 @@ AprilTag-based pose estimation via [PhotonVision](https://docs.photonvision.org/
 | Coprocessor | Orange Pi 5 running the [PhotonVision image](https://docs.photonvision.org/en/latest/docs/installation/index.html) | Imaged and configured |
 | Cameras | 2× Arducam OV9281 (USB, global shutter) | Configured — AprilTag pipelines active, named `camera_0` / `camera_1` |
 | Power | 5V (Pi) or 12V (regulated) off the robot's PDH, **not** off a Rev/CAN device — vision hardware has no CAN connection at all | — |
-| Network | Coprocessor + cameras on the robot's radio network (Ethernet), each camera named to match `VisionConstants.camera0Name`/`camera1Name` | photonvision-front static IP: `10.6.20.12` |
+| Network | Coprocessor + cameras on the robot's radio network (Ethernet), each camera named to match `VisionConstants.camera0Name`/`camera1Name` | photonvision-front static IP: `10.6.20.9` |
 | Mount | 2 locations TBD once the coprocessor/camera enclosure is fabricated | — |
 
 **No CAN involvement.** PhotonVision talks to the robot over NetworkTables/Ethernet, so it doesn't interact with the REV motor controllers or the Pigeon 2 in any way — hardware selection here is independent of the drivetrain.

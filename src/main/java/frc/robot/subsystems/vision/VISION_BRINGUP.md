@@ -10,7 +10,7 @@ Ref: https://docs.advantagekit.org/getting-started/template-projects/vision-temp
 
 - [ ] Orange Pi 5 imaged with the [PhotonVision image](https://docs.photonvision.org/en/latest/docs/installation/index.html) and powered from PDH (5V or regulated 12V — **not** off a REV/CAN device)
 - [ ] Both Arducam OV9281 cameras plugged into the Orange Pi via USB
-- [ ] Orange Pi connected to the robot's radio via Ethernet and assigned static IP `10.6.20.12`
+- [ ] Orange Pi connected to the robot's radio via Ethernet and assigned static IP `10.6.20.9`
 - [ ] roboRIO on network (robot radio up)
 - [ ] AdvantageScope installed on driver station laptop
 - [ ] FAT32-formatted USB stick inserted in roboRIO (required for AdvantageKit log files)
@@ -19,7 +19,7 @@ Ref: https://docs.advantagekit.org/getting-started/template-projects/vision-temp
 
 ## Step 1 — PhotonVision Web UI Verification
 
-Open a browser and navigate to `http://10.6.20.12:5800`.
+Open a browser and navigate to `http://10.6.20.9:5800`.
 
 Confirm:
 - Both cameras appear in the **Cameras** dropdown — they should be named `camera_0` and `camera_1`
@@ -56,7 +56,7 @@ If the coprocessor shows different names, update these constants before deployin
 
 If a disconnection alert fires, verify:
 - The camera name in `VisionConstants` matches the PhotonVision UI exactly (case-sensitive)
-- The Orange Pi is reachable from the roboRIO (`ping 10.6.20.12` from DS laptop)
+- The Orange Pi is reachable from the roboRIO (`ping 10.6.20.9` from DS laptop)
 - PhotonVision is running (check the web UI)
 
 ---
@@ -222,10 +222,10 @@ Log files saved to USB stick on roboRIO. Open with `File → Open Log` in Advant
 
 | Symptom | Likely Cause | Fix |
 |---|---|---|
-| Alert: "Vision camera N is disconnected" | Name mismatch or Orange Pi unreachable | Match `cameraXName` in `VisionConstants` to PhotonVision UI; ping `10.6.20.12` |
+| Alert: "Vision camera N is disconnected" | Name mismatch or Orange Pi unreachable | Match `cameraXName` in `VisionConstants` to PhotonVision UI; ping `10.6.20.9` |
 | All poses in `RobotPosesRejected` | High ambiguity or bad calibration | Complete intrinsic calibration (Step 4); loosen `maxAmbiguity` temporarily to diagnose |
 | Accepted poses offset from odometry | Wrong mount transform | Re-measure `robotToCamera` (Step 5) |
 | Pose jumps wildly at range | Single-tag ambiguity too high | Lower `maxAmbiguity`; rely on multi-tag results only |
 | Vision not correcting odometry drift | Consumer not wired up | Verify `Vision` is constructed with `drive::addVisionMeasurement` in `RobotContainer` |
 | Reprojection error > 1.0 px | Poor calibration coverage | Recalibrate with more images at varied distances/angles |
-| PhotonVision UI not loading | Orange Pi not on network | Check Ethernet cable; confirm static IP `10.6.20.12`; check PDH channel power |
+| PhotonVision UI not loading | Orange Pi not on network | Check Ethernet cable; confirm static IP `10.6.20.9`; check PDH channel power |
