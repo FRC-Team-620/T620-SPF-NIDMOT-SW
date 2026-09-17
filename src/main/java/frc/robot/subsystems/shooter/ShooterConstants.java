@@ -38,7 +38,8 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   // Shooter velocity control
   // -------------------------------------------------------------------------
-  public static final double shooterIdleRPM = 750.0;
+  // public static final double shooterIdleRPM = 750.0;
+  public static final double shooterIdleRPM = 0;
   public static final double shooterPresetRPM = 3700.0;
   public static final double shooterKP = 0.002;
   public static final double shooterKI = 0.0;
