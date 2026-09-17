@@ -33,16 +33,17 @@ public class ShooterIOSpark implements ShooterIO {
 
     var rightLeaderConfig = new SparkFlexConfig();
     rightLeaderConfig
-        .inverted(ShooterConstants.invertRightBank)
         .idleMode(ShooterConstants.idleMode)
-        .smartCurrentLimit(ShooterConstants.currentLimitAmps);
+        .smartCurrentLimit(ShooterConstants.currentLimitAmps)
+        .follow(leftLeader, true);
+    // .inverted(ShooterConstants.invertRightBank)
     // rightLeaderConfig.encoder.quadratureMeasurementPeriod(8).quadratureAverageDepth(30);
 
     var rightFollowerConfig = new SparkFlexConfig();
     rightFollowerConfig
         .idleMode(ShooterConstants.idleMode)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps)
-        .follow(rightLeader, false);
+        .follow(leftLeader, true);
 
     leftLeader.configure(
         leftLeaderConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
@@ -60,6 +61,7 @@ public class ShooterIOSpark implements ShooterIO {
     inputs.leftVelocityRPM = leftLeader.getEncoder().getVelocity();
     inputs.leftLeaderCurrentAmps = leftLeader.getOutputCurrent();
     inputs.leftFollowerCurrentAmps = leftFollower.getOutputCurrent();
+
     inputs.rightAppliedVolts = rightLeader.getAppliedOutput() * rightLeader.getBusVoltage();
     inputs.rightVelocityRPM = rightLeader.getEncoder().getVelocity();
     inputs.rightLeaderCurrentAmps = rightLeader.getOutputCurrent();
@@ -69,12 +71,12 @@ public class ShooterIOSpark implements ShooterIO {
   @Override
   public void setDutyCycle(double speed) {
     leftLeader.set(speed);
-    rightLeader.set(speed);
+    // rightLeader.set(speed);
   }
 
   @Override
   public void setVoltage(double volts) {
     leftLeader.setVoltage(volts);
-    rightLeader.setVoltage(volts);
+    // rightLeader.setVoltage(volts);
   }
 }
