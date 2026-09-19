@@ -488,6 +488,45 @@ tasks it depends on.
   validator); the checklist validator no longer requires the now-redundant
   local-test checkbox; the PR template reflects the same change.
 
+- **T17 — Additional smoke tests (hardware IO construction, autonomous command
+  resolution, enable/disable transitions).** Extends the coverage established by T1
+  with three more cheap, high-value "does this throw" checks that are otherwise
+  completely untested today:
+  - **Hardware IO construction.** `Constants.currentMode` only resolves to `REAL`
+    when `RobotBase.isReal()` is true, so the `REAL` branch of `RobotContainer`'s
+    constructor (the six `*Spark`/`GyroIOPigeon2` hardware IO implementations) never
+    runs under `./gradlew test` or the desktop simulator — it's only ever exercised
+    live on the RIO. Create `src/test/java/frc/robot/HardwareIOConstructionTest.java`
+    with one `@Test` per hardware IO class (`ShooterIOSpark`, `HoodIOSpark`,
+    `IntakePivotIOSpark`, `IntakeRollerIOSpark`, `IndexerIOSpark`, `ModuleIOSpark`,
+    `GyroIOPigeon2`), each constructing the class under `HAL.initialize(500, 0)` and
+    failing with the exception printed if construction throws (same pattern as
+    `RobotContainerTest`). Catches bad CAN/Spark config calls (wrong enum, duplicate
+    setup, mismatched units) before they reach the field.
+  - **Autonomous command resolution.** Add a test to the existing
+    `RobotContainerTest.java` (from T1) asserting `robotContainer.getAutonomousCommand()`
+    returns non-null after construction. Cheap addition confirming
+    `Autos.centerFrontShoot(...)` and the default `autoChooser` option resolve
+    without throwing and without hitting `AutoBuilder.buildAutoChooser()`'s
+    silently-empty failure mode (e.g. missing/malformed PathPlanner deploy files).
+  - **Enable/disable transition smoke test.** `RobotContainer.configureButtonBindings()`
+    wires `RobotModeTriggers.disabled()` to toggle coast/brake mode on
+    `intakePivot`/`hood` — this has zero test coverage today. Add a test to
+    `RobotContainerTest.java` that, after construction, uses
+    `edu.wpi.first.wpilibj.simulation.DriverStationSim` to flip `setEnabled(true)`/
+    `setEnabled(false)` (calling `DriverStationSim.notifyNewData()` after each) and
+    runs `CommandScheduler.getInstance().run()` a few times per state, asserting no
+    exception is thrown across at least one disable→enable→disable cycle. This is a
+    smoke check only (no assertion on brake-mode call content, since the real
+    subsystems built inside `RobotContainer` aren't exposed for inspection) but
+    catches a trigger wired to a stale/renamed method.
+
+  No changes to `src/main`. Extends the file T1 already created rather than adding a
+  new one for the second and third bullets, so this task should be picked up after
+  T1 is merged (already done) rather than truly in parallel with it.
+  Acceptance: `./gradlew test` runs and passes all of the above; CI (`build.yml`) is
+  green.
+
 ### Wave 1 — depends on Wave 0, still parallel against each other
 
 - **T7 — ShooterTestCommands.** Create
@@ -561,10 +600,15 @@ tasks it depends on.
 
 ### Coordination notes
 
-- Every task except T11 creates new files or edits files no other task touches —
-  safe to assign to fully independent agents/students without merge coordination.
+- Every task except T11 and T17 creates new files or edits files no other task
+  touches — safe to assign to fully independent agents/students without merge
+  coordination.
 - T11 is the single integration point; hold it until T7/T8/T9 are merged, or
   expect repeated conflicts on `RobotContainer.java`.
+- T17's second and third bullets edit `RobotContainerTest.java`, the file T1
+  creates — sequence T17 after T1 lands (already done) rather than truly in
+  parallel with it; its first bullet (`HardwareIOConstructionTest.java`) is a new
+  file and has no such conflict.
 - T5 and T6 are process/tooling tasks, not subsystem code — safe to assign to
   whoever is comfortable with Gradle/CI/scripting rather than robot logic.
 - T16 touches `.github/workflows/test.yml` (new), `validate-pr-template.yml`, and
