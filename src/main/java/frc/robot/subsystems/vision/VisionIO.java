@@ -9,6 +9,8 @@ package frc.robot.subsystems.vision;
 
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Transform3d;
+
 import org.littletonrobotics.junction.AutoLog;
 
 public interface VisionIO {
@@ -19,6 +21,8 @@ public interface VisionIO {
         new TargetObservation(Rotation2d.kZero, Rotation2d.kZero);
     public PoseObservation[] poseObservations = new PoseObservation[0];
     public int[] tagIds = new int[0];
+
+    public Transform3d robotToCamera = new Transform3d();
   }
 
   /** Represents the angle to a simple target, not used for pose estimation. */
@@ -37,6 +41,8 @@ public interface VisionIO {
     PHOTONVISION,
     LIMELIGHT
   }
+
+  // public default void getRobotToCamera() {}
 
   default void updateInputs(VisionIOInputs inputs) {}
 }

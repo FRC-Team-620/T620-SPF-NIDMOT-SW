@@ -45,7 +45,7 @@ public class ShootWithVision extends Command {
     @Override
     public void end(boolean interrupted) {
         shooter.setTargetVelocity(0);
-        
+        //hood.doSomething();
     }
 
     @Override
