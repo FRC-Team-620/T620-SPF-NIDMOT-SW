@@ -570,3 +570,20 @@ tasks it depends on.
 - T16 touches `.github/workflows/test.yml` (new), `validate-pr-template.yml`, and
   `pull_request_template.md` — disjoint from T5's `build.yml` change, so the two
   can run in parallel despite both being CI-focused.
+
+---
+
+## 10. Future tasks (not part of this rollout)
+
+Adjacent CI-hygiene items noticed while working on this plan, unrelated to unit
+testing itself — not sequenced into the waves above, pick up opportunistically.
+
+- **Switch CodeQL from default setup to advanced setup.** CodeQL currently runs
+  via GitHub's default setup (configured in repo Settings → Code security, no
+  workflow file), which triggers on push to `main` and on PRs targeting `main`
+  but doesn't support `paths-ignore`, so it still runs (harmlessly, just
+  wastefully) on doc-only PRs. The repo is public, so advanced setup costs
+  nothing (GitHub Advanced Security licensing only applies to private repos).
+  Switching to advanced setup (Settings → Code security → Code scanning → CodeQL
+  → Set up → Switch to advanced) generates a `.github/workflows/codeql.yml` file
+  that can then get the same `paths-ignore: ['**.md']` treatment as `build.yml`.
