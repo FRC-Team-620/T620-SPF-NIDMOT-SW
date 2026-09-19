@@ -1,4 +1,4 @@
-name: Build
+name: Build and format
 
 on:
   push:
@@ -8,11 +8,23 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    container: wpilib/roborio-cross-ubuntu:2026-22.04
+    container: wpilib/roborio-cross-ubuntu:2025-22.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Grant execute permission
         run: chmod +x gradlew
       - name: Build robot code
         run: ./gradlew build
+  
+  build:
+    name: Format check
+    runs-on: ubuntu-latest
+    container: wpilib/roborio-cross-ubuntu:2025-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: Grant execute permission
+        run: chmod +x gradlew
+      - name: Format check
+        run: ./gradlew spotlessCheck
