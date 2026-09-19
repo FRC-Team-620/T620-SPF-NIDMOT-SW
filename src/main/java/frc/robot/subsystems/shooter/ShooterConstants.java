@@ -11,7 +11,7 @@ public class ShooterConstants {
   public static final int leftFollowerCanId = 42;
   public static final int rightLeaderCanId = 43;
   public static final int rightFollowerCanId = 44;
-  public static final int hoodCanId = 62;
+  public static final int hoodCanId = 45;
 
   // -------------------------------------------------------------------------
   // Motor configuration
@@ -38,8 +38,7 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   // Shooter velocity control
   // -------------------------------------------------------------------------
-  // public static final double shooterIdleRPM = 750.0;
-  public static final double shooterIdleRPM = 0;
+  public static final double shooterIdleRPM = 0.0;
   public static final double shooterPresetRPM = 3700.0;
   public static final double shooterKP = 0.002;
   public static final double shooterKI = 0.0;

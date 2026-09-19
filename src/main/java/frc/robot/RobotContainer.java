@@ -22,7 +22,6 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.HoodCommands;
 import frc.robot.commands.IndexerCommands;
-import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.GyroIO;
@@ -180,8 +179,8 @@ public class RobotContainer {
         "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
 
     // Idle shooter at 750 RPM by default; auto sequence controls spinup during autonomous
-    shooter.setDefaultCommand(
-        ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
+    // shooter.setDefaultCommand(
+    //     ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
     // Spin shooter at preset RPM while Y is held
     op.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
@@ -194,11 +193,11 @@ public class RobotContainer {
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
     // Run indexer at 50% while RB is held
-    driver.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
+    // driver.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
     op.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
-    driver.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
-    driver.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
+    // driver.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
+    // driver.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
     // op.rightBumper().onTrue(IntakePivotCommands.stow(intakePivot));
     // op.leftBumper().onTrue(IntakePivotCommands.extend(intakePivot));
@@ -213,13 +212,13 @@ public class RobotContainer {
 
     // Intake roller speed mapped 1:1 to left trigger
     double intakeSpeedModifier = 0.9;
-    intakeRoller.setDefaultCommand(
-        Commands.run(
-            () ->
-                intakeRoller.setSpeed(
-                    (driver.getRightTriggerAxis() - driver.getLeftTriggerAxis())
-                        * intakeSpeedModifier),
-            intakeRoller));
+    // intakeRoller.setDefaultCommand(
+    //     Commands.run(
+    //         () ->
+    //             intakeRoller.setSpeed(
+    //                 (driver.getRightTriggerAxis() - driver.getLeftTriggerAxis())
+    //                     * intakeSpeedModifier),
+    //         intakeRoller));
 
     // Default command, normal field-relative drive
     double speedModifier = 1;
@@ -242,7 +241,7 @@ public class RobotContainer {
 
     // Reset gyro to 0° when B button is pressed
     driver
-        .b()
+        .rightBumper()
         .onTrue(
             Commands.runOnce(
                     () ->
