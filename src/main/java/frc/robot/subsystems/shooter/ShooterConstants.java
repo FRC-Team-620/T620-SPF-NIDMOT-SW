@@ -60,4 +60,10 @@ public class ShooterConstants {
   public static final double shooterKS = 0.190783; // volts, static friction offset
   public static final double shooterKV = 0.00182048; // volts per RPM
   public static final double shooterVelocityToleranceRPM = 150.0;
+
+  // -------------------------------------------------------------------------
+  // Robot information (TO-DO - UPDATE WITH REAL ROBOT VALUES)
+  // -------------------------------------------------------------------------
+  public static final double robotHeightM = 1.83; // meters
+  public static final double shooterWheelRadiusM = 0.0762; // meters (3 inches)
 }
