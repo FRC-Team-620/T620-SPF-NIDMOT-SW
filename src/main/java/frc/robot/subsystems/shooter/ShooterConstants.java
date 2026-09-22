@@ -66,4 +66,5 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   public static final double robotHeightM = 1.83; // meters
   public static final double shooterWheelRadiusM = 0.0762; // meters (3 inches)
+  public static final double mechanismRatio = 4.0 / 3.0;
 }

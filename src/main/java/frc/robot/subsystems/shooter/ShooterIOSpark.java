@@ -24,6 +24,7 @@ public class ShooterIOSpark implements ShooterIO {
         .idleMode(ShooterConstants.idleMode)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps);
     // leftLeaderConfig.encoder.quadratureMeasurementPeriod(8).quadratureAverageDepth(30);
+    leftLeaderConfig.encoder.velocityConversionFactor(ShooterConstants.mechanismRatio);
 
     var leftFollowerConfig = new SparkFlexConfig();
     leftFollowerConfig
