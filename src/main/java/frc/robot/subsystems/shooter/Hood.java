@@ -40,8 +40,13 @@ public class Hood extends SubsystemBase {
   }
 
   public double getAngle(boolean atHub) {
-    double distFromHub = atHub ? 0.0 : ShooterConstants.hubToTowerDistanceM;
-    return 90 - .5 * Math.atan(distFromHub / (1.83 - ShooterConstants.robotHeightM)) + ShooterConstants.hoodPositionOffset;
+    // double distFromHub = atHub ? 0.0 : ShooterConstants.hubToTowerDistanceM;
+    // distFromHub += ShooterConstants.distOffset;
+    // return 90
+    //     - .5 * Math.atan(distFromHub / (1.83 - ShooterConstants.robotHeightM) * (180 / Math.PI))
+    //     + ShooterConstants.hoodPositionOffset;
+    double angle = atHub ? ShooterConstants.atHubAngle : ShooterConstants.atTowerAngle;
+    return angle;
   }
 
   public void adjustTargetPosition(double delta) {

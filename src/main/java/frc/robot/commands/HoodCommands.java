@@ -24,9 +24,7 @@ public class HoodCommands {
 
   public static Command extend(Hood hood, double targetPosition) {
     return Commands.runEnd(
-        () -> hood.setTargetPosition(targetPosition),
-        hood::stopPositionControl,
-        hood);
+        () -> hood.setTargetPosition(targetPosition), hood::stopPositionControl, hood);
   }
 
   public static Command adjustPosition(Hood hood, double delta) {

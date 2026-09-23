@@ -42,16 +42,20 @@ public class Shooter extends SubsystemBase {
   }
 
   public double getTargetVelocity(boolean atHub) {
-    double distFromHub = atHub ? 0.0 : ShooterConstants.hubToTowerDistanceM;
-    double minBallVelocity =
-        Math.sqrt(
-            9.81
-                * (Math.sqrt(
-                        Math.pow(distFromHub, 2)
-                            + Math.pow(1.83 - ShooterConstants.robotHeightM, 2))
-                    + 1.83
-                    - ShooterConstants.robotHeightM));
-    return (minBallVelocity / ShooterConstants.shooterWheelRadiusM) + ShooterConstants.shooterVelocityOffsetRPM;
+    // double distFromHub = atHub ? 0.0 : ShooterConstants.hubToTowerDistanceM;
+    // distFromHub += ShooterConstants.distOffset;
+    // double minBallVelocity =
+    //     Math.sqrt(
+    //         9.81
+    //             * (Math.sqrt(
+    //                     Math.pow(distFromHub, 2)
+    //                         + Math.pow(1.83 - ShooterConstants.robotHeightM, 2))
+    //                 + 1.83
+    //                 - ShooterConstants.robotHeightM));
+    // return (minBallVelocity / ShooterConstants.shooterWheelRadiusM) * (30 / Math.PI)
+    //     + ShooterConstants.shooterVelocityOffsetRPM;
+    double velocity = atHub ? ShooterConstants.atHubRPM : ShooterConstants.atTowerRPM;
+    return velocity;
   }
 
   public void stopVelocityControl() {

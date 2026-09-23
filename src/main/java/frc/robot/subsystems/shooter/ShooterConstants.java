@@ -50,9 +50,9 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   // Robot geometry
   // -------------------------------------------------------------------------
-  public static final double robotHeightM = 18.25/39.37;
-  public static final double shooterWheelRadiusM = 4/39.37;
-  
+  public static final double robotHeightM = 18.25 / 39.37;
+  public static final double shooterWheelRadiusM = 4 / 39.37;
+
   // -------------------------------------------------------------------------
   // field geometry
   // -------------------------------------------------------------------------
@@ -62,5 +62,13 @@ public class ShooterConstants {
   // tuning offsets
   // -------------------------------------------------------------------------
   public static final double shooterVelocityOffsetRPM = 0.0;
-  public static final double hoodPositionOffset = 0.0;
+  public static final double hoodPositionOffset = 5.0;
+  public static final double distOffset = .762;
+  public static final double atHubRPM = 100;
+  // scaling number
+  public static final double atHubAngle = 0.5 - 0.0;
+  public static final double atTowerRPM = 2850.0;
+  // scaling number
+  // public static final double atTowerAngle = (-7.5) * (20 / 360);
+  public static final double atTowerAngle = -1.0;
 }
