@@ -11,7 +11,7 @@ public class IntakePivot extends SubsystemBase {
   private final IntakePivotIO io;
   private final IntakePivotIOInputsAutoLogged inputs = new IntakePivotIOInputsAutoLogged();
 
-  private final PIDController pid = new PIDController(0.05, 0.0, 0.0);
+  private final PIDController pid = new PIDController(0.2, 0.0, 0.0);
   private boolean positionControlEnabled = false;
   private double targetPosition = 0.0;
 

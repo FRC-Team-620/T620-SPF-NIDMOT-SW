@@ -11,7 +11,7 @@ public class ShooterConstants {
   public static final int leftFollowerCanId = 42;
   public static final int rightLeaderCanId = 43;
   public static final int rightFollowerCanId = 44;
-  public static final int hoodCanId = 62;
+  public static final int hoodCanId = 45;
 
   // -------------------------------------------------------------------------
   // Motor configuration
