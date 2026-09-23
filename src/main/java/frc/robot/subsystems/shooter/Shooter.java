@@ -32,11 +32,26 @@ public class Shooter extends SubsystemBase {
       double pidDuty = pid.calculate(inputs.leftVelocityRPM, targetVelocityRPM);
       io.setDutyCycle(MathUtil.clamp(ffDuty + pidDuty, 0.0, 1.0));
     }
+
+    // SmartDashboard.putNumber("Shooter rpm", inputs.leftVelocityRPM);
   }
 
   public void setTargetVelocity(double rpm) {
     velocityControlEnabled = true;
     targetVelocityRPM = rpm;
+  }
+
+  public double getTargetVelocity(boolean atHub) {
+    double distFromHub = atHub ? 0.0 : ShooterConstants.hubToTowerDistanceM;
+    double minBallVelocity =
+        Math.sqrt(
+            9.81
+                * (Math.sqrt(
+                        Math.pow(distFromHub, 2)
+                            + Math.pow(1.83 - ShooterConstants.robotHeightM, 2))
+                    + 1.83
+                    - ShooterConstants.robotHeightM));
+    return (minBallVelocity / ShooterConstants.shooterWheelRadiusM) + ShooterConstants.shooterVelocityOffsetRPM;
   }
 
   public void stopVelocityControl() {

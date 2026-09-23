@@ -30,11 +30,18 @@ public class Hood extends SubsystemBase {
       io.setDutyCycle(
           MathUtil.clamp(output, -ShooterConstants.hoodMaxOutput, ShooterConstants.hoodMaxOutput));
     }
+
+    // SmartDashboard.putNumber("Hood position", inputs.encoderPosition);
   }
 
   public void setTargetPosition(double target) {
     positionControlEnabled = true;
     targetPosition = target;
+  }
+
+  public double getAngle(boolean atHub) {
+    double distFromHub = atHub ? 0.0 : ShooterConstants.hubToTowerDistanceM;
+    return 90 - .5 * Math.atan(distFromHub / (1.83 - ShooterConstants.robotHeightM)) + ShooterConstants.hoodPositionOffset;
   }
 
   public void adjustTargetPosition(double delta) {

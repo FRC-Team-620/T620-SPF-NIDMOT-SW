@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import frc.robot.commands.Autos;
@@ -184,7 +185,7 @@ public class RobotContainer {
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
     // Spin shooter at preset RPM while Y is held
-    driver.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+    driver.y().whileTrue(new ParallelCommandGroup(ShooterCommands.runAtVelocity(shooter, shooter.getTargetVelocity(true)), HoodCommands.extend(hood, hood.getAngle(true))));
 
     op.x().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
