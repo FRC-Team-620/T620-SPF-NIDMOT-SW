@@ -24,6 +24,7 @@ import frc.robot.commands.HoodCommands;
 import frc.robot.commands.IndexerCommands;
 import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
+import frc.robot.commands.ShootingCommands;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.GyroIO;
 import frc.robot.subsystems.drive.GyroIOPigeon2;
@@ -193,19 +194,26 @@ public class RobotContainer {
     shooter.setDefaultCommand(
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
-    // Spin shooter at preset RPM while Y is held
-    driver.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
-
-    op.x().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+    // Aim: spin the shooter and set the hood for a far/near shot while held; releasing drops the
+    // shooter back to idle and restows the hood
+    driver.y().whileTrue(ShootingCommands.aimFar(shooter, hood));
+    op.x().whileTrue(ShootingCommands.aimFar(shooter, hood));
+    driver.leftBumper().whileTrue(ShootingCommands.aimNear(shooter, hood));
+    op.b().whileTrue(ShootingCommands.aimNear(shooter, hood));
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
     op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
+
+    // Fire: stow the intake (slowly, to avoid jolting loaded cargo), then once the shooter is at
+    // its aimed velocity, feed cargo through the indexer and intake roller. Hold an aim button
+    // concurrently — the feed only starts once the shooter reaches the commanded speed.
+    driver
+        .rightBumper()
+        .whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
+    op.rightBumper().whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
 
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
-    // Run indexer at 50% while RB is held
-    driver.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
-    op.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
     driver.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
     driver.povUp().onTrue(IntakePivotCommands.extend(intakePivot));

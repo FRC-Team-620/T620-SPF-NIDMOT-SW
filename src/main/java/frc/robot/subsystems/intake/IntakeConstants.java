@@ -1,6 +1,7 @@
 package frc.robot.subsystems.intake;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+import edu.wpi.first.math.trajectory.TrapezoidProfile;
 
 public class IntakeConstants {
 
@@ -34,4 +35,16 @@ public class IntakeConstants {
   public static final double pivotHomingCurrentThreshold = 15.0; // TODO: tune me
   // Failsafe: abort homing if it hasn't completed within this many seconds
   public static final double pivotHomingTimeoutSeconds = 3.0; // TODO: tune me
+
+  // Reduced output ceiling for stowing during the fire sequence, so cargo already loaded against
+  // the hopper isn't jolted by a full-speed stow.
+  public static final double pivotFireStowMaxOutput = 0.15;
+
+  // Velocity-limited stow profile (max velocity, max acceleration in encoder units/sec[^2]).
+  // Not wired into any command yet — verify the reduced-output stow on the robot first, then
+  // tune these and switch fire over to IntakePivotCommands.stowProfiled.
+  public static final TrapezoidProfile.Constraints pivotFireStowConstraints =
+      new TrapezoidProfile.Constraints(20.0, 15.0);
+
+  public static final double rollerFireSpeed = 0.9;
 }

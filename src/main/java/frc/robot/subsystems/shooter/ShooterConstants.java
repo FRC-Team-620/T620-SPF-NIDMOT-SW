@@ -37,19 +37,22 @@ public class ShooterConstants {
   // Hood positions (primary encoder counts)
   // -----------------------------------`--------------------------------------
   public static final double hoodStowPosition = -0.1;
-  // public static final double hoodExtendPosition = -4.0; // tower
   public static final double hoodExtendPosition = -1.25; // hub
   public static final double hoodMaxPosition = -8.0;
   public static final double hoodMaxOutput = 0.75;
 
   public static final double hoodAdjustDelta = 0.5;
 
+  // Aim presets: near/far hood angle + shooter RPM pairs for the aim command.
+  public static final double hoodNearPosition = TestedPoints.Hub.hoodPosition;
+  public static final double hoodFarPosition = TestedPoints.Tower.hoodPosition;
+
   // -------------------------------------------------------------------------
   // Shooter velocity control
   // -------------------------------------------------------------------------
   public static final double shooterIdleRPM = 750.0;
-  // public static final double shooterPresetRPM = 2200.0; // tower
-  public static final double shooterPresetRPM = 2000.0; // tower
+  public static final double shooterNearRPM = TestedPoints.Hub.rpm;
+  public static final double shooterFarRPM = TestedPoints.Tower.rpm;
   public static final double shooterKP = 0.005; // volts per RPM of error
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;
@@ -61,7 +64,7 @@ public class ShooterConstants {
   // Known tested shot points (not wired to anything yet)
   // -------------------------------------------------------------------------
   public static final class TestedPoints {
-    public static final class Tower {
+    public static final class Tower { // bumper against line
       public static final double hoodPosition = -4.0;
       public static final double rpm = 2200.0;
     }
