@@ -18,7 +18,13 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   public static final IdleMode idleMode = IdleMode.kCoast;
   public static final IdleMode hoodIdleMode = IdleMode.kBrake;
-  public static final int currentLimitAmps = 40;
+  public static final int currentLimitAmps = 60; // was 40; limits spin-up/recovery acceleration
+
+  // Velocity measurement filter for the built-in Vortex encoder. REV defaults (100 ms period,
+  // 64-sample depth) add ~80 ms of lag, so the feedback loop reacts late to shot dips.
+  // Lower = less lag but noisier velocity.
+  public static final int velocityMeasurementPeriodMs = 16;
+  public static final int velocityAverageDepth = 2;
 
   // -------------------------------------------------------------------------
   // Bank inversion — configure once on the real robot
@@ -40,7 +46,7 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   public static final double shooterIdleRPM = 750.0;
   public static final double shooterPresetRPM = 3700.0;
-  public static final double shooterKP = 0.002;
+  public static final double shooterKP = 0.024; // volts per RPM of error (was 0.002 duty/RPM)
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;
   public static final double shooterKS = 0.190783; // volts, static friction offset
