@@ -46,4 +46,34 @@ public class ShooterConstants {
   public static final double shooterKS = 0.190783; // volts, static friction offset
   public static final double shooterKV = 0.00182048; // volts per RPM
   public static final double shooterVelocityToleranceRPM = 150.0;
+
+  // -------------------------------------------------------------------------
+  // Robot geometry
+  // -------------------------------------------------------------------------
+  public static final double robotHeightM = 18.25 / 39.37;
+  public static final double shooterWheelRadiusM = 4 / 39.37;
+
+  // -------------------------------------------------------------------------
+  // field geometry
+  // -------------------------------------------------------------------------
+  public static final double hubToTowerDistanceM = 2.9;
+
+  // -------------------------------------------------------------------------
+  // tuning offsets
+  // -------------------------------------------------------------------------
+  public static final double shooterVelocityOffsetRPM = 0.0;
+  public static final double hoodPositionOffset = 5.0;
+  public static final double distOffset = .762;
+
+  // -------------------------------------------------------------------------
+  // VALUES TO UPDATE
+  // -------------------------------------------------------------------------
+  public static final double atHubRPM = 100; //TO-DO: TUNE ME
+  public static final double atHubAngle = 0.5 - 0.0; //TO-DO: TUNE ME
+
+  public static final double atTowerRPM = 2400.0; //TESTED
+  public static final double atTowerAngle = -3; //TESTED
+  
+
+  // public static final double atTowerAngle = (-7.5) * (20 / 360);
 }

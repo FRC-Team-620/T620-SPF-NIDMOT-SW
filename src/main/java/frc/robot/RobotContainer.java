@@ -184,7 +184,17 @@ public class RobotContainer {
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
     // Spin shooter at preset RPM while Y is held
-    driver.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+    // driver
+    //     .y()
+    //     .whileTrue(
+    //         new ParallelCommandGroup(
+    //             ShooterCommands.runAtVelocity(shooter, shooter.getTargetVelocity(false)),
+    //             HoodCommands.extend(hood, hood.getAngle(false))));
+    driver.y().whileTrue(HoodCommands.extend(hood, hood.getAngle(false)));
+    driver.y().whileTrue(ShooterCommands.runAtVelocity(shooter, shooter.getTargetVelocity(false)));
+
+    driver.x().whileTrue(HoodCommands.extend(hood, hood.getAngle(true)));
+    driver.x().whileTrue(ShooterCommands.runAtVelocity(shooter, shooter.getTargetVelocity(true)));
 
     op.x().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
@@ -238,7 +248,7 @@ public class RobotContainer {
                 drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () -> Rotation2d.kZero));
 
     // Switch to X pattern when X button is pressed
-    driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
+    // driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
 
     // Reset gyro to 0° when B button is pressed
     driver
