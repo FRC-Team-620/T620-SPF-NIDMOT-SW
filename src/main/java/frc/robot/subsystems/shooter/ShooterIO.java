@@ -20,4 +20,10 @@ public interface ShooterIO {
   default void setDutyCycle(double speed) {}
 
   default void setVoltage(double volts) {}
+
+  /** Run both banks' onboard velocity loops (PID + kS/kV feedforward) at the given RPM. */
+  default void setVelocity(double rpm) {}
+
+  /** Update the onboard velocity loop PID gains without persisting to flash. */
+  default void setPID(double kP, double kI, double kD) {}
 }

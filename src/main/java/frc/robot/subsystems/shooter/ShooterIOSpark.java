@@ -3,6 +3,7 @@ package frc.robot.subsystems.shooter;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkBase;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
@@ -27,6 +28,13 @@ public class ShooterIOSpark implements ShooterIO {
         .encoder
         .quadratureMeasurementPeriod(ShooterConstants.velocityMeasurementPeriodMs)
         .quadratureAverageDepth(ShooterConstants.velocityAverageDepth);
+    leftLeaderConfig
+        .closedLoop
+        .pid(ShooterConstants.shooterKP, ShooterConstants.shooterKI, ShooterConstants.shooterKD)
+        .outputRange(0.0, 1.0) // never drive the flywheel backwards to slow it
+        .feedForward
+        .kS(ShooterConstants.shooterKS)
+        .kV(ShooterConstants.shooterKV);
 
     var leftFollowerConfig = new SparkFlexConfig();
     leftFollowerConfig
@@ -43,6 +51,13 @@ public class ShooterIOSpark implements ShooterIO {
         .encoder
         .quadratureMeasurementPeriod(ShooterConstants.velocityMeasurementPeriodMs)
         .quadratureAverageDepth(ShooterConstants.velocityAverageDepth);
+    rightLeaderConfig
+        .closedLoop
+        .pid(ShooterConstants.shooterKP, ShooterConstants.shooterKI, ShooterConstants.shooterKD)
+        .outputRange(0.0, 1.0) // never drive the flywheel backwards to slow it
+        .feedForward
+        .kS(ShooterConstants.shooterKS)
+        .kV(ShooterConstants.shooterKV);
 
     var rightFollowerConfig = new SparkFlexConfig();
     rightFollowerConfig
@@ -82,5 +97,21 @@ public class ShooterIOSpark implements ShooterIO {
   public void setVoltage(double volts) {
     leftLeader.setVoltage(volts);
     rightLeader.setVoltage(volts);
+  }
+
+  @Override
+  public void setVelocity(double rpm) {
+    leftLeader.getClosedLoopController().setSetpoint(rpm, ControlType.kVelocity);
+    rightLeader.getClosedLoopController().setSetpoint(rpm, ControlType.kVelocity);
+  }
+
+  @Override
+  public void setPID(double kP, double kI, double kD) {
+    var config = new SparkFlexConfig();
+    config.closedLoop.pid(kP, kI, kD);
+    leftLeader.configure(
+        config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    rightLeader.configure(
+        config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
   }
 }
