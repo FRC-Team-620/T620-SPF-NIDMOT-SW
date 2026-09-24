@@ -64,12 +64,16 @@ public class ShooterConstants {
   public static final double shooterVelocityOffsetRPM = 0.0;
   public static final double hoodPositionOffset = 5.0;
   public static final double distOffset = .762;
-  public static final double atHubRPM = 100;
-  // scaling number
-  public static final double atHubAngle = 0.5 - 0.0;
-  public static final double atTowerRPM = 2400.0;
-  // scaling number
+
+  // -------------------------------------------------------------------------
+  // VALUES TO UPDATE
+  // -------------------------------------------------------------------------
+  public static final double atHubRPM = 100; //TO-DO: TUNE ME
+  public static final double atHubAngle = 0.5 - 0.0; //TO-DO: TUNE ME
+
+  public static final double atTowerRPM = 2400.0; //TESTED
+  public static final double atTowerAngle = -3; //TESTED
+  
+
   // public static final double atTowerAngle = (-7.5) * (20 / 360);
-  public static final double atTowerAngle = -3;
-  // this is a comment
 }
