@@ -19,6 +19,7 @@ public class ShooterConstants {
   public static final IdleMode idleMode = IdleMode.kCoast;
   public static final IdleMode hoodIdleMode = IdleMode.kBrake;
   public static final int currentLimitAmps = 60; // was 40; limits spin-up/recovery acceleration
+  public static final int hoodCurrentLimitAmps = 40;
 
   // Velocity measurement filter for the built-in Vortex encoder. REV defaults (100 ms period,
   // 64-sample depth) add ~80 ms of lag, so the feedback loop reacts late to shot dips.
