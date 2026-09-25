@@ -50,10 +50,25 @@ public class ShooterConstants {
   public static final double shooterIdleRPM = 750.0;
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
-  public static final double shooterKP = 0.005; // volts per RPM of error (was 0.002 duty/RPM)
+  public static final double shooterKP = 0.005; // volts per RPM of error
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;
   public static final double shooterKS = 0.190783; // volts, static friction offset
   public static final double shooterKV = 0.00182048; // volts per RPM
   public static final double shooterVelocityToleranceRPM = 150.0;
+
+  // -------------------------------------------------------------------------
+  // Known tested shot points (not wired to anything yet)
+  // -------------------------------------------------------------------------
+  public static final class TestedPoints {
+    public static final class Tower {
+      public static final double hoodPosition = -4.0;
+      public static final double rpm = 2200.0;
+    }
+
+    public static final class Hub {
+      public static final double hoodPosition = -1.25;
+      public static final double rpm = 2000.0;
+    }
+  }
 }
