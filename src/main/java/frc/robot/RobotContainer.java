@@ -171,11 +171,21 @@ public class RobotContainer {
                   intakePivot.setBrakeMode(true);
                   hood.setBrakeMode(true);
                 }));
+    // TODO before merging: re-enable auto-homing once pivotHomingCurrentThreshold and
+    // pivotHomingDutyCycle are validated (see IntakeConstants.java). Uncomment the line below
+    // and remove the SmartDashboard homing button.
+    // .andThen(IntakePivotCommands.home(intakePivot)));
 
     // Zero-encoder buttons (usable while disabled)
     SmartDashboard.putData(
         "IntakePivot/ZeroEncoder",
         Commands.runOnce(intakePivot::resetEncoder, intakePivot).ignoringDisable(true));
+    // TODO before merging: remove this button once auto-homing on enable is re-enabled.
+    // Before running: verify pivotHomingDutyCycle sign drives toward the hard stop (not away),
+    // then observe IntakePivot/currentAmps in AScope during a homing run to tune
+    // pivotHomingCurrentThreshold (should be clearly above free-movement current, below 40 A
+    // limit).
+    SmartDashboard.putData("IntakePivot/HomeEncoder", IntakePivotCommands.home(intakePivot));
     SmartDashboard.putData(
         "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
 

@@ -50,6 +50,15 @@ public class IntakePivot extends SubsystemBase {
     io.resetEncoder();
   }
 
+  public double getCurrentAmps() {
+    return inputs.currentAmps;
+  }
+
+  public void setRawDutyCycle(double dutyCycle) {
+    positionControlEnabled = false;
+    io.setDutyCycle(dutyCycle);
+  }
+
   public void setBrakeMode(boolean brake) {
     io.setIdleMode(brake ? IdleMode.kBrake : IdleMode.kCoast);
   }
