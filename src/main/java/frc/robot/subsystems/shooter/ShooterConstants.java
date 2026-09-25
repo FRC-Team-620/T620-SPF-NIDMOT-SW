@@ -61,12 +61,12 @@ public class ShooterConstants {
   // Known tested shot points (not wired to anything yet)
   // -------------------------------------------------------------------------
   public static final class TestedPoints {
-    public static final class Tower {
+    public static final class Tower { // bumper againnst line
       public static final double hoodPosition = -4.0;
       public static final double rpm = 2200.0;
     }
 
-    public static final class Hub {
+    public static final class Hub { // ~1ft from hub, directly against is not a realistic shot angle
       public static final double hoodPosition = -1.25;
       public static final double rpm = 2000.0;
     }
