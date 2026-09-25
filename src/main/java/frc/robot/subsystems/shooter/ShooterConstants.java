@@ -35,19 +35,22 @@ public class ShooterConstants {
 
   // -------------------------------------------------------------------------
   // Hood positions (primary encoder counts)
-  // -------------------------------------------------------------------------
-  public static final double hoodStowPosition = 0.5;
-  public static final double hoodExtendPosition = -7.0;
+  // -----------------------------------`--------------------------------------
+  public static final double hoodStowPosition = -0.1;
+  // public static final double hoodExtendPosition = -4.0; // tower
+  public static final double hoodExtendPosition = -1.25; // hub
   public static final double hoodMaxPosition = -8.0;
   public static final double hoodMaxOutput = 0.75;
+
   public static final double hoodAdjustDelta = 0.5;
 
   // -------------------------------------------------------------------------
   // Shooter velocity control
   // -------------------------------------------------------------------------
   public static final double shooterIdleRPM = 750.0;
-  public static final double shooterPresetRPM = 3700.0;
-  public static final double shooterKP = 0.024; // volts per RPM of error (was 0.002 duty/RPM)
+  // public static final double shooterPresetRPM = 2200.0; // tower
+  public static final double shooterPresetRPM = 2000.0; // tower
+  public static final double shooterKP = 0.005; // volts per RPM of error (was 0.002 duty/RPM)
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;
   public static final double shooterKS = 0.190783; // volts, static friction offset
