@@ -228,6 +228,8 @@ public class RobotContainer {
     // Hood position trim: op POV left raises, op POV right lowers
     op.povLeft().onTrue(HoodCommands.adjustPosition(hood, ShooterConstants.hoodAdjustDelta));
     op.povRight().onTrue(HoodCommands.adjustPosition(hood, -ShooterConstants.hoodAdjustDelta));
+    op.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
+    op.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
     // Intake roller speed mapped 1:1 to left trigger
     double intakeSpeedModifier = 0.9;
