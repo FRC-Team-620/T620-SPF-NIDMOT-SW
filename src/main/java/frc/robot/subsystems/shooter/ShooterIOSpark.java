@@ -7,6 +7,8 @@ import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
+import frc.robot.Constants;
+
 public class ShooterIOSpark implements ShooterIO {
   private final SparkBase leftLeader =
       new SparkFlex(ShooterConstants.leftLeaderCanId, MotorType.kBrushless);
@@ -22,6 +24,7 @@ public class ShooterIOSpark implements ShooterIO {
     leftLeaderConfig
         .inverted(ShooterConstants.invertLeftBank)
         .idleMode(ShooterConstants.idleMode)
+        .secondaryCurrentLimit(ShooterConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps);
     leftLeaderConfig
         .encoder
@@ -32,12 +35,14 @@ public class ShooterIOSpark implements ShooterIO {
     leftFollowerConfig
         .idleMode(ShooterConstants.idleMode)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps)
+        .secondaryCurrentLimit(ShooterConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .follow(leftLeader, false);
 
     var rightLeaderConfig = new SparkFlexConfig();
     rightLeaderConfig
         .inverted(ShooterConstants.invertRightBank)
         .idleMode(ShooterConstants.idleMode)
+        .secondaryCurrentLimit(ShooterConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps);
     rightLeaderConfig
         .encoder
@@ -48,6 +53,7 @@ public class ShooterIOSpark implements ShooterIO {
     rightFollowerConfig
         .idleMode(ShooterConstants.idleMode)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps)
+        .secondaryCurrentLimit(ShooterConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .follow(rightLeader, false);
 
     leftLeader.configure(
