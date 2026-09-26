@@ -16,8 +16,8 @@ public class IntakePivotIOSpark implements IntakePivotIO {
     var config = new SparkMaxConfig();
     config
         .idleMode(IntakeConstants.idleMode)
-        .secondaryCurrentLimit(IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer)
-        .smartCurrentLimit(IntakeConstants.currentLimitAmps);
+        .secondaryCurrentLimit(IntakeConstants.pivotCurrentLimitAmps + Constants.stallCurrentBuffer)
+        .smartCurrentLimit(IntakeConstants.pivotCurrentLimitAmps);
 
     motor.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }

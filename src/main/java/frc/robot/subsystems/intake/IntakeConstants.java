@@ -17,6 +17,7 @@ public class IntakeConstants {
   // -------------------------------------------------------------------------
   public static final IdleMode idleMode = IdleMode.kBrake;
   public static final int currentLimitAmps = 20;
+  public static final int pivotCurrentLimitAmps = 35;
 
   // -------------------------------------------------------------------------
   // Pivot positions (primary encoder counts)
