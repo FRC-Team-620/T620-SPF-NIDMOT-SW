@@ -15,6 +15,13 @@ public class HoodCommands {
         hood);
   }
 
+  public static Command extend(Hood hood, double tAngle) {
+    return Commands.runEnd(
+        () -> hood.setTargetPosition(tAngle),
+        hood::stopPositionControl,
+        hood);
+  }
+
   public static Command extend(Hood hood) {
     return Commands.runEnd(
         () -> hood.setTargetPosition(ShooterConstants.hoodExtendPosition),

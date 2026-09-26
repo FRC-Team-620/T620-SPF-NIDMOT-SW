@@ -46,6 +46,10 @@ public class Hood extends SubsystemBase {
             ShooterConstants.hoodStowPosition);
   }
 
+  public double getAngle(boolean atHub) {
+    return atHub ? ShooterConstants.TestedPoints.Hub.hoodPosition : ShooterConstants.TestedPoints.Tower.hoodPosition;
+  }
+
   public void stopPositionControl() {
     positionControlEnabled = false;
     io.setDutyCycle(0.0);

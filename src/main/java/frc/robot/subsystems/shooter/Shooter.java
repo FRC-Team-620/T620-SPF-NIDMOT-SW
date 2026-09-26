@@ -54,6 +54,11 @@ public class Shooter extends SubsystemBase {
             < ShooterConstants.shooterVelocityToleranceRPM;
   }
 
+  public double getTargetVelocityRPM(boolean atHub) {
+    double velocity = atHub ? ShooterConstants.TestedPoints.Hub.rpm : ShooterConstants.TestedPoints.Tower.rpm;
+    return velocity;
+  }
+
   public void setVoltage(double volts) {
     io.setVoltage(volts);
   }

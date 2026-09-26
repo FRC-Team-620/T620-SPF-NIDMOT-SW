@@ -184,9 +184,16 @@ public class RobotContainer {
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
     // Spin shooter at preset RPM while Y is held
-    driver.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+    // driver.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
 
-    op.x().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+    //hub setPoint
+    op.x().whileTrue(ShooterCommands.runAtVelocity(shooter, shooter.getTargetVelocityRPM(true)));
+    op.x().whileTrue(HoodCommands.extend(hood, hood.getAngle(true)));
+
+    //tower setPoint
+    op.y().whileTrue(ShooterCommands.runAtVelocity(shooter, shooter.getTargetVelocityRPM(false)));
+    op.y().whileTrue(HoodCommands.extend(hood, hood.getAngle(false)));
+
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
     op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
 
