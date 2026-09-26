@@ -191,8 +191,8 @@ public class RobotContainer {
         "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
 
     // Idle shooter at 750 RPM by default; auto sequence controls spinup during autonomous
-    shooter.setDefaultCommand(
-        ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
+    // shooter.setDefaultCommand(
+    //     ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
     // Aim: spin the shooter and set the hood for a far/near shot while held; releasing drops the
     // shooter back to idle and restows the hood
