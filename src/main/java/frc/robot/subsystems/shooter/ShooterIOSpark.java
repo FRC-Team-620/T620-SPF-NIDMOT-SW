@@ -66,10 +66,14 @@ public class ShooterIOSpark implements ShooterIO {
     inputs.leftVelocityRPM = leftLeader.getEncoder().getVelocity();
     inputs.leftLeaderCurrentAmps = leftLeader.getOutputCurrent();
     inputs.leftFollowerCurrentAmps = leftFollower.getOutputCurrent();
+    inputs.leftLeaderTempCelsius = leftLeader.getMotorTemperature();
+    inputs.leftFollowerTempCelsius = leftFollower.getMotorTemperature();
     inputs.rightAppliedVolts = rightLeader.getAppliedOutput() * rightLeader.getBusVoltage();
     inputs.rightVelocityRPM = rightLeader.getEncoder().getVelocity();
     inputs.rightLeaderCurrentAmps = rightLeader.getOutputCurrent();
     inputs.rightFollowerCurrentAmps = rightFollower.getOutputCurrent();
+    inputs.rightLeaderTempCelsius = rightLeader.getMotorTemperature();
+    inputs.rightFollowerTempCelsius = rightFollower.getMotorTemperature();
   }
 
   @Override

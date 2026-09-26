@@ -25,6 +25,7 @@ public class HoodIOSpark implements HoodIO {
     inputs.encoderPosition = motor.getEncoder().getPosition();
     inputs.appliedVolts = motor.getAppliedOutput() * motor.getBusVoltage();
     inputs.currentAmps = motor.getOutputCurrent();
+    inputs.motorTempCelsius = motor.getMotorTemperature();
   }
 
   @Override
