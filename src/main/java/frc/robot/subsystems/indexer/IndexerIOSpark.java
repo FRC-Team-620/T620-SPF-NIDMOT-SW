@@ -6,7 +6,6 @@ import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
-
 import frc.robot.Constants;
 import frc.robot.subsystems.intake.IntakeConstants;
 

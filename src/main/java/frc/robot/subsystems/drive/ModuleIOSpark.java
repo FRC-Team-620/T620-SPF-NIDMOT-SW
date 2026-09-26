@@ -28,7 +28,6 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.math.geometry.Rotation2d;
 import frc.robot.Constants;
-
 import java.util.Queue;
 import java.util.function.DoubleSupplier;
 

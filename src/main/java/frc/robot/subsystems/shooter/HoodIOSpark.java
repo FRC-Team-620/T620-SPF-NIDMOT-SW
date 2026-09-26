@@ -6,10 +6,8 @@ import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-
-import frc.robot.Constants;
-
 import com.revrobotics.spark.config.SparkMaxConfig;
+import frc.robot.Constants;
 
 public class HoodIOSpark implements HoodIO {
   private final SparkBase motor = new SparkMax(ShooterConstants.hoodCanId, MotorType.kBrushless);
