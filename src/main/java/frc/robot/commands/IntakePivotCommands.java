@@ -37,4 +37,27 @@ public class IntakePivotCommands {
         pivot::stopPositionControl,
         pivot);
   }
+
+  /**
+   * Stows at a reduced max output so cargo already loaded against the hopper isn't jolted. Used by
+   * the fire sequence instead of {@link #stow}.
+   */
+  public static Command stowSlow(IntakePivot pivot) {
+    return Commands.runEnd(
+        () -> pivot.setTargetPositionSlow(IntakeConstants.pivotStowPosition),
+        pivot::stopPositionControl,
+        pivot);
+  }
+
+  /**
+   * Velocity-limited stow via a trapezoid motion profile, for smoother motion than {@link
+   * #stowSlow}'s reduced-output approach. Not bound to anything yet — verify {@link #stowSlow} on
+   * the robot first, then swap {@code ShootingCommands.fire} over to this once tuned.
+   */
+  public static Command stowProfiled(IntakePivot pivot) {
+    return Commands.runEnd(
+        () -> pivot.setTargetPositionProfiled(IntakeConstants.pivotStowPosition),
+        pivot::stopPositionControl,
+        pivot);
+  }
 }

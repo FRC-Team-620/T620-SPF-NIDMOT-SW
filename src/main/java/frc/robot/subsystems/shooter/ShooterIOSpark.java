@@ -6,6 +6,7 @@ import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
+import frc.robot.Constants;
 
 public class ShooterIOSpark implements ShooterIO {
   private final SparkBase leftLeader =
@@ -22,26 +23,36 @@ public class ShooterIOSpark implements ShooterIO {
     leftLeaderConfig
         .inverted(ShooterConstants.invertLeftBank)
         .idleMode(ShooterConstants.idleMode)
+        .secondaryCurrentLimit(ShooterConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps);
-    // leftLeaderConfig.encoder.quadratureMeasurementPeriod(8).quadratureAverageDepth(30);
+    leftLeaderConfig
+        .encoder
+        .quadratureMeasurementPeriod(ShooterConstants.velocityMeasurementPeriodMs)
+        .quadratureAverageDepth(ShooterConstants.velocityAverageDepth);
 
     var leftFollowerConfig = new SparkFlexConfig();
     leftFollowerConfig
         .idleMode(ShooterConstants.idleMode)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps)
+        .secondaryCurrentLimit(ShooterConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .follow(leftLeader, false);
 
     var rightLeaderConfig = new SparkFlexConfig();
     rightLeaderConfig
         .inverted(ShooterConstants.invertRightBank)
         .idleMode(ShooterConstants.idleMode)
+        .secondaryCurrentLimit(ShooterConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps);
-    // rightLeaderConfig.encoder.quadratureMeasurementPeriod(8).quadratureAverageDepth(30);
+    rightLeaderConfig
+        .encoder
+        .quadratureMeasurementPeriod(ShooterConstants.velocityMeasurementPeriodMs)
+        .quadratureAverageDepth(ShooterConstants.velocityAverageDepth);
 
     var rightFollowerConfig = new SparkFlexConfig();
     rightFollowerConfig
         .idleMode(ShooterConstants.idleMode)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps)
+        .secondaryCurrentLimit(ShooterConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .follow(rightLeader, false);
 
     leftLeader.configure(
@@ -60,10 +71,14 @@ public class ShooterIOSpark implements ShooterIO {
     inputs.leftVelocityRPM = leftLeader.getEncoder().getVelocity();
     inputs.leftLeaderCurrentAmps = leftLeader.getOutputCurrent();
     inputs.leftFollowerCurrentAmps = leftFollower.getOutputCurrent();
+    inputs.leftLeaderTempCelsius = leftLeader.getMotorTemperature();
+    inputs.leftFollowerTempCelsius = leftFollower.getMotorTemperature();
     inputs.rightAppliedVolts = rightLeader.getAppliedOutput() * rightLeader.getBusVoltage();
     inputs.rightVelocityRPM = rightLeader.getEncoder().getVelocity();
     inputs.rightLeaderCurrentAmps = rightLeader.getOutputCurrent();
     inputs.rightFollowerCurrentAmps = rightFollower.getOutputCurrent();
+    inputs.rightLeaderTempCelsius = rightLeader.getMotorTemperature();
+    inputs.rightFollowerTempCelsius = rightFollower.getMotorTemperature();
   }
 
   @Override

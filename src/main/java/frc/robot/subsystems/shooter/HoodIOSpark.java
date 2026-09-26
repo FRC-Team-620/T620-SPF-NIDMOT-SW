@@ -7,6 +7,7 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
+import frc.robot.Constants;
 
 public class HoodIOSpark implements HoodIO {
   private final SparkBase motor = new SparkMax(ShooterConstants.hoodCanId, MotorType.kBrushless);
@@ -15,7 +16,8 @@ public class HoodIOSpark implements HoodIO {
     var config = new SparkMaxConfig();
     config
         .idleMode(ShooterConstants.hoodIdleMode)
-        .smartCurrentLimit(ShooterConstants.currentLimitAmps);
+        .secondaryCurrentLimit(ShooterConstants.hoodCurrentLimitAmps + Constants.stallCurrentBuffer)
+        .smartCurrentLimit(ShooterConstants.hoodCurrentLimitAmps);
 
     motor.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }
@@ -25,6 +27,7 @@ public class HoodIOSpark implements HoodIO {
     inputs.encoderPosition = motor.getEncoder().getPosition();
     inputs.appliedVolts = motor.getAppliedOutput() * motor.getBusVoltage();
     inputs.currentAmps = motor.getOutputCurrent();
+    inputs.motorTempCelsius = motor.getMotorTemperature();
   }
 
   @Override

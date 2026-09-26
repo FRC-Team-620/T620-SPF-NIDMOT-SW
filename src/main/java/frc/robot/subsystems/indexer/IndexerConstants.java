@@ -16,7 +16,7 @@ public class IndexerConstants {
   // Motor configuration
   // -------------------------------------------------------------------------
   public static final IdleMode idleMode = IdleMode.kCoast;
-  public static final int currentLimitAmps = 60;
+  public static final int currentLimitAmps = 35;
 
   // -------------------------------------------------------------------------
   // Bank inversion — configure once on the real robot.
