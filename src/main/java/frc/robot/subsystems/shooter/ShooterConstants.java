@@ -44,6 +44,10 @@ public class ShooterConstants {
 
   public static final double hoodAdjustDelta = 0.5;
 
+  // Deadband: if the hood is within this many encoder counts of the setpoint, skip motor output.
+  // Corresponds to ~5 degrees — tune based on your encoder-counts-to-degrees ratio.
+  public static final double hoodPositionTolerance = 0.5; // TODO: tune me
+
   // Aim presets: near/far hood angle + shooter RPM pairs for the aim command.
   public static final double hoodNearPosition = TestedPoints.Hub.hoodPosition;
   public static final double hoodFarPosition = TestedPoints.Tower.hoodPosition;
