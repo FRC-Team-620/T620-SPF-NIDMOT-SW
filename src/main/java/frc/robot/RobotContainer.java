@@ -232,7 +232,7 @@ public class RobotContainer {
     op.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
     // Intake roller speed mapped 1:1 to left trigger
-    double intakeSpeedModifier = 0.9;
+    double intakeSpeedModifier = 1; // was .9
     intakeRoller.setDefaultCommand(
         Commands.run(
             () ->
