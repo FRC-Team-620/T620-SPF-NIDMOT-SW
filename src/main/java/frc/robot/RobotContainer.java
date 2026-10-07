@@ -157,6 +157,8 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    System.out.println("oh look at me im a controller. my buttons are being binded");
+
     // Coast on disable, brake on enable
     RobotModeTriggers.disabled()
         .onTrue(
