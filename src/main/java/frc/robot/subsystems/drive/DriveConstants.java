@@ -99,7 +99,7 @@ public class DriveConstants {
   // Turn motor configuration
   // -------------------------------------------------------------------------
   public static final boolean turnInverted = false;
-  public static final int turnMotorCurrentLimit = 20;
+  public static final int turnMotorCurrentLimit = 15; // was 20
   public static final double turnMotorReduction = driveConfig.azimuthRatio;
   public static final edu.wpi.first.math.system.plant.DCMotor turnGearbox = turnMotorConfig.motor;
 

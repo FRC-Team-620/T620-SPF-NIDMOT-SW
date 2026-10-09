@@ -7,13 +7,17 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
+import frc.robot.Constants;
 
 public class IntakePivotIOSpark implements IntakePivotIO {
   private final SparkBase motor = new SparkMax(IntakeConstants.pivotCanId, MotorType.kBrushless);
 
   public IntakePivotIOSpark() {
     var config = new SparkMaxConfig();
-    config.idleMode(IntakeConstants.idleMode).smartCurrentLimit(IntakeConstants.currentLimitAmps);
+    config
+        .idleMode(IntakeConstants.idleMode)
+        .secondaryCurrentLimit(IntakeConstants.pivotCurrentLimitAmps + Constants.stallCurrentBuffer)
+        .smartCurrentLimit(IntakeConstants.pivotCurrentLimitAmps);
 
     motor.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }

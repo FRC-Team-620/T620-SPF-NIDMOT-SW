@@ -6,6 +6,8 @@ import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
+import frc.robot.Constants;
+import frc.robot.subsystems.intake.IntakeConstants;
 
 public class IndexerIOSpark implements IndexerIO {
   private final SparkBase leftLeader =
@@ -20,18 +22,21 @@ public class IndexerIOSpark implements IndexerIO {
     leftLeaderConfig
         .inverted(IndexerConstants.invertLeftBank)
         .idleMode(IndexerConstants.idleMode)
+        .secondaryCurrentLimit(IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .smartCurrentLimit(IndexerConstants.currentLimitAmps);
 
     var leftFollowerConfig = new SparkFlexConfig();
     leftFollowerConfig
         .idleMode(IndexerConstants.idleMode)
         .smartCurrentLimit(IndexerConstants.currentLimitAmps)
+        .secondaryCurrentLimit(IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .follow(leftLeader, false);
 
     var rightMotorConfig = new SparkFlexConfig();
     rightMotorConfig
         .inverted(IndexerConstants.invertRightBank)
         .idleMode(IndexerConstants.idleMode)
+        .secondaryCurrentLimit(IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .smartCurrentLimit(IndexerConstants.currentLimitAmps);
 
     leftLeader.configure(
