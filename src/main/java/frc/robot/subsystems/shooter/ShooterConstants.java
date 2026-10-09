@@ -19,7 +19,7 @@ public class ShooterConstants {
   public static final IdleMode idleMode = IdleMode.kCoast;
   public static final IdleMode hoodIdleMode = IdleMode.kBrake;
   public static final int currentLimitAmps =
-      30; // was 40, then 60; limits spin-up/recovery acceleration
+      40; // was 40, then 60; limits spin-up/recovery acceleration
   public static final int hoodCurrentLimitAmps = 15; // was 40
 
   // Velocity measurement filter for the built-in Vortex encoder. REV defaults (100 ms period,
