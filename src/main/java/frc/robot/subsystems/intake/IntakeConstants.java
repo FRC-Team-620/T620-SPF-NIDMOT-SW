@@ -47,5 +47,9 @@ public class IntakeConstants {
   public static final TrapezoidProfile.Constraints pivotFireStowConstraints =
       new TrapezoidProfile.Constraints(20.0, 15.0);
 
+  // Deadband: if the pivot is within this many encoder counts of the setpoint, skip motor output.
+  // Corresponds to ~5 degrees — tune based on your encoder-counts-to-degrees ratio.
+  public static final double pivotPositionTolerance = 1.3; // TODO: tune me
+
   public static final double rollerFireSpeed = 0.9;
 }
