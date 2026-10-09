@@ -54,7 +54,7 @@ public class ShooterConstants {
   public static final double shooterIdleRPM = 750.0;
   public static final double shooterNearRPM = TestedPoints.Hub.rpm;
   public static final double shooterFarRPM = TestedPoints.Tower.rpm;
-  public static final double shooterKP = 0.005; // volts per RPM of error
+  public static final double shooterKP = 0.0075; // volts per RPM of error
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;
   public static final double shooterKS = 0.190783; // volts, static friction offset
