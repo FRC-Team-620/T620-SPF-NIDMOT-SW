@@ -157,8 +157,6 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    System.out.println("oh look at me im a controller. my buttons are being binded");
-
     // Coast on disable, brake on enable
     RobotModeTriggers.disabled()
         .onTrue(
@@ -193,8 +191,8 @@ public class RobotContainer {
         "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
 
     // Idle shooter at 750 RPM by default; auto sequence controls spinup during autonomous
-    // shooter.setDefaultCommand(
-    //     ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
+    shooter.setDefaultCommand(
+        ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
     // Aim: spin the shooter and set the hood for a far/near shot while held; releasing drops the
     // shooter back to idle and restows the hood
@@ -204,6 +202,7 @@ public class RobotContainer {
     op.b().whileTrue(ShootingCommands.aimNear(shooter, hood));
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
     op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
+    driver.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
 
     // Fire: stow the intake (slowly, to avoid jolting loaded cargo), then once the shooter is at
     // its aimed velocity, feed cargo through the indexer and intake roller. Hold an aim button
@@ -253,11 +252,11 @@ public class RobotContainer {
             () -> -driver.getRightX()));
 
     // Lock to 0° when A button is held
-    driver
-        .a()
-        .whileTrue(
-            DriveCommands.joystickDriveAtAngle(
-                drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () -> Rotation2d.kZero));
+    // driver
+    //     .a()
+    //     .whileTrue(
+    //         DriveCommands.joystickDriveAtAngle(
+    //             drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () -> Rotation2d.kZero));
 
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
