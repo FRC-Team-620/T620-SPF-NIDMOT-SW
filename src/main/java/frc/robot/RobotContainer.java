@@ -39,6 +39,7 @@ import frc.robot.subsystems.intake.IntakePivotIO;
 import frc.robot.subsystems.intake.IntakePivotIOSpark;
 import frc.robot.subsystems.intake.IntakeRoller;
 import frc.robot.subsystems.intake.IntakeRollerIO;
+import frc.robot.subsystems.intake.IntakeRollerIOKraken;
 import frc.robot.subsystems.intake.IntakeRollerIOSpark;
 import frc.robot.subsystems.shooter.Hood;
 import frc.robot.subsystems.shooter.HoodIO;
@@ -86,7 +87,7 @@ public class RobotContainer {
                 new ModuleIOSpark(3));
         indexer = new Indexer(new IndexerIOSpark());
         intakePivot = new IntakePivot(new IntakePivotIOSpark());
-        intakeRoller = new IntakeRoller(new IntakeRollerIOSpark());
+        intakeRoller = new IntakeRoller(new IntakeRollerIOKraken());
         hood = new Hood(new HoodIOSpark());
         shooter = new Shooter(new ShooterIOSpark());
         break;
