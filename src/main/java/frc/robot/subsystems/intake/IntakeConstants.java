@@ -1,5 +1,6 @@
 package frc.robot.subsystems.intake;
 
+import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 
@@ -16,6 +17,7 @@ public class IntakeConstants {
   // Motor configuration
   // -------------------------------------------------------------------------
   public static final IdleMode idleMode = IdleMode.kBrake;
+  public static final NeutralModeValue krakenNeutralMode = NeutralModeValue.Brake;
   public static final int currentLimitAmps = 50; // was 20
   public static final int pivotCurrentLimitAmps = 35;
 
