@@ -40,7 +40,6 @@ import frc.robot.subsystems.intake.IntakePivotIOSpark;
 import frc.robot.subsystems.intake.IntakeRoller;
 import frc.robot.subsystems.intake.IntakeRollerIO;
 import frc.robot.subsystems.intake.IntakeRollerIOKraken;
-import frc.robot.subsystems.intake.IntakeRollerIOSpark;
 import frc.robot.subsystems.shooter.Hood;
 import frc.robot.subsystems.shooter.HoodIO;
 import frc.robot.subsystems.shooter.HoodIOSpark;
@@ -257,7 +256,8 @@ public class RobotContainer {
     //     .a()
     //     .whileTrue(
     //         DriveCommands.joystickDriveAtAngle(
-    //             drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () -> Rotation2d.kZero));
+    //             drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () ->
+    // Rotation2d.kZero));
 
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));

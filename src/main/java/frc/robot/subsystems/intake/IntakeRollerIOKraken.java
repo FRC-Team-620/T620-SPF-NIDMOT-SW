@@ -24,7 +24,8 @@ public class IntakeRollerIOKraken implements IntakeRollerIO {
     leaderConfig.MotorOutput.NeutralMode = IntakeConstants.krakenNeutralMode;
     leaderConfig.CurrentLimits.StatorCurrentLimit = IntakeConstants.currentLimitAmps;
     leaderConfig.CurrentLimits.StatorCurrentLimitEnable = true;
-    leaderConfig.CurrentLimits.SupplyCurrentLimit = IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer;
+    leaderConfig.CurrentLimits.SupplyCurrentLimit =
+        IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer;
     leaderConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
     leader.getConfigurator().apply(leaderConfig);
 
@@ -32,7 +33,8 @@ public class IntakeRollerIOKraken implements IntakeRollerIO {
     followerConfig.MotorOutput.NeutralMode = IntakeConstants.krakenNeutralMode;
     followerConfig.CurrentLimits.StatorCurrentLimit = IntakeConstants.currentLimitAmps;
     followerConfig.CurrentLimits.StatorCurrentLimitEnable = true;
-    followerConfig.CurrentLimits.SupplyCurrentLimit = IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer;
+    followerConfig.CurrentLimits.SupplyCurrentLimit =
+        IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer;
     followerConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
     follower.getConfigurator().apply(followerConfig);
     follower.setControl(new Follower(IntakeConstants.leaderCanId, MotorAlignmentValue.Opposed));
@@ -41,7 +43,8 @@ public class IntakeRollerIOKraken implements IntakeRollerIO {
     leaderCurrent = leader.getStatorCurrent();
     followerCurrent = follower.getStatorCurrent();
 
-    BaseStatusSignal.setUpdateFrequencyForAll(50.0, leaderAppliedVolts, leaderCurrent, followerCurrent);
+    BaseStatusSignal.setUpdateFrequencyForAll(
+        50.0, leaderAppliedVolts, leaderCurrent, followerCurrent);
     ParentDevice.optimizeBusUtilizationForAll(leader, follower);
   }
 
