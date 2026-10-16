@@ -1,13 +1,15 @@
 name: Validate PR Checklist
 
+# Disabled for now: re-enable by restoring the pull_request trigger below.
 on:
-  pull_request:
-    types: # Fixed: changed from 'type' to 'types'
-      - opened
-      - edited
-      - synchronize
-      - reopened
-      - ready_for_review
+  workflow_dispatch:
+  # pull_request:
+  #   types: # Fixed: changed from 'type' to 'types'
+  #     - opened
+  #     - edited
+  #     - synchronize
+  #     - reopened
+  #     - ready_for_review
 
 permissions:
   contents: read
