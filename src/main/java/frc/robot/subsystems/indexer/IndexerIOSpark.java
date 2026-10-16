@@ -45,9 +45,11 @@ public class IndexerIOSpark implements IndexerIO {
   @Override
   public void updateInputs(IndexerIOInputs inputs) {
     inputs.leftAppliedVolts = leftLeader.getAppliedOutput() * leftLeader.getBusVoltage();
+    inputs.leftVelocityRPM = leftLeader.getEncoder().getVelocity();
     inputs.leftLeaderCurrentAmps = leftLeader.getOutputCurrent();
     inputs.leftFollowerCurrentAmps = leftFollower.getOutputCurrent();
     inputs.rightAppliedVolts = rightMotor.getAppliedOutput() * rightMotor.getBusVoltage();
+    inputs.rightVelocityRPM = rightMotor.getEncoder().getVelocity();
     inputs.rightCurrentAmps = rightMotor.getOutputCurrent();
   }
 

@@ -32,6 +32,7 @@ public class IntakeRollerIOSpark implements IntakeRollerIO {
   @Override
   public void updateInputs(IntakeRollerIOInputs inputs) {
     inputs.appliedVolts = leader.getAppliedOutput() * leader.getBusVoltage();
+    inputs.velocityRPM = leader.getEncoder().getVelocity();
     inputs.leaderCurrentAmps = leader.getOutputCurrent();
     inputs.followerCurrentAmps = follower.getOutputCurrent();
   }

@@ -159,10 +159,15 @@ public class Robot extends LoggedRobot {
       DriverStationSim.setTest(false);
       DriverStationSim.setEnabled(true);
       DriverStationSim.notifyNewData();
+      robotContainer.startFuelSim();
     }
   }
 
   /** This function is called periodically whilst in simulation. */
   @Override
-  public void simulationPeriodic() {}
+  public void simulationPeriodic() {
+    if (Constants.currentMode == Constants.Mode.SIM) {
+      robotContainer.updateFuelSim();
+    }
+  }
 }

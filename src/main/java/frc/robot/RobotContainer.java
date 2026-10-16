@@ -7,11 +7,17 @@
 
 package frc.robot;
 
+import static edu.wpi.first.units.Units.Degrees;
+import static edu.wpi.first.units.Units.Meters;
+import static edu.wpi.first.units.Units.MetersPerSecond;
+
 import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -52,6 +58,8 @@ import frc.robot.subsystems.shooter.ShooterConstants;
 import frc.robot.subsystems.shooter.ShooterIO;
 import frc.robot.subsystems.shooter.ShooterIOSim;
 import frc.robot.subsystems.shooter.ShooterIOSpark;
+import frc.robot.util.BallTracker;
+import frc.robot.util.FuelSim;
 import org.littletonrobotics.junction.Logger;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
@@ -69,6 +77,18 @@ public class RobotContainer {
   private final IntakeRoller intakeRoller;
   private final Hood hood;
   private final Shooter shooter;
+
+  private FuelSim fuelSim;
+  private BallTracker ballTracker;
+  private double lastFuelLaunchTime = 0.0;
+
+  private static final double fuelSimLaunchPeriodSec = 0.15;
+  private static final double fuelSimMinLaunchRPM = 300.0;
+  private static final double fuelSimDrumRadiusMeters = 0.051;
+  private static final double fuelSimExitSpeedRatio = 0.6;
+  private static final double fuelSimStowLaunchAngleDeg = 75.0;
+  private static final double fuelSimLaunchYawDeg = 180.0;
+  private static final double fuelSimLaunchHeightMeters = 0.55;
 
   // Controller, controller = driver, op = operator
   private final CommandXboxController driver = new CommandXboxController(0);
@@ -280,6 +300,65 @@ public class RobotContainer {
     Logger.recordOutput(
         "Mechanism3d/Setpoint",
         new Pose3d[] {intakePivot.getSetpointPose(), hood.getSetpointPose()});
+  }
+
+  public void startFuelSim() {
+    ballTracker = new BallTracker(drive::getPose, 40, 8);
+    fuelSim = new FuelSim("FuelSim");
+    fuelSim.spawnStartingFuel();
+    fuelSim.registerRobot(
+        0.864, 0.864, Units.inchesToMeters(5), drive::getPose, drive::getFieldRelativeSpeeds);
+    fuelSim.registerIntake(
+        0.432,
+        0.625,
+        -0.34,
+        0.34,
+        () -> intakePivot.isExtended() && intakeRoller.isRunning() && !ballTracker.isFull(),
+        () -> {
+          ballTracker.addFuel();
+          intakeRoller.simulateIntake();
+        });
+    fuelSim.start();
+  }
+
+  public void updateFuelSim() {
+    double now = Timer.getFPGATimestamp();
+    if (indexer.isFeeding()
+        && ballTracker.hasFuel()
+        && shooter.getVelocityRPM() > fuelSimMinLaunchRPM
+        && now - lastFuelLaunchTime >= fuelSimLaunchPeriodSec) {
+      lastFuelLaunchTime = now;
+      ballTracker.removeFuel();
+      double launchSpeed = getFuelSimLaunchSpeed();
+      indexer.simulateFeed();
+      shooter.simulateShot(launchSpeed);
+      fuelSim.launchFuel(
+          MetersPerSecond.of(launchSpeed),
+          Degrees.of(getFuelSimLaunchAngleDeg()),
+          Degrees.of(fuelSimLaunchYawDeg),
+          Meters.of(fuelSimLaunchHeightMeters));
+    }
+
+    fuelSim.updateSim();
+    ballTracker.updatelog();
+    Logger.recordOutput("FuelSim/LaunchSpeedMps", getFuelSimLaunchSpeed());
+    Logger.recordOutput("FuelSim/LaunchAngleDeg", getFuelSimLaunchAngleDeg());
+    Logger.recordOutput("FuelSim/BlueHubScore", FuelSim.Hub.BLUE_HUB.getScore());
+    Logger.recordOutput("FuelSim/RedHubScore", FuelSim.Hub.RED_HUB.getScore());
+  }
+
+  private double getFuelSimLaunchSpeed() {
+    double drumSurfaceSpeed =
+        Units.rotationsPerMinuteToRadiansPerSecond(shooter.getVelocityRPM())
+            * fuelSimDrumRadiusMeters;
+    return drumSurfaceSpeed * fuelSimExitSpeedRatio;
+  }
+
+  private double getFuelSimLaunchAngleDeg() {
+    return fuelSimStowLaunchAngleDeg
+        + (hood.getPosition() - ShooterConstants.hoodStowPosition)
+            / ShooterConstants.hoodGearing
+            * 360.0;
   }
 
   /**
