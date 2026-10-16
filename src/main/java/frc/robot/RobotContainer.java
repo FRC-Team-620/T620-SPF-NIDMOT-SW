@@ -9,6 +9,7 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
@@ -32,20 +33,26 @@ import frc.robot.subsystems.drive.ModuleIOSim;
 import frc.robot.subsystems.drive.ModuleIOSpark;
 import frc.robot.subsystems.indexer.Indexer;
 import frc.robot.subsystems.indexer.IndexerIO;
+import frc.robot.subsystems.indexer.IndexerIOSim;
 import frc.robot.subsystems.indexer.IndexerIOSpark;
 import frc.robot.subsystems.intake.IntakePivot;
 import frc.robot.subsystems.intake.IntakePivotIO;
+import frc.robot.subsystems.intake.IntakePivotIOSim;
 import frc.robot.subsystems.intake.IntakePivotIOSpark;
 import frc.robot.subsystems.intake.IntakeRoller;
 import frc.robot.subsystems.intake.IntakeRollerIO;
+import frc.robot.subsystems.intake.IntakeRollerIOSim;
 import frc.robot.subsystems.intake.IntakeRollerIOSpark;
 import frc.robot.subsystems.shooter.Hood;
 import frc.robot.subsystems.shooter.HoodIO;
+import frc.robot.subsystems.shooter.HoodIOSim;
 import frc.robot.subsystems.shooter.HoodIOSpark;
 import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.shooter.ShooterConstants;
 import frc.robot.subsystems.shooter.ShooterIO;
+import frc.robot.subsystems.shooter.ShooterIOSim;
 import frc.robot.subsystems.shooter.ShooterIOSpark;
+import org.littletonrobotics.junction.Logger;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -99,11 +106,11 @@ public class RobotContainer {
                 new ModuleIOSim(),
                 new ModuleIOSim(),
                 new ModuleIOSim());
-        indexer = new Indexer(new IndexerIO() {});
-        intakePivot = new IntakePivot(new IntakePivotIO() {});
-        intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
-        hood = new Hood(new HoodIO() {});
-        shooter = new Shooter(new ShooterIO() {});
+        indexer = new Indexer(new IndexerIOSim());
+        intakePivot = new IntakePivot(new IntakePivotIOSim());
+        intakeRoller = new IntakeRoller(new IntakeRollerIOSim());
+        hood = new Hood(new HoodIOSim());
+        shooter = new Shooter(new ShooterIOSim());
         break;
 
       default:
@@ -179,6 +186,16 @@ public class RobotContainer {
     SmartDashboard.putData(
         "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
 
+    SmartDashboard.putData("Test/IntakePivot/Up", IntakePivotCommands.stow(intakePivot));
+    SmartDashboard.putData("Test/IntakePivot/Down", IntakePivotCommands.extend(intakePivot));
+    SmartDashboard.putData("Test/Hood/Stow", HoodCommands.stow(hood));
+    SmartDashboard.putData("Test/Hood/Extend", HoodCommands.extend(hood));
+    SmartDashboard.putData(
+        "Test/Hood/AdjustUp", HoodCommands.adjustPosition(hood, ShooterConstants.hoodAdjustDelta));
+    SmartDashboard.putData(
+        "Test/Hood/AdjustDown",
+        HoodCommands.adjustPosition(hood, -ShooterConstants.hoodAdjustDelta));
+
     // Idle shooter at 750 RPM by default; auto sequence controls spinup during autonomous
     shooter.setDefaultCommand(
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
@@ -250,6 +267,19 @@ public class RobotContainer {
                             new Pose2d(drive.getPose().getTranslation(), Rotation2d.k180deg)),
                     drive)
                 .ignoringDisable(true));
+  }
+
+  /**
+   * Logs articulated component poses for AdvantageScope. Array order must match the components in
+   * advantageScope/Robot_Spitfire/config.json: intake pivot (model_0), then hood (model_1).
+   */
+  public void logComponentPoses() {
+    Logger.recordOutput(
+        "Mechanism3d/Measured",
+        new Pose3d[] {intakePivot.getMeasuredPose(), hood.getMeasuredPose()});
+    Logger.recordOutput(
+        "Mechanism3d/Setpoint",
+        new Pose3d[] {intakePivot.getSetpointPose(), hood.getSetpointPose()});
   }
 
   /**
