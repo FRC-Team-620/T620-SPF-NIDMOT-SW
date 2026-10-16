@@ -11,7 +11,7 @@ public class Hood extends SubsystemBase {
   private final HoodIO io;
   private final HoodIOInputsAutoLogged inputs = new HoodIOInputsAutoLogged();
 
-  private final PIDController pid = new PIDController(0.12, 0.0, 0.0);
+  private final PIDController pid = new PIDController(0.1, 0.0, 0.0);
   private boolean positionControlEnabled = false;
   private double targetPosition = 0.0;
 

@@ -20,7 +20,7 @@ public class IntakeConstants {
   // -------------------------------------------------------------------------
   // Pivot positions (primary encoder counts)
   // -------------------------------------------------------------------------
-  public static final double pivotStowPosition = 5.0;
+  public static final double pivotStowPosition = 0.5;
   public static final double pivotExtendPosition = 24.0;
   public static final double pivotMaxOutput = 0.5;
 }

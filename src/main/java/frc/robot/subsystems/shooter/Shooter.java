@@ -27,10 +27,10 @@ public class Shooter extends SubsystemBase {
     Logger.processInputs("Shooter", inputs);
 
     if (velocityControlEnabled) {
-      double ffDuty =
-          (ShooterConstants.shooterKS + ShooterConstants.shooterKV * targetVelocityRPM) / 12.0;
-      double pidDuty = pid.calculate(inputs.leftVelocityRPM, targetVelocityRPM);
-      io.setDutyCycle(MathUtil.clamp(ffDuty + pidDuty, 0.0, 1.0));
+      // Command volts (not duty cycle) so battery sag doesn't shrink the feedforward
+      double ffVolts = ShooterConstants.shooterKS + ShooterConstants.shooterKV * targetVelocityRPM;
+      double pidVolts = pid.calculate(inputs.leftVelocityRPM, targetVelocityRPM);
+      io.setVoltage(MathUtil.clamp(ffVolts + pidVolts, 0.0, 12.0));
     }
   }
 
