@@ -23,7 +23,10 @@ public class ShooterIOSpark implements ShooterIO {
         .inverted(ShooterConstants.invertLeftBank)
         .idleMode(ShooterConstants.idleMode)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps);
-    // leftLeaderConfig.encoder.quadratureMeasurementPeriod(8).quadratureAverageDepth(30);
+    leftLeaderConfig
+        .encoder
+        .quadratureMeasurementPeriod(ShooterConstants.velocityMeasurementPeriodMs)
+        .quadratureAverageDepth(ShooterConstants.velocityAverageDepth);
 
     var leftFollowerConfig = new SparkFlexConfig();
     leftFollowerConfig
@@ -36,7 +39,10 @@ public class ShooterIOSpark implements ShooterIO {
         .inverted(ShooterConstants.invertRightBank)
         .idleMode(ShooterConstants.idleMode)
         .smartCurrentLimit(ShooterConstants.currentLimitAmps);
-    // rightLeaderConfig.encoder.quadratureMeasurementPeriod(8).quadratureAverageDepth(30);
+    rightLeaderConfig
+        .encoder
+        .quadratureMeasurementPeriod(ShooterConstants.velocityMeasurementPeriodMs)
+        .quadratureAverageDepth(ShooterConstants.velocityAverageDepth);
 
     var rightFollowerConfig = new SparkFlexConfig();
     rightFollowerConfig

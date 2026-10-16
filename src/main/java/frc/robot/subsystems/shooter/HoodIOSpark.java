@@ -15,7 +15,7 @@ public class HoodIOSpark implements HoodIO {
     var config = new SparkMaxConfig();
     config
         .idleMode(ShooterConstants.hoodIdleMode)
-        .smartCurrentLimit(ShooterConstants.currentLimitAmps);
+        .smartCurrentLimit(ShooterConstants.hoodCurrentLimitAmps);
 
     motor.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }
