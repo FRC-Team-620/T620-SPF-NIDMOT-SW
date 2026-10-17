@@ -271,6 +271,7 @@ public class RobotContainer {
 
     // Intake roller speed mapped 1:1 to left trigger
     double intakeSpeedModifier = 1; // was .9
+    double intakingDriveSpeedScale = 0.7;
     intakeRoller.setDefaultCommand(
         Commands.run(
             () ->
@@ -286,7 +287,11 @@ public class RobotContainer {
             drive,
             () -> driver.getLeftY() * speedModifier,
             () -> driver.getLeftX() * speedModifier,
-            () -> -driver.getRightX()));
+            () -> -driver.getRightX(),
+            () ->
+                driver.getRightTriggerAxis() > 0.1 || driver.getLeftTriggerAxis() > 0.1
+                    ? intakingDriveSpeedScale
+                    : 1.0));
 
     // Lock to 0° when A button is held
 
