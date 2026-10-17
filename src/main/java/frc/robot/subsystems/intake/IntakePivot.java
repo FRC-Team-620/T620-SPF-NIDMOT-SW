@@ -31,11 +31,19 @@ public class IntakePivot extends SubsystemBase {
     Logger.processInputs("IntakePivot", inputs);
 
     if (profiledControlEnabled) {
-      double output = profiledPid.calculate(inputs.encoderPosition);
-      io.setDutyCycle(MathUtil.clamp(output, -maxOutput, maxOutput));
+      if (atSetpoint(profiledPid.getGoal().position)) {
+        io.setDutyCycle(0.0);
+      } else {
+        double output = profiledPid.calculate(inputs.encoderPosition);
+        io.setDutyCycle(MathUtil.clamp(output, -maxOutput, maxOutput));
+      }
     } else if (positionControlEnabled) {
-      double output = pid.calculate(inputs.encoderPosition, targetPosition);
-      io.setDutyCycle(MathUtil.clamp(output, -maxOutput, maxOutput));
+      if (atSetpoint(targetPosition)) {
+        io.setDutyCycle(0.0);
+      } else {
+        double output = pid.calculate(inputs.encoderPosition, targetPosition);
+        io.setDutyCycle(MathUtil.clamp(output, -maxOutput, maxOutput));
+      }
     }
   }
 
@@ -74,6 +82,10 @@ public class IntakePivot extends SubsystemBase {
     positionControlEnabled = false;
     profiledControlEnabled = false;
     io.setDutyCycle(0.0);
+  }
+
+  private boolean atSetpoint(double target) {
+    return Math.abs(inputs.encoderPosition - target) <= IntakeConstants.pivotPositionTolerance;
   }
 
   public double getPosition() {

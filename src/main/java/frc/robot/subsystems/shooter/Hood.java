@@ -26,9 +26,14 @@ public class Hood extends SubsystemBase {
     Logger.processInputs("Hood", inputs);
 
     if (positionControlEnabled) {
-      double output = pid.calculate(inputs.encoderPosition, targetPosition);
-      io.setDutyCycle(
-          MathUtil.clamp(output, -ShooterConstants.hoodMaxOutput, ShooterConstants.hoodMaxOutput));
+      if (atSetpoint()) {
+        io.setDutyCycle(0.0);
+      } else {
+        double output = pid.calculate(inputs.encoderPosition, targetPosition);
+        io.setDutyCycle(
+            MathUtil.clamp(
+                output, -ShooterConstants.hoodMaxOutput, ShooterConstants.hoodMaxOutput));
+      }
     }
   }
 
@@ -49,6 +54,11 @@ public class Hood extends SubsystemBase {
   public void stopPositionControl() {
     positionControlEnabled = false;
     io.setDutyCycle(0.0);
+  }
+
+  private boolean atSetpoint() {
+    return Math.abs(inputs.encoderPosition - targetPosition)
+        <= ShooterConstants.hoodPositionTolerance;
   }
 
   public double getPosition() {
