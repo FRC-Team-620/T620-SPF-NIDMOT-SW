@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.simulation.FlywheelSim;
 
 public class IndexerIOSim implements IndexerIO {
   private static final DCMotor gearbox = DCMotor.getNeoVortex(3);
-  private static final double gearing = 3.0;
+  private static final double gearing = 1.0;
   private static final double moi = 0.002;
   private static final double rollerRadiusMeters = 0.0165;
   private static final double fuelMassKg = 0.203;

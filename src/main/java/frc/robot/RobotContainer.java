@@ -277,8 +277,16 @@ public class RobotContainer {
     op.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
     op.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
-    
     double intakeSpeedModifier = 1; // was .9
+
+    intakeRoller.setDefaultCommand(
+        Commands.run(
+            () ->
+                intakeRoller.setSpeed(
+                    (driver.getRightTriggerAxis() - driver.getLeftTriggerAxis())
+                        * intakeSpeedModifier),
+            intakeRoller));
+
     double indexerSpeedModifier = .7; // TO-DO: TUNE ME
     driver
         .rightTrigger()
@@ -290,13 +298,17 @@ public class RobotContainer {
                 intakeRoller, intakePivot, indexer, intakeSpeedModifier, indexerSpeedModifier));
 
     // Default command, normal field-relative drive
-    double driveSpeedModifier = 1;
+    double intakingDriveSpeedScale = 0.7;
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> driver.getLeftY() * driveSpeedModifier,
-            () -> driver.getLeftX() * driveSpeedModifier,
-            () -> -driver.getRightX()));
+            () -> driver.getLeftY() * intakingDriveSpeedScale,
+            () -> driver.getLeftX() * intakingDriveSpeedScale,
+            () -> -driver.getRightX(),
+            () ->
+                driver.getRightTriggerAxis() > 0.1 || driver.getLeftTriggerAxis() > 0.1
+                    ? intakingDriveSpeedScale
+                    : 1.0));
 
     // Lock to 0° when A button is held
 
