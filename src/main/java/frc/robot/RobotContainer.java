@@ -280,12 +280,12 @@ public class RobotContainer {
             intakeRoller));
 
     // Default command, normal field-relative drive
-    double speedModifier = 1;
+    double driveSpeedModifier = 1;
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> driver.getLeftY() * speedModifier,
-            () -> driver.getLeftX() * speedModifier,
+            () -> driver.getLeftY() * driveSpeedModifier,
+            () -> driver.getLeftX() * driveSpeedModifier,
             () -> -driver.getRightX()));
 
     // Lock to 0° when A button is held
