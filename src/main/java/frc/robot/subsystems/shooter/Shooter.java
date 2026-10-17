@@ -25,7 +25,6 @@ public class Shooter extends SubsystemBase {
   public void periodic() {
     io.updateInputs(inputs);
     Logger.processInputs("Shooter", inputs);
-    Logger.recordOutput("Shooter/targetVelocityRPM", targetVelocityRPM);
 
     if (velocityControlEnabled) {
       // Command volts (not duty cycle) so battery sag doesn't shrink the feedforward

@@ -13,8 +13,8 @@ public class Autos {
 
   public static Command centerFrontShoot(
       Shooter shooter, Hood hood, IntakePivot intakePivot, Indexer indexer) {
-    double autoHoodPosition = ShooterConstants.hoodNearPosition;
-    double shooterRPM = ShooterConstants.shooterNearRPM;
+    double autoHoodPosition = -3;
+    double shooterRPM = ShooterConstants.shooterPresetRPM;
     // double shooterRPM = 1250; // testing RPM
     return Commands.sequence(
         Commands.runOnce(() -> hood.setTargetPosition(autoHoodPosition), hood),
