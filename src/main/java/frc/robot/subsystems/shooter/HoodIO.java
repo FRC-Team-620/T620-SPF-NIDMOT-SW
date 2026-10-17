@@ -8,7 +8,6 @@ public interface HoodIO {
     public double encoderPosition = 0.0;
     public double appliedVolts = 0.0;
     public double currentAmps = 0.0;
-    public double motorTempCelsius = 0.0;
   }
 
   default void updateInputs(HoodIOInputs inputs) {}
