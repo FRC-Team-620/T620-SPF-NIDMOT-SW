@@ -28,7 +28,6 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.HoodCommands;
-import frc.robot.commands.IndexerCommands;
 import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
 import frc.robot.commands.ShootingCommands;
@@ -250,7 +249,7 @@ public class RobotContainer {
     op.rightBumper().whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
 
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
-    indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
+    // indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
     driver.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
@@ -279,13 +278,19 @@ public class RobotContainer {
                         * intakeSpeedModifier),
             intakeRoller));
 
+    double indexerSpeedModifier = .7; // TO-DO: TUNE ME
+    indexer.setDefaultCommand(
+        Commands.run(
+            () -> indexer.setDutyCycle((0 - driver.getLeftTriggerAxis()) * indexerSpeedModifier),
+            indexer));
+
     // Default command, normal field-relative drive
-    double speedModifier = 1;
+    double driveSpeedModifier = 1;
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> driver.getLeftY() * speedModifier,
-            () -> driver.getLeftX() * speedModifier,
+            () -> driver.getLeftY() * driveSpeedModifier,
+            () -> driver.getLeftX() * driveSpeedModifier,
             () -> -driver.getRightX()));
 
     // Lock to 0° when A button is held
