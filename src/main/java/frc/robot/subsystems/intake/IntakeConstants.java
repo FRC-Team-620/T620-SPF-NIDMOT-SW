@@ -1,7 +1,7 @@
 package frc.robot.subsystems.intake;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-import edu.wpi.first.math.trajectory.TrapezoidProfile;
+import edu.wpi.first.math.geometry.Translation3d;
 
 public class IntakeConstants {
 
@@ -16,8 +16,7 @@ public class IntakeConstants {
   // Motor configuration
   // -------------------------------------------------------------------------
   public static final IdleMode idleMode = IdleMode.kBrake;
-  public static final int currentLimitAmps = 50; // was 20
-  public static final int pivotCurrentLimitAmps = 35;
+  public static final int currentLimitAmps = 40;
 
   // -------------------------------------------------------------------------
   // Pivot positions (primary encoder counts)
@@ -26,26 +25,16 @@ public class IntakeConstants {
   public static final double pivotExtendPosition = 24.0;
   public static final double pivotMaxOutput = 0.5;
 
+  // Motor rotations per pivot rotation. Estimate, not measured — shared by sim and 3D poses.
+  public static final double pivotGearing = 75.0;
+
   // -------------------------------------------------------------------------
-  // Pivot homing (current-stall zeroing)
+  // 3D visualization — AdvantageScope Robot_Spitfire component 0 (model_0)
   // -------------------------------------------------------------------------
-  // Duty cycle applied while driving toward the hard stop (negative = toward zero)
-  public static final double pivotHomingDutyCycle = -0.1; // TODO: tune me
-  // Current threshold indicating the motor has stalled against the hard stop (amps, tune
-  // empirically)
-  public static final double pivotHomingCurrentThreshold = 15.0; // TODO: tune me
-  // Failsafe: abort homing if it hasn't completed within this many seconds
-  public static final double pivotHomingTimeoutSeconds = 3.0; // TODO: tune me
-
-  // Reduced output ceiling for stowing during the fire sequence, so cargo already loaded against
-  // the hopper isn't jolted by a full-speed stow.
-  public static final double pivotFireStowMaxOutput = 0.15;
-
-  // Velocity-limited stow profile (max velocity, max acceleration in encoder units/sec[^2]).
-  // Not wired into any command yet — verify the reduced-output stow on the robot first, then
-  // tune these and switch fire over to IntakePivotCommands.stowProfiled.
-  public static final TrapezoidProfile.Constraints pivotFireStowConstraints =
-      new TrapezoidProfile.Constraints(20.0, 15.0);
-
-  public static final double rollerFireSpeed = 0.9;
+  // Pivot axis in robot coordinates (meters), measured from CAD (27.5" MAXSpline pivot shaft)
+  public static final Translation3d pivotOrigin = new Translation3d(0.291, 0.0, 0.207);
+  // Encoder position the CAD model was exported at (intake deployed)
+  public static final double pivotCadPosition = pivotExtendPosition;
+  // Flip to -1.0 if the model swings the wrong way in AdvantageScope
+  public static final double pivotVisualizationDirection = 1.0;
 }

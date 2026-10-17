@@ -1,6 +1,7 @@
 package frc.robot.subsystems.shooter;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+import edu.wpi.first.math.geometry.Translation3d;
 
 public class ShooterConstants {
 
@@ -44,17 +45,23 @@ public class ShooterConstants {
 
   public static final double hoodAdjustDelta = 0.5;
 
-  // Aim presets: near/far hood angle + shooter RPM pairs for the aim command.
-  public static final double hoodNearPosition = TestedPoints.Hub.hoodPosition;
-  public static final double hoodFarPosition = TestedPoints.Tower.hoodPosition;
+  // Motor rotations per hood rotation. Estimate, not measured — shared by sim and 3D poses.
+  public static final double hoodGearing = 50.0; // TODO: We need to fix
+
+  // -------------------------------------------------------------------------
+  // 3D visualization — AdvantageScope Robot_Spitfire component 1 (model_1)
+  // -------------------------------------------------------------------------
+  // Hood pivot axis in robot coordinates (meters), measured from CAD (shooter drum axis)
+  public static final Translation3d hoodOrigin = new Translation3d(-0.26, 0.0, 0.482);
+  // Encoder position the CAD model was exported at. Unverified — assumes hood at stow stop.
+  public static final double hoodCadPosition = 0.0;
+  // Flip to -1.0 if the model swings the wrong way in AdvantageScope
+  public static final double hoodVisualizationDirection = 1.0;
 
   // -------------------------------------------------------------------------
   // Shooter velocity control
   // -------------------------------------------------------------------------
   public static final double shooterIdleRPM = 750.0;
-  public static final double shooterNearRPM = TestedPoints.Hub.rpm;
-  public static final double shooterFarRPM = TestedPoints.Tower.rpm;
-  public static final double shooterKP = 0.0075; // volts per RPM of error
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
   public static final double shooterKI = 0.0;
