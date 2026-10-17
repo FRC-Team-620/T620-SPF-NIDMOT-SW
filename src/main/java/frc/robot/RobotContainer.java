@@ -28,7 +28,6 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.HoodCommands;
-import frc.robot.commands.IndexerCommands;
 import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
 import frc.robot.commands.ShootingCommands;
@@ -279,13 +278,10 @@ public class RobotContainer {
                         * intakeSpeedModifier),
             intakeRoller));
 
-    double indexerSpeedModifier = .7; //TO-DO: TUNE ME
+    double indexerSpeedModifier = .7; // TO-DO: TUNE ME
     indexer.setDefaultCommand(
         Commands.run(
-            () ->
-                indexer.setDutyCycle(
-                    (0 - driver.getLeftTriggerAxis())
-                        * indexerSpeedModifier),
+            () -> indexer.setDutyCycle((0 - driver.getLeftTriggerAxis()) * indexerSpeedModifier),
             indexer));
 
     // Default command, normal field-relative drive
