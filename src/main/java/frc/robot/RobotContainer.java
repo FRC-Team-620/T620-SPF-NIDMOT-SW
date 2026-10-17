@@ -15,6 +15,9 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.geometry.Translation3d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Timer;
@@ -28,6 +31,7 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.HoodCommands;
+import frc.robot.commands.IntakeCommands;
 import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
 import frc.robot.commands.ShootingCommands;
@@ -89,6 +93,11 @@ public class RobotContainer {
   private static final double fuelSimStowLaunchAngleDeg = 75.0;
   private static final double fuelSimLaunchYawDeg = 180.0;
   private static final double fuelSimLaunchHeightMeters = 0.55;
+  private double lastFuelEjectTime = 0.0;
+  private static final double fuelSimEjectPeriodSec = 0.15;
+  private static final double fuelSimEjectSpeedMps = 3.0;
+  private static final double fuelSimEjectOffsetMeters = 0.70;
+  private static final double fuelSimEjectHeightMeters = 0.15;
 
   // Controller, controller = driver, op = operator
   private final CommandXboxController driver = new CommandXboxController(0);
@@ -268,21 +277,17 @@ public class RobotContainer {
     op.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
     op.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
-    // Intake roller speed mapped 1:1 to left trigger
+    
     double intakeSpeedModifier = 1; // was .9
-    intakeRoller.setDefaultCommand(
-        Commands.run(
-            () ->
-                intakeRoller.setSpeed(
-                    (driver.getRightTriggerAxis() - driver.getLeftTriggerAxis())
-                        * intakeSpeedModifier),
-            intakeRoller));
-
     double indexerSpeedModifier = .7; // TO-DO: TUNE ME
-    indexer.setDefaultCommand(
-        Commands.run(
-            () -> indexer.setDutyCycle((0 - driver.getLeftTriggerAxis()) * indexerSpeedModifier),
-            indexer));
+    driver
+        .rightTrigger()
+        .whileTrue(IntakeCommands.intake(intakeRoller, intakePivot, intakeSpeedModifier));
+    driver
+        .leftTrigger()
+        .whileTrue(
+            IntakeCommands.extake(
+                intakeRoller, intakePivot, indexer, intakeSpeedModifier, indexerSpeedModifier));
 
     // Default command, normal field-relative drive
     double driveSpeedModifier = 1;
@@ -341,7 +346,7 @@ public class RobotContainer {
         0.625,
         -0.34,
         0.34,
-        () -> intakePivot.isExtended() && intakeRoller.isRunning() && !ballTracker.isFull(),
+        () -> intakePivot.isExtended() && intakeRoller.isIntaking() && !ballTracker.isFull(),
         () -> {
           ballTracker.addFuel();
           intakeRoller.simulateIntake();
@@ -365,6 +370,27 @@ public class RobotContainer {
           Degrees.of(getFuelSimLaunchAngleDeg()),
           Degrees.of(fuelSimLaunchYawDeg),
           Meters.of(fuelSimLaunchHeightMeters));
+    }
+
+    if (intakeRoller.isExtaking()
+        && intakePivot.isExtended()
+        && ballTracker.hasFuel()
+        && now - lastFuelEjectTime >= fuelSimEjectPeriodSec) {
+      lastFuelEjectTime = now;
+      ballTracker.removeFuel();
+      indexer.simulateFeed();
+      intakeRoller.simulateIntake();
+      Pose2d pose = drive.getPose();
+      ChassisSpeeds robotSpeeds = drive.getFieldRelativeSpeeds();
+      Translation2d forward = new Translation2d(1.0, pose.getRotation());
+      Translation2d ejectPosition =
+          pose.getTranslation().plus(forward.times(fuelSimEjectOffsetMeters));
+      fuelSim.spawnFuel(
+          new Translation3d(ejectPosition.getX(), ejectPosition.getY(), fuelSimEjectHeightMeters),
+          new Translation3d(
+              forward.getX() * fuelSimEjectSpeedMps + robotSpeeds.vxMetersPerSecond,
+              forward.getY() * fuelSimEjectSpeedMps + robotSpeeds.vyMetersPerSecond,
+              0.0));
     }
 
     fuelSim.updateSim();
