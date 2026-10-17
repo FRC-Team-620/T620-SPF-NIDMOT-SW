@@ -18,6 +18,8 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   public static final IdleMode idleMode = IdleMode.kCoast;
   public static final IdleMode hoodIdleMode = IdleMode.kBrake;
+  public static final int currentLimitAmps = 40; // was 40, then 60; limits spin-up/recovery acceleration
+  public static final int hoodCurrentLimitAmps = 15; // was 40
   public static final int currentLimitAmps = 60; // was 40; limits spin-up/recovery acceleration
   public static final int hoodCurrentLimitAmps = 40;
 
@@ -36,6 +38,7 @@ public class ShooterConstants {
   // -------------------------------------------------------------------------
   // Hood positions (primary encoder counts)
   // -----------------------------------`--------------------------------------
+  public static final double hoodStowPosition = -0.3;
   public static final double hoodStowPosition = -0.1;
   // public static final double hoodExtendPosition = -4.0; // tower
   public static final double hoodExtendPosition = -1.25; // hub
@@ -44,10 +47,17 @@ public class ShooterConstants {
 
   public static final double hoodAdjustDelta = 0.5;
 
+  // Aim presets: near/far hood angle + shooter RPM pairs for the aim command.
+  public static final double hoodNearPosition = TestedPoints.Hub.hoodPosition;
+  public static final double hoodFarPosition = TestedPoints.Tower.hoodPosition;
+
   // -------------------------------------------------------------------------
   // Shooter velocity control
   // -------------------------------------------------------------------------
   public static final double shooterIdleRPM = 750.0;
+  public static final double shooterNearRPM = TestedPoints.Hub.rpm;
+  public static final double shooterFarRPM = TestedPoints.Tower.rpm;
+  public static final double shooterKP = 0.0075; // volts per RPM of error
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
   public static final double shooterKP = 0.005; // volts per RPM of error

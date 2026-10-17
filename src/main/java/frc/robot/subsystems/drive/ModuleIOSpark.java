@@ -27,6 +27,7 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.math.geometry.Rotation2d;
+import frc.robot.Constants;
 import java.util.Queue;
 import java.util.function.DoubleSupplier;
 
@@ -98,6 +99,7 @@ public class ModuleIOSpark implements ModuleIO {
         .idleMode(IdleMode.kBrake)
         .smartCurrentLimit(driveMotorCurrentLimit)
         .voltageCompensation(12.0)
+        .secondaryCurrentLimit(DriveConstants.turnMotorCurrentLimit + Constants.stallCurrentBuffer)
         .inverted(true);
     driveConfig
         .encoder
@@ -132,6 +134,7 @@ public class ModuleIOSpark implements ModuleIO {
         .inverted(turnInverted)
         .idleMode(IdleMode.kBrake)
         .smartCurrentLimit(turnMotorCurrentLimit)
+        .secondaryCurrentLimit(DriveConstants.turnMotorCurrentLimit + Constants.stallCurrentBuffer)
         .voltageCompensation(12.0);
     turnConfig
         .absoluteEncoder
