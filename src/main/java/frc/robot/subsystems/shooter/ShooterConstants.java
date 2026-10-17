@@ -64,6 +64,7 @@ public class ShooterConstants {
   public static final double shooterIdleRPM = 750.0;
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
+  public static final double shooterKP = 0.00075;
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;
   public static final double shooterKS = 0.190783; // volts, static friction offset

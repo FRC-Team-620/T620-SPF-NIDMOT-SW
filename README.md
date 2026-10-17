@@ -1,4 +1,4 @@
-# Warbots2026 offseason bot code 
+# Warbots2026 offseason bot code
 
 ## Project Spitfire
 
@@ -13,7 +13,6 @@ TODO: Fill out Update Link
 [Port Assignments Spreadsheet](http://example.com)
 
 # CAD - ONSHAPE
-TODO: Fill out Update Link
 [CAD - ONSHAPE](https://cad.onshape.com/documents/60974fd9f86acaa8055b7ecf/w/017639191679546f222f09a4/e/93d9a12a1aef94e41d6a4363?renderMode=0&uiState=6ad3746c7901a43b19e60f1a/)
 
 # Dashboards
