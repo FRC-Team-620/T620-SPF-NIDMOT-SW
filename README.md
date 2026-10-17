@@ -22,18 +22,14 @@ TODO: Ascope Custom Assets configurations
 
 # Logs:
 
-TODO: Update Folder Location
-[Google Drive Logs Folder](https://drive.google.com/drive/folders/1Y_hG6J7Pv--EDNQvSW5Nk1r_fIzlkpGu?dmr=1&ec=wgc-drive-globalnav-goto)
+[Google Drive Logs Folder](https://drive.google.com/drive/u/4/folders/1TuPDtL0B8v4m9yrG4AsWWGxzbl-elqbY?dmr=1&ec=wgc-drive-globalnav-goto)
 
 # Thrifty Module Azimuth Encoder Zeroing Procedure
 
-TODO: Create New Doc for Rev Modules
-
-[Google Drive Programming Folder](https://docs.google.com/document/d/1wnJfbLzpVgwjBBD8k-uFfK8kBwKNOHNH9EUZB00zbIM/edit?tab=t.0)
+[Zeroing procedure document](https://docs.google.com/document/d/1wnJfbLzpVgwjBBD8k-uFfK8kBwKNOHNH9EUZB00zbIM/edit?tab=t.0)
 
 # Driver and Operator Competition Controls
-
-TODO: Create new Docs and Update:
+TODO: update controls (detailed controls has been done)
 [Controls Document](https://docs.google.com/document/d/15Jkrab26Lnp2WN2_DIrBzKSFo-tVKhKQ2jnwQdINcyA/edit?tab=t.0)
 [Detailed Control Document](https://docs.google.com/document/d/1xO8T9W-RT8Sr_g6wulEiTy04_EeWa1I-H3vwEWQH71w/edit?usp=sharing)
 
