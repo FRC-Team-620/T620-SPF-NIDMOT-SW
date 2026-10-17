@@ -250,7 +250,7 @@ public class RobotContainer {
     op.rightBumper().whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
 
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
-    indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
+    // indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
     driver.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
