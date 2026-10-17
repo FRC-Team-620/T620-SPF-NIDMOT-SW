@@ -40,7 +40,6 @@ TODO: Create new Docs and Update:
 
 # Preflight Procedure
 
-TODO: Fill out This document
 [Preflight Document](https://docs.google.com/document/d/1y8YTlZKGIjjIhhPViNVR2rbAraMHBm-Do5bom_juSBM/edit?tab=t.0)
 
 
