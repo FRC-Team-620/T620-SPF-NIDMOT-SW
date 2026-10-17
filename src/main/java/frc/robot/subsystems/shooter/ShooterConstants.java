@@ -1,6 +1,7 @@
 package frc.robot.subsystems.shooter;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+import edu.wpi.first.math.geometry.Translation3d;
 
 public class ShooterConstants {
 
@@ -43,6 +44,19 @@ public class ShooterConstants {
   public static final double hoodMaxOutput = 0.75;
 
   public static final double hoodAdjustDelta = 0.5;
+
+  // Motor rotations per hood rotation. Estimate, not measured — shared by sim and 3D poses.
+  public static final double hoodGearing = 50.0; // TODO: We need to fix
+
+  // -------------------------------------------------------------------------
+  // 3D visualization — AdvantageScope Robot_Spitfire component 1 (model_1)
+  // -------------------------------------------------------------------------
+  // Hood pivot axis in robot coordinates (meters), measured from CAD (shooter drum axis)
+  public static final Translation3d hoodOrigin = new Translation3d(-0.26, 0.0, 0.482);
+  // Encoder position the CAD model was exported at. Unverified — assumes hood at stow stop.
+  public static final double hoodCadPosition = 0.0;
+  // Flip to -1.0 if the model swings the wrong way in AdvantageScope
+  public static final double hoodVisualizationDirection = 1.0;
 
   // -------------------------------------------------------------------------
   // Shooter velocity control
