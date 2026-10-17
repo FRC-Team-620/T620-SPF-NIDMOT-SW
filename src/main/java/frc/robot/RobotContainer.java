@@ -279,6 +279,15 @@ public class RobotContainer {
                         * intakeSpeedModifier),
             intakeRoller));
 
+    double indexerSpeedModifier = .7; //TO-DO: TUNE ME
+    indexer.setDefaultCommand(
+        Commands.run(
+            () ->
+                indexer.setDutyCycle(
+                    (0 - driver.getLeftTriggerAxis())
+                        * indexerSpeedModifier),
+            indexer));
+
     // Default command, normal field-relative drive
     double driveSpeedModifier = 1;
     drive.setDefaultCommand(
