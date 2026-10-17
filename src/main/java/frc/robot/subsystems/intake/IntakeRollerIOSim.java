@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.simulation.FlywheelSim;
 
 public class IntakeRollerIOSim implements IntakeRollerIO {
   private static final DCMotor gearbox = DCMotor.getNEO(2);
-  private static final double gearing = 3.0;
+  private static final double gearing = 1.5;
   private static final double moi = 0.001;
   private static final double rollerRadiusMeters = 0.0159;
   private static final double fuelMassKg = 0.203;
