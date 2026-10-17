@@ -46,7 +46,7 @@ public class ShooterConstants {
   public static final double hoodAdjustDelta = 0.5;
 
   // Motor rotations per hood rotation. Estimate, not measured — shared by sim and 3D poses.
-  public static final double hoodGearing = 50.0; // TODO: We need to fix
+  public static final double hoodGearing = 69.545;
 
   // -------------------------------------------------------------------------
   // 3D visualization — AdvantageScope Robot_Spitfire component 1 (model_1)

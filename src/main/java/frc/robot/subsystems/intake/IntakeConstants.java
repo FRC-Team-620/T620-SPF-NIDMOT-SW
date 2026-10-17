@@ -28,7 +28,7 @@ public class IntakeConstants {
   public static final double pivotMaxOutput = 0.5;
 
   // Motor rotations per pivot rotation. Estimate, not measured — shared by sim and 3D poses.
-  public static final double pivotGearing = 75.0;
+  public static final double pivotGearing = 65.455;
 
   // -------------------------------------------------------------------------
   // 3D visualization — AdvantageScope Robot_Spitfire component 0 (model_0)
