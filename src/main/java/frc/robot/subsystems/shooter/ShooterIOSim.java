@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.simulation.FlywheelSim;
 
 public class ShooterIOSim implements ShooterIO {
   private static final DCMotor gearbox = DCMotor.getNeoVortex(4);
-  private static final double gearing = 1.0;
+  private static final double gearing = (4.0/3.0);
   private static final double moi = 0.008;
   private static final double fuelMassKg = 0.203;
 
