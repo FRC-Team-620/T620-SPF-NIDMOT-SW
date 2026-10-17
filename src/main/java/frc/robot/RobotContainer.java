@@ -9,6 +9,7 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
@@ -24,7 +25,6 @@ import frc.robot.commands.HoodCommands;
 import frc.robot.commands.IndexerCommands;
 import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
-import frc.robot.commands.ShootingCommands;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.GyroIO;
 import frc.robot.subsystems.drive.GyroIOPigeon2;
@@ -33,20 +33,26 @@ import frc.robot.subsystems.drive.ModuleIOSim;
 import frc.robot.subsystems.drive.ModuleIOSpark;
 import frc.robot.subsystems.indexer.Indexer;
 import frc.robot.subsystems.indexer.IndexerIO;
+import frc.robot.subsystems.indexer.IndexerIOSim;
 import frc.robot.subsystems.indexer.IndexerIOSpark;
 import frc.robot.subsystems.intake.IntakePivot;
 import frc.robot.subsystems.intake.IntakePivotIO;
+import frc.robot.subsystems.intake.IntakePivotIOSim;
 import frc.robot.subsystems.intake.IntakePivotIOSpark;
 import frc.robot.subsystems.intake.IntakeRoller;
 import frc.robot.subsystems.intake.IntakeRollerIO;
+import frc.robot.subsystems.intake.IntakeRollerIOSim;
 import frc.robot.subsystems.intake.IntakeRollerIOSpark;
 import frc.robot.subsystems.shooter.Hood;
 import frc.robot.subsystems.shooter.HoodIO;
+import frc.robot.subsystems.shooter.HoodIOSim;
 import frc.robot.subsystems.shooter.HoodIOSpark;
 import frc.robot.subsystems.shooter.Shooter;
 import frc.robot.subsystems.shooter.ShooterConstants;
 import frc.robot.subsystems.shooter.ShooterIO;
+import frc.robot.subsystems.shooter.ShooterIOSim;
 import frc.robot.subsystems.shooter.ShooterIOSpark;
+import org.littletonrobotics.junction.Logger;
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -100,11 +106,11 @@ public class RobotContainer {
                 new ModuleIOSim(),
                 new ModuleIOSim(),
                 new ModuleIOSim());
-        indexer = new Indexer(new IndexerIO() {});
-        intakePivot = new IntakePivot(new IntakePivotIO() {});
-        intakeRoller = new IntakeRoller(new IntakeRollerIO() {});
-        hood = new Hood(new HoodIO() {});
-        shooter = new Shooter(new ShooterIO() {});
+        indexer = new Indexer(new IndexerIOSim());
+        intakePivot = new IntakePivot(new IntakePivotIOSim());
+        intakeRoller = new IntakeRoller(new IntakeRollerIOSim());
+        hood = new Hood(new HoodIOSim());
+        shooter = new Shooter(new ShooterIOSim());
         break;
 
       default:
@@ -172,49 +178,41 @@ public class RobotContainer {
                   intakePivot.setBrakeMode(true);
                   hood.setBrakeMode(true);
                 }));
-    // TODO before merging: re-enable auto-homing once pivotHomingCurrentThreshold and
-    // pivotHomingDutyCycle are validated (see IntakeConstants.java). Uncomment the line below
-    // and remove the SmartDashboard homing button.
-    // .andThen(IntakePivotCommands.home(intakePivot)));
 
     // Zero-encoder buttons (usable while disabled)
     SmartDashboard.putData(
         "IntakePivot/ZeroEncoder",
         Commands.runOnce(intakePivot::resetEncoder, intakePivot).ignoringDisable(true));
-    // TODO before merging: remove this button once auto-homing on enable is re-enabled.
-    // Before running: verify pivotHomingDutyCycle sign drives toward the hard stop (not away),
-    // then observe IntakePivot/currentAmps in AScope during a homing run to tune
-    // pivotHomingCurrentThreshold (should be clearly above free-movement current, below 40 A
-    // limit).
-    SmartDashboard.putData("IntakePivot/HomeEncoder", IntakePivotCommands.home(intakePivot));
     SmartDashboard.putData(
         "Hood/ZeroEncoder", Commands.runOnce(hood::resetEncoder, hood).ignoringDisable(true));
+
+    SmartDashboard.putData("Test/IntakePivot/Up", IntakePivotCommands.stow(intakePivot));
+    SmartDashboard.putData("Test/IntakePivot/Down", IntakePivotCommands.extend(intakePivot));
+    SmartDashboard.putData("Test/Hood/Stow", HoodCommands.stow(hood));
+    SmartDashboard.putData("Test/Hood/Extend", HoodCommands.extend(hood));
+    SmartDashboard.putData(
+        "Test/Hood/AdjustUp", HoodCommands.adjustPosition(hood, ShooterConstants.hoodAdjustDelta));
+    SmartDashboard.putData(
+        "Test/Hood/AdjustDown",
+        HoodCommands.adjustPosition(hood, -ShooterConstants.hoodAdjustDelta));
 
     // Idle shooter at 750 RPM by default; auto sequence controls spinup during autonomous
     shooter.setDefaultCommand(
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
-    // Aim: spin the shooter and set the hood for a far/near shot while held; releasing drops the
-    // shooter back to idle and restows the hood
-    driver.y().whileTrue(ShootingCommands.aimFar(shooter, hood));
-    op.x().whileTrue(ShootingCommands.aimFar(shooter, hood));
-    driver.leftBumper().whileTrue(ShootingCommands.aimNear(shooter, hood));
-    op.b().whileTrue(ShootingCommands.aimNear(shooter, hood));
+    // Spin shooter at preset RPM while Y is held
+    driver.y().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
+
+    op.x().whileTrue(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterPresetRPM));
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
     op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
-    driver.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
-
-    // Fire: stow the intake (slowly, to avoid jolting loaded cargo), then once the shooter is at
-    // its aimed velocity, feed cargo through the indexer and intake roller. Hold an aim button
-    // concurrently — the feed only starts once the shooter reaches the commanded speed.
-    driver
-        .rightBumper()
-        .whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
-    op.rightBumper().whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
 
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
+    // Run indexer at 50% while RB is held
+    driver.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
+    op.rightBumper().whileTrue(IndexerCommands.runAtDutyCycle(indexer, 0.85));
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
     driver.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
     driver.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
@@ -229,11 +227,9 @@ public class RobotContainer {
     // Hood position trim: op POV left raises, op POV right lowers
     op.povLeft().onTrue(HoodCommands.adjustPosition(hood, ShooterConstants.hoodAdjustDelta));
     op.povRight().onTrue(HoodCommands.adjustPosition(hood, -ShooterConstants.hoodAdjustDelta));
-    op.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
-    op.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
     // Intake roller speed mapped 1:1 to left trigger
-    double intakeSpeedModifier = 1; // was .9
+    double intakeSpeedModifier = 0.9;
     intakeRoller.setDefaultCommand(
         Commands.run(
             () ->
@@ -252,11 +248,11 @@ public class RobotContainer {
             () -> -driver.getRightX()));
 
     // Lock to 0° when A button is held
-    // driver
-    //     .a()
-    //     .whileTrue(
-    //         DriveCommands.joystickDriveAtAngle(
-    //             drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () -> Rotation2d.kZero));
+    driver
+        .a()
+        .whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () -> Rotation2d.kZero));
 
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
@@ -268,9 +264,22 @@ public class RobotContainer {
             Commands.runOnce(
                     () ->
                         drive.setPose(
-                            new Pose2d(drive.getPose().getTranslation(), Rotation2d.kZero)),
+                            new Pose2d(drive.getPose().getTranslation(), Rotation2d.k180deg)),
                     drive)
                 .ignoringDisable(true));
+  }
+
+  /**
+   * Logs articulated component poses for AdvantageScope. Array order must match the components in
+   * advantageScope/Robot_Spitfire/config.json: intake pivot (model_0), then hood (model_1).
+   */
+  public void logComponentPoses() {
+    Logger.recordOutput(
+        "Mechanism3d/Measured",
+        new Pose3d[] {intakePivot.getMeasuredPose(), hood.getMeasuredPose()});
+    Logger.recordOutput(
+        "Mechanism3d/Setpoint",
+        new Pose3d[] {intakePivot.getSetpointPose(), hood.getSetpointPose()});
   }
 
   /**

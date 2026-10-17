@@ -1,0 +1,67 @@
+{
+  "name": "Spitfire",
+  "rotations": [
+    {
+      "axis": "x",
+      "degrees": 90
+    }
+  ],
+  "position": [
+    0,
+    0,
+    0
+  ],
+  "cameras": [
+    {
+      "name": "Shooter Camera",
+      "rotations": [
+        {
+          "axis": "y",
+          "degrees": -30
+        },
+        {
+          "axis": "z",
+          "degrees": 180
+        }
+      ],
+      "position": [
+        -0.313,
+        0,
+        0.415
+      ],
+      "resolution": [
+        1280,
+        800
+      ],
+      "fov": 70
+    }
+  ],
+  "components": [
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        -0.291,
+        0,
+        -0.207
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.26,
+        0,
+        -0.482
+      ]
+    }
+  ]
+}

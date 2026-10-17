@@ -14,7 +14,7 @@ TODO: Fill out Update Link
 
 # CAD - ONSHAPE
 TODO: Fill out Update Link
-[CAD - ONSHAPE](https://cad.onshape.com/)
+[CAD - ONSHAPE](https://cad.onshape.com/documents/60974fd9f86acaa8055b7ecf/w/017639191679546f222f09a4/e/93d9a12a1aef94e41d6a4363?renderMode=0&uiState=6ad3746c7901a43b19e60f1a/)
 
 # Dashboards
 [Dashboard configuration Files](link here)
@@ -40,7 +40,6 @@ TODO: Create new Docs and Update:
 
 # Preflight Procedure
 
-TODO: Fill out This document
 [Preflight Document](https://docs.google.com/document/d/1y8YTlZKGIjjIhhPViNVR2rbAraMHBm-Do5bom_juSBM/edit?tab=t.0)
 
 
