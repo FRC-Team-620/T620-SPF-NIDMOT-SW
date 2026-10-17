@@ -20,4 +20,6 @@ public interface ShooterIO {
   default void setDutyCycle(double speed) {}
 
   default void setVoltage(double volts) {}
+
+  default void simulateShot(double fuelSpeedMetersPerSec) {}
 }

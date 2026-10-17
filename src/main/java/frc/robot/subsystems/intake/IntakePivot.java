@@ -82,6 +82,10 @@ public class IntakePivot extends SubsystemBase {
         IntakeConstants.pivotOrigin, new Rotation3d(0.0, toAngleRad(encoderPosition), 0.0));
   }
 
+  public boolean isExtended() {
+    return inputs.encoderPosition > IntakeConstants.pivotExtendPosition - 2.0;
+  }
+
   public void resetEncoder() {
     io.resetEncoder();
   }

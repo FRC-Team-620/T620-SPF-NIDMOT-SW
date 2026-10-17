@@ -6,6 +6,7 @@ public interface IntakeRollerIO {
   @AutoLog
   class IntakeRollerIOInputs {
     public double appliedVolts = 0.0;
+    public double velocityRPM = 0.0;
     public double leaderCurrentAmps = 0.0;
     public double followerCurrentAmps = 0.0;
   }
@@ -13,4 +14,6 @@ public interface IntakeRollerIO {
   default void updateInputs(IntakeRollerIOInputs inputs) {}
 
   default void setSpeed(double speed) {}
+
+  default void simulateIntake() {}
 }

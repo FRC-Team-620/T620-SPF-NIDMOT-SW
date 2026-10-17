@@ -65,4 +65,8 @@ public class Shooter extends SubsystemBase {
   public void stop() {
     io.setDutyCycle(0.0);
   }
+
+  public void simulateShot(double fuelSpeedMetersPerSec) {
+    io.simulateShot(fuelSpeedMetersPerSec);
+  }
 }

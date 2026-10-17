@@ -24,4 +24,12 @@ public class Indexer extends SubsystemBase {
   public void stop() {
     io.setDutyCycle(0.0);
   }
+
+  public void simulateFeed() {
+    io.simulateFeed();
+  }
+
+  public boolean isFeeding() {
+    return inputs.leftAppliedVolts > 1.0;
+  }
 }

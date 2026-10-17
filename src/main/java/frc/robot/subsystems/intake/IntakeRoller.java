@@ -20,4 +20,12 @@ public class IntakeRoller extends SubsystemBase {
   public void setSpeed(double speed) {
     io.setSpeed(speed);
   }
+
+  public void simulateIntake() {
+    io.simulateIntake();
+  }
+
+  public boolean isRunning() {
+    return Math.abs(inputs.appliedVolts) > 1.0;
+  }
 }
