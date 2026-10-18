@@ -172,6 +172,10 @@ public class RobotContainer {
 
     autoChooser.addDefaultOption(
         "Center Front Shoot", Autos.centerFrontShoot(shooter, hood, intakePivot, indexer));
+    autoChooser.addOption("Blue Shooter Forward", Autos.blueShooterForward(drive));
+    autoChooser.addOption("Blue Intake Forward", Autos.blueIntakeForward(drive));
+    autoChooser.addOption("Red Shooter Forward", Autos.redShooterForward(drive));
+    autoChooser.addOption("Red Intake Forward", Autos.redIntakeForward(drive));
 
     // Configure the button bindings
     configureButtonBindings();
