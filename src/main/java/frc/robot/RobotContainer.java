@@ -95,6 +95,7 @@ public class RobotContainer {
   // Controller, controller = driver, op = operator
   private final CommandXboxController driver = new CommandXboxController(0);
   private final CommandXboxController op = new CommandXboxController(1);
+  private final CommandXboxController test = new CommandXboxController(2);
 
   // Dashboard inputs
   private final LoggedDashboardChooser<Command> autoChooser;
@@ -295,6 +296,10 @@ public class RobotContainer {
                 driver.getRightTriggerAxis() > 0.1 || driver.getLeftTriggerAxis() > 0.1
                     ? intakingDriveSpeedScale
                     : 1.0));
+
+    test.leftBumper().onTrue(Autos.setPose(drive, "red"));
+    test.rightBumper().onTrue(Autos.setPose(drive, "blue"));
+    test.y().whileTrue(Autos.testShoot(shooter, hood, intakePivot, indexer));
 
     // Lock to 0° when A button is held
 

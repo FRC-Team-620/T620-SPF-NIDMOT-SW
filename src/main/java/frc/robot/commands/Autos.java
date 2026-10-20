@@ -41,4 +41,27 @@ public class Autos {
                 IndexerCommands.runAtDutyCycle(indexer, 0.85))
             .withTimeout(5.0));
   }
+
+  public static Command setPose(Drive drive, String ally) {
+    Pose2d fPose = ally == "red" ? Constants.Poses.hubRED : Constants.Poses.hubBLUE;
+    return Commands.runOnce(() -> drive.setPose(fPose), drive);
+  }
+
+  public static Command testShoot(
+      Shooter shooter, Hood hood, IntakePivot intakePivot, Indexer indexer) {
+    double autoHoodPosition = ShooterConstants.hoodNearPosition;
+    double shooterRPM = ShooterConstants.shooterNearRPM;
+
+    // double shooterRPM = 1250; // testing RPM
+    return Commands.sequence(
+        Commands.runOnce(() -> hood.setTargetPosition(autoHoodPosition), hood),
+        Commands.deadline(
+            Commands.waitUntil(shooter::isAtTargetVelocity).withTimeout(3.0),
+            ShooterCommands.runAtVelocity(shooter, shooterRPM),
+            IntakePivotCommands.extend(intakePivot)),
+        Commands.parallel(
+                ShooterCommands.runAtVelocity(shooter, shooterRPM),
+                IndexerCommands.runAtDutyCycle(indexer, 0.85))
+            .withTimeout(5.0));
+  }
 }
