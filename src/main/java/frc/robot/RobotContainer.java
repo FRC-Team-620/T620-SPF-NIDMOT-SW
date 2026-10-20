@@ -16,6 +16,7 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.XboxController;
@@ -171,11 +172,9 @@ public class RobotContainer {
     //     "Drive SysId (Dynamic Reverse)", drive.sysIdDynamic(SysIdRoutine.Direction.kReverse));
 
     autoChooser.addDefaultOption(
-        "Center Front Shoot", Autos.centerFrontShoot(shooter, hood, intakePivot, indexer));
-    autoChooser.addOption("Blue Shooter Forward", Autos.blueShooterForward(drive));
-    autoChooser.addOption("Blue Intake Forward", Autos.blueIntakeForward(drive));
-    autoChooser.addOption("Red Shooter Forward", Autos.redShooterForward(drive));
-    autoChooser.addOption("Red Intake Forward", Autos.redIntakeForward(drive));
+        "Center Front Shoot",
+        Autos.centerFrontShoot(
+            shooter, hood, intakePivot, indexer, drive, DriverStation.getAlliance()));
 
     // Configure the button bindings
     configureButtonBindings();
@@ -399,7 +398,6 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return Commands.runOnce(() -> drive.setPose(Constants.Poses.hubBLUE), drive);
-    // return autoChooser.get();
+    return autoChooser.get();
   }
 }
