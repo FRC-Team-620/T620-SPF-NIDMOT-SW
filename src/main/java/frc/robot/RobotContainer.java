@@ -399,6 +399,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return autoChooser.get();
+    return Commands.runOnce(() -> drive.setPose(Constants.Poses.hubBLUE), drive);
+    // return autoChooser.get();
   }
 }
