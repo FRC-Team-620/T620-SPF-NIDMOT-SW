@@ -33,7 +33,8 @@ public final class Constants {
   }
 
   public static class Poses {
-    public static final Pose2d hubBLUE = new Pose2d(3.569, 4.051, new Rotation2d(180.0));
-    public static final Pose2d hubRED = new Pose2d(13.00, 4.051, new Rotation2d(0.0));
+    public static final Pose2d hubBLUE =
+        new Pose2d(3.569, 4.051, new Rotation2d(Math.toRadians(180.0)));
+    public static final Pose2d hubRED = new Pose2d(13.00, 4.051, new Rotation2d(0));
   }
 }
