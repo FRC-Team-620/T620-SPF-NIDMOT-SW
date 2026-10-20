@@ -35,39 +35,31 @@ public class Autos {
   // HOLY SHIT REALLY BIG TO-DO: make sure these are not flipped
   // -------------------------------------------------------------
 
-  public static Command blueShooterForward(Drive drive){
+  public static Command blueShooterForward(Drive drive) {
     return Commands.runOnce(
-                    () ->
-                        drive.setPose(
-                            new Pose2d(drive.getPose().getTranslation(), Rotation2d.k180deg)),
-                    drive)
-                .ignoringDisable(true);
+            () -> drive.setPose(new Pose2d(drive.getPose().getTranslation(), Rotation2d.k180deg)),
+            drive)
+        .ignoringDisable(true);
   }
 
-  public static Command blueIntakeForward(Drive drive){
+  public static Command blueIntakeForward(Drive drive) {
     return Commands.runOnce(
-                    () ->
-                        drive.setPose(
-                            new Pose2d(drive.getPose().getTranslation(), Rotation2d.kZero)),
-                    drive)
-                .ignoringDisable(true);
+            () -> drive.setPose(new Pose2d(drive.getPose().getTranslation(), Rotation2d.kZero)),
+            drive)
+        .ignoringDisable(true);
   }
 
-  public static Command redShooterForward(Drive drive){
+  public static Command redShooterForward(Drive drive) {
     return Commands.runOnce(
-                    () ->
-                        drive.setPose(
-                            new Pose2d(drive.getPose().getTranslation(), Rotation2d.kZero)),
-                    drive)
-                .ignoringDisable(true);
+            () -> drive.setPose(new Pose2d(drive.getPose().getTranslation(), Rotation2d.kZero)),
+            drive)
+        .ignoringDisable(true);
   }
 
-  public static Command redIntakeForward(Drive drive){
+  public static Command redIntakeForward(Drive drive) {
     return Commands.runOnce(
-                    () ->
-                        drive.setPose(
-                            new Pose2d(drive.getPose().getTranslation(), Rotation2d.k180deg)),
-                    drive)
-                .ignoringDisable(true);
+            () -> drive.setPose(new Pose2d(drive.getPose().getTranslation(), Rotation2d.k180deg)),
+            drive)
+        .ignoringDisable(true);
   }
 }
