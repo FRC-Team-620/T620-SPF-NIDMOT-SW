@@ -25,7 +25,7 @@ public class IntakeRoller extends SubsystemBase {
     io.simulateIntake();
   }
 
-  public boolean isRunningAlot() {
+  public boolean isRunning() {
     return Math.abs(inputs.appliedVolts) > 1.0;
   }
 }
