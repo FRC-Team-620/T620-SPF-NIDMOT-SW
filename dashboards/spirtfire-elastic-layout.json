@@ -140,6 +140,134 @@
         "layouts": [],
         "containers": []
       }
+    },
+    {
+      "name": "Shot Tuning",
+      "grid_layout": {
+        "layouts": [],
+        "containers": [
+          {
+            "title": "Aim (live tuning)",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 256.0,
+            "height": 128.0,
+            "type": "Command",
+            "properties": {
+              "period": 0.06,
+              "topic": "/SmartDashboard/Tuning/Shot/Aim",
+              "show_type": false,
+              "maximize_button_space": true
+            }
+          },
+          {
+            "title": "Shooter RPM",
+            "x": 0.0,
+            "y": 128.0,
+            "width": 256.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "period": 0.06,
+              "topic": "/SmartDashboard/Tuning/Shot/RPM",
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Hood Position",
+            "x": 0.0,
+            "y": 256.0,
+            "width": 256.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "period": 0.06,
+              "topic": "/SmartDashboard/Tuning/Shot/HoodPosition",
+              "data_type": "double",
+              "show_submit_button": true
+            }
+          },
+          {
+            "title": "Shooter RPM (measured)",
+            "x": 256.0,
+            "y": 0.0,
+            "width": 640.0,
+            "height": 256.0,
+            "type": "Graph",
+            "properties": {
+              "period": 0.033,
+              "topic": "/AdvantageKit/Shooter/LeftVelocityRPM",
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "color": 4280391411,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "Shooter RPM (target)",
+            "x": 896.0,
+            "y": 0.0,
+            "width": 640.0,
+            "height": 256.0,
+            "type": "Graph",
+            "properties": {
+              "period": 0.033,
+              "topic": "/AdvantageKit/RealOutputs/Shooter/targetVelocityRPM",
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "color": 4288423856,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "Hood Position (measured)",
+            "x": 256.0,
+            "y": 256.0,
+            "width": 640.0,
+            "height": 256.0,
+            "type": "Graph",
+            "properties": {
+              "period": 0.033,
+              "topic": "/AdvantageKit/Hood/EncoderPosition",
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "color": 4283215696,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "Hood Position (target)",
+            "x": 896.0,
+            "y": 256.0,
+            "width": 640.0,
+            "height": 256.0,
+            "type": "Graph",
+            "properties": {
+              "period": 0.033,
+              "topic": "/AdvantageKit/RealOutputs/Hood/TargetPosition",
+              "data_type": "double",
+              "time_displayed": 5.0,
+              "color": 4294940672,
+              "line_width": 2.0
+            }
+          },
+          {
+            "title": "Hood Angle (deg, estimated)",
+            "x": 0.0,
+            "y": 384.0,
+            "width": 256.0,
+            "height": 128.0,
+            "type": "Text Display",
+            "properties": {
+              "period": 0.06,
+              "topic": "/AdvantageKit/RealOutputs/Hood/MeasuredAngleDeg",
+              "data_type": "double",
+              "show_submit_button": false
+            }
+          }
+        ]
+      }
     }
   ]
 }

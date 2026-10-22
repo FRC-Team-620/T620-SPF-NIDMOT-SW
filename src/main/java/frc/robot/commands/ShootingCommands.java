@@ -1,5 +1,7 @@
 package frc.robot.commands;
 
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import frc.robot.subsystems.indexer.Indexer;
@@ -33,6 +35,33 @@ public class ShootingCommands {
   /** Spins the shooter and sets the hood for a far shot while held; restows the hood on release. */
   public static Command aimFar(Shooter shooter, Hood hood) {
     return aim(shooter, hood, ShooterConstants.shooterFarRPM, ShooterConstants.hoodFarPosition);
+  }
+
+  /**
+   * Like {@link #aimNear}, but reads "Tuning/Shot/RPM" and "Tuning/Shot/HoodPosition" from
+   * SmartDashboard every loop, so both can be changed live while it runs. Restows the hood on end.
+   */
+  public static Command aimTuning(Shooter shooter, Hood hood) {
+    SmartDashboard.putNumber("Tuning/Shot/RPM", ShooterConstants.shooterNearRPM);
+    SmartDashboard.putNumber("Tuning/Shot/HoodPosition", ShooterConstants.hoodNearPosition);
+
+    return Commands.parallel(
+        Commands.runEnd(
+            () ->
+                shooter.setTargetVelocity(
+                    SmartDashboard.getNumber("Tuning/Shot/RPM", ShooterConstants.shooterNearRPM)),
+            shooter::stopVelocityControl,
+            shooter),
+        Commands.runEnd(
+            () ->
+                hood.setTargetPosition(
+                    MathUtil.clamp(
+                        SmartDashboard.getNumber(
+                            "Tuning/Shot/HoodPosition", ShooterConstants.hoodNearPosition),
+                        ShooterConstants.hoodMaxPosition,
+                        ShooterConstants.hoodStowPosition)),
+            () -> hood.setTargetPosition(ShooterConstants.hoodStowPosition),
+            hood));
   }
 
   /**

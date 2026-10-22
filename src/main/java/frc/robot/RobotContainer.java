@@ -252,6 +252,9 @@ public class RobotContainer {
 
     // Aim: spin the shooter and set the hood for a far/near shot while held; releasing drops the
     // shooter back to idle and restows the hood
+    // Dashboard toggle: aim at the live-tunable RPM / hood position ("Tuning/Shot/...")
+    SmartDashboard.putData("Tuning/Shot/Aim", ShootingCommands.aimTuning(shooter, hood));
+
     driver.y().whileTrue(ShootingCommands.aimFar(shooter, hood));
     op.x().whileTrue(ShootingCommands.aimFar(shooter, hood));
     driver.leftBumper().whileTrue(ShootingCommands.aimNear(shooter, hood));
