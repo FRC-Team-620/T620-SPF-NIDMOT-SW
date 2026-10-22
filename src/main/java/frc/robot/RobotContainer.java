@@ -227,6 +227,15 @@ public class RobotContainer {
 
     SmartDashboard.putData("Test/IntakePivot/Up", IntakePivotCommands.stow(intakePivot));
     SmartDashboard.putData("Test/IntakePivot/Down", IntakePivotCommands.extend(intakePivot));
+    if (Constants.currentMode == Constants.Mode.SIM) {
+      // Sim-only: hold to force the roller to stall so the anti-jam reverse can be tested
+      // without needing real fuel/hardware to physically wedge it.
+      SmartDashboard.putData(
+          "Test/IntakeRoller/SimulateJam",
+          Commands.startEnd(
+                  () -> intakeRoller.setSimJammed(true), () -> intakeRoller.setSimJammed(false))
+              .ignoringDisable(true));
+    }
     SmartDashboard.putData("Test/Hood/Stow", HoodCommands.stow(hood));
     SmartDashboard.putData("Test/Hood/Extend", HoodCommands.extend(hood));
     SmartDashboard.putData(

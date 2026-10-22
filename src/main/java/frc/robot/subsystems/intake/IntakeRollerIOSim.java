@@ -16,11 +16,18 @@ public class IntakeRollerIOSim implements IntakeRollerIO {
       new FlywheelSim(LinearSystemId.createFlywheelSystem(gearbox, moi, gearing), gearbox);
 
   private double appliedVolts = 0.0;
+  private boolean jammed = false;
 
   @Override
   public void updateInputs(IntakeRollerIOInputs inputs) {
     sim.setInputVoltage(appliedVolts);
     sim.update(0.02);
+
+    if (jammed) {
+      // Hold the roller at a stall: velocity pinned at zero, so back-EMF drops and the motor
+      // model draws stall current, same as a physically wedged roller.
+      sim.setAngularVelocity(0.0);
+    }
 
     // Leader and follower share the load, so split the current between them
     double current = Math.abs(sim.getCurrentDrawAmps());
@@ -39,6 +46,11 @@ public class IntakeRollerIOSim implements IntakeRollerIO {
   @Override
   public void simulateIntake() {
     applyFuelLoad(sim.getAngularVelocityRadPerSec() * rollerRadiusMeters);
+  }
+
+  @Override
+  public void setSimJammed(boolean jammed) {
+    this.jammed = jammed;
   }
 
   private void applyFuelLoad(double fuelSpeedMetersPerSec) {

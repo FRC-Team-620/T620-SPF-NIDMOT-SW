@@ -16,4 +16,7 @@ public interface IntakeRollerIO {
   default void setSpeed(double speed) {}
 
   default void simulateIntake() {}
+
+  /** Test-only hook: forces the roller to behave as if physically stuck, for sim testing. */
+  default void setSimJammed(boolean jammed) {}
 }

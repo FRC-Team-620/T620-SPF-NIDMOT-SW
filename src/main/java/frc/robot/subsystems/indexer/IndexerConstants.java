@@ -25,4 +25,10 @@ public class IndexerConstants {
   // -------------------------------------------------------------------------
   public static final boolean invertLeftBank = false;
   public static final boolean invertRightBank = true;
+
+  public static final double kJamMinCommandDutyCycle = 0.1;
+  public static final double kJamVelocityThresholdRPM = 200.0; // TODO tune (IMPORTANT)
+  public static final double kJamDetectionSeconds = 0.15; // sustained stall time before reacting
+  public static final double kJamReverseDutyCycle = 0.6;
+  public static final double kJamReverseSeconds = 0.2; // how long to run in reverse to clear
 }
