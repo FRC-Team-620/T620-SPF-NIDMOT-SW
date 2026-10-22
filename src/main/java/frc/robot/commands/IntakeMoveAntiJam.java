@@ -34,7 +34,7 @@ public class IntakeMoveAntiJam extends Command {
   @Override
   public void execute() {
 
-    if (intake.isRunning() && !isUnjamming && time.hasElapsed(minIntakeTime)) {
+    if (intake.isIntaking() && !isUnjamming && time.hasElapsed(minIntakeTime)) {
       isUnjamming = true;
       time.restart();
     }

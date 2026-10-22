@@ -19,6 +19,15 @@ public final class Constants {
   public static final Mode currentMode = RobotBase.isReal() ? Mode.REAL : simMode;
   public static final int stallCurrentBuffer = 10;
 
+  public static final class Intake {
+    public static final double kJamMinCommandDutyCycle = 0.1;
+    public static final double kJamCurrentThresholdAmps = 30.0; // TODO tune (IMPORTANT)
+    public static final double kJamVelocityThresholdRPM = 200.0; // TODO tune (IMPORTANT)
+    public static final double kJamDetectionSeconds = 0.15; // sustained stall time before reacting
+    public static final double kJamReverseDutyCycle = 0.6;
+    public static final double kJamReverseSeconds = 0.4; // how long to run in reverse to clear
+  }
+
   public static enum Mode {
     /** Running on a real robot. */
     REAL,
