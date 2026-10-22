@@ -16,7 +16,6 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.XboxController;
@@ -99,7 +98,7 @@ public class RobotContainer {
   // Dashboard inputs
   private final LoggedDashboardChooser<Command> autoChooser;
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  /** The container for the robot. Contains subsystems, IO devices, and commands. */
   public RobotContainer() {
     switch (Constants.currentMode) {
       case REAL:
@@ -172,9 +171,7 @@ public class RobotContainer {
     //     "Drive SysId (Dynamic Reverse)", drive.sysIdDynamic(SysIdRoutine.Direction.kReverse));
 
     autoChooser.addDefaultOption(
-        "Center Front Shoot",
-        Autos.centerFrontShoot(
-            shooter, hood, intakePivot, indexer, drive, DriverStation.getAlliance()));
+        "Center Front Shoot", Autos.centerFrontShoot(shooter, hood, intakePivot, indexer, drive));
 
     // Configure the button bindings
     configureButtonBindings();
@@ -243,7 +240,7 @@ public class RobotContainer {
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
     op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
     driver.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
-
+    // Command cmd = new Wait().then()
     // Fire: stow the intake (slowly, to avoid jolting loaded cargo), then once the shooter is at
     // its aimed velocity, feed cargo through the indexer and intake roller. Hold an aim button
     // concurrently — the feed only starts once the shooter reaches the commanded speed.
