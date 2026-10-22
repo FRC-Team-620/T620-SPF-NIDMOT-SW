@@ -44,7 +44,7 @@
           {
             "title": "Auto Choices",
             "x": 0.0,
-            "y": 640.0,
+            "y": 384.0,
             "width": 384.0,
             "height": 128.0,
             "type": "ComboBox Chooser",
@@ -68,8 +68,8 @@
           },
           {
             "title": "Shooter Idle",
-            "x": 0.0,
-            "y": 384.0,
+            "x": 768.0,
+            "y": 512.0,
             "width": 384.0,
             "height": 128.0,
             "type": "Boolean Box",
@@ -85,10 +85,10 @@
           },
           {
             "title": "Total Current",
-            "x": 768.0,
-            "y": 0.0,
+            "x": 384.0,
+            "y": 384.0,
             "width": 384.0,
-            "height": 384.0,
+            "height": 256.0,
             "type": "Graph",
             "properties": {
               "topic": "/AdvantageKit/PowerDistribution/TotalCurrent",
@@ -121,7 +121,7 @@
           },
           {
             "title": "Alerts",
-            "x": 1152.0,
+            "x": 768.0,
             "y": 0.0,
             "width": 384.0,
             "height": 512.0,
