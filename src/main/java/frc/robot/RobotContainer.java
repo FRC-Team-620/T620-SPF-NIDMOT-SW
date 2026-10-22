@@ -19,6 +19,8 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.XboxController;
@@ -106,7 +108,7 @@ public class RobotContainer {
   // Dashboard inputs
   private final LoggedDashboardChooser<Command> autoChooser;
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  /** The container for the robot. Contains subsystems, IO devices, and commands. */
   public RobotContainer() {
     switch (Constants.currentMode) {
       case REAL:
@@ -179,7 +181,7 @@ public class RobotContainer {
     //     "Drive SysId (Dynamic Reverse)", drive.sysIdDynamic(SysIdRoutine.Direction.kReverse));
 
     autoChooser.addDefaultOption(
-        "Center Front Shoot", Autos.centerFrontShoot(shooter, hood, intakePivot, indexer));
+        "Center Front Shoot", Autos.centerFrontShoot(shooter, hood, intakePivot, indexer, drive));
 
     // Configure the button bindings
     configureButtonBindings();
@@ -257,7 +259,7 @@ public class RobotContainer {
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
     op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
     driver.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
-
+    // Command cmd = new Wait().then()
     // Fire: stow the intake (slowly, to avoid jolting loaded cargo), then once the shooter is at
     // its aimed velocity, feed cargo through the indexer and intake roller. Hold an aim button
     // concurrently — the feed only starts once the shooter reaches the commanded speed.
@@ -311,8 +313,8 @@ public class RobotContainer {
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> driver.getLeftY() * intakingDriveSpeedScale,
-            () -> driver.getLeftX() * intakingDriveSpeedScale,
+            () -> -driver.getLeftY(),
+            () -> -driver.getLeftX(),
             () -> -driver.getRightX(),
             () ->
                 driver.getRightTriggerAxis() > 0.1 || driver.getLeftTriggerAxis() > 0.1
@@ -331,14 +333,18 @@ public class RobotContainer {
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
 
-    // Reset gyro to 0° when B button is pressed
+    // Reset heading when B is pressed, with the shooter facing away from our driver station
     driver
         .b()
         .onTrue(
             Commands.runOnce(
                     () ->
                         drive.setPose(
-                            new Pose2d(drive.getPose().getTranslation(), Rotation2d.kZero)),
+                            new Pose2d(
+                                drive.getPose().getTranslation(),
+                                DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red
+                                    ? Rotation2d.kZero
+                                    : Rotation2d.k180deg)),
                     drive)
                 .ignoringDisable(true));
   }
