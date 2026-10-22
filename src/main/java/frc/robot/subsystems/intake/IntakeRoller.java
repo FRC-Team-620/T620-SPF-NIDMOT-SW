@@ -29,11 +29,18 @@ public class IntakeRoller extends SubsystemBase {
   }
 
   public void setSpeed(double speed) {
-    io.setSpeed(speed);
+    commandedSpeedDutyCycle = speed;
+    if (!clearingJam) {
+      io.setSpeed(speed);
+    }
   }
 
   public void simulateIntake() {
     io.simulateIntake();
+  }
+
+  public void setSimJammed(boolean jammed) {
+    io.setSimJammed(jammed);
   }
 
   public boolean isIntaking() {
@@ -63,7 +70,7 @@ public class IntakeRoller extends SubsystemBase {
       jamClearEndTimeSeconds = Timer.getFPGATimestamp() + Constants.Intake.kJamReverseSeconds;
       double reverseSpeed =
           -Math.copySign(Constants.Intake.kJamReverseDutyCycle, commandedSpeedDutyCycle);
-      setSpeed(reverseSpeed);
+      io.setSpeed(reverseSpeed);
     }
   }
 }
