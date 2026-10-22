@@ -15,6 +15,9 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.geometry.Translation3d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
@@ -30,7 +33,7 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.HoodCommands;
-import frc.robot.commands.IndexerCommands;
+import frc.robot.commands.IntakeCommands;
 import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
 import frc.robot.commands.ShootingCommands;
@@ -92,6 +95,11 @@ public class RobotContainer {
   private static final double fuelSimStowLaunchAngleDeg = 75.0;
   private static final double fuelSimLaunchYawDeg = 180.0;
   private static final double fuelSimLaunchHeightMeters = 0.55;
+  private double lastFuelEjectTime = 0.0;
+  private static final double fuelSimEjectPeriodSec = 0.15;
+  private static final double fuelSimEjectSpeedMps = 3.0;
+  private static final double fuelSimEjectOffsetMeters = 0.70;
+  private static final double fuelSimEjectHeightMeters = 0.15;
 
   // Controller, controller = driver, op = operator
   private final CommandXboxController driver = new CommandXboxController(0);
@@ -252,7 +260,7 @@ public class RobotContainer {
     op.rightBumper().whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
 
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
-    indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
+    // indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
     // Intake pivot position control: stow on D-pad down, extend on D-pad up
     driver.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
@@ -271,9 +279,8 @@ public class RobotContainer {
     op.povDown().onTrue(IntakePivotCommands.stow(intakePivot));
     op.povUp().onTrue(IntakePivotCommands.extend(intakePivot));
 
-    // Intake roller speed mapped 1:1 to left trigger
     double intakeSpeedModifier = 1; // was .9
-    double intakingDriveSpeedScale = 0.7;
+
     intakeRoller.setDefaultCommand(
         Commands.run(
             () ->
@@ -282,13 +289,23 @@ public class RobotContainer {
                         * intakeSpeedModifier),
             intakeRoller));
 
+    double indexerSpeedModifier = .7; // TO-DO: TUNE ME
+    driver
+        .rightTrigger()
+        .whileTrue(IntakeCommands.intake(intakeRoller, intakePivot, intakeSpeedModifier));
+    driver
+        .leftTrigger()
+        .whileTrue(
+            IntakeCommands.extake(
+                intakeRoller, intakePivot, indexer, intakeSpeedModifier, indexerSpeedModifier));
+
     // Default command, normal field-relative drive
-    double speedModifier = 1;
+    double intakingDriveSpeedScale = 0.7;
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> -driver.getLeftY() * speedModifier,
-            () -> -driver.getLeftX() * speedModifier,
+            () -> -driver.getLeftY(),
+            () -> -driver.getLeftX(),
             () -> -driver.getRightX(),
             () ->
                 driver.getRightTriggerAxis() > 0.1 || driver.getLeftTriggerAxis() > 0.1
@@ -347,7 +364,7 @@ public class RobotContainer {
         0.625,
         -0.34,
         0.34,
-        () -> intakePivot.isExtended() && intakeRoller.isRunning() && !ballTracker.isFull(),
+        () -> intakePivot.isExtended() && intakeRoller.isIntaking() && !ballTracker.isFull(),
         () -> {
           ballTracker.addFuel();
           intakeRoller.simulateIntake();
@@ -371,6 +388,27 @@ public class RobotContainer {
           Degrees.of(getFuelSimLaunchAngleDeg()),
           Degrees.of(fuelSimLaunchYawDeg),
           Meters.of(fuelSimLaunchHeightMeters));
+    }
+
+    if (intakeRoller.isExtaking()
+        && intakePivot.isExtended()
+        && ballTracker.hasFuel()
+        && now - lastFuelEjectTime >= fuelSimEjectPeriodSec) {
+      lastFuelEjectTime = now;
+      ballTracker.removeFuel();
+      indexer.simulateFeed();
+      intakeRoller.simulateIntake();
+      Pose2d pose = drive.getPose();
+      ChassisSpeeds robotSpeeds = drive.getFieldRelativeSpeeds();
+      Translation2d forward = new Translation2d(1.0, pose.getRotation());
+      Translation2d ejectPosition =
+          pose.getTranslation().plus(forward.times(fuelSimEjectOffsetMeters));
+      fuelSim.spawnFuel(
+          new Translation3d(ejectPosition.getX(), ejectPosition.getY(), fuelSimEjectHeightMeters),
+          new Translation3d(
+              forward.getX() * fuelSimEjectSpeedMps + robotSpeeds.vxMetersPerSecond,
+              forward.getY() * fuelSimEjectSpeedMps + robotSpeeds.vyMetersPerSecond,
+              0.0));
     }
 
     fuelSim.updateSim();

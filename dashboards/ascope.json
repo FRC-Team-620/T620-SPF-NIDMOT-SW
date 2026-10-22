@@ -3,8 +3,8 @@
     {
       "x": -8,
       "y": -8,
-      "width": 1600,
-      "height": 1020,
+      "width": 1616,
+      "height": 1034,
       "state": {
         "sidebar": {
           "width": 447,
@@ -52,7 +52,8 @@
             "/AdvantageKit/RealOutputs/Mechanism3d/Setpoint",
             "/SmartDashboard/IntakePivot",
             "/FuelSim",
-            "/AdvantageKit/IntakeRoller"
+            "/AdvantageKit/IntakeRoller",
+            "/AdvantageKit/Indexer"
           ]
         },
         "tabs": {
@@ -144,9 +145,9 @@
                 "cameraIndex": -1,
                 "orbitFov": 50,
                 "cameraPosition": [
-                  6.364618721182759,
-                  4.964852954663506,
-                  5.284863190426934
+                  3.0546177704517525,
+                  4.02466766420961,
+                  -4.71957334833936
                 ],
                 "cameraTarget": [
                   0,
@@ -188,6 +189,72 @@
                 "rightFilter": 0
               },
               "controllerUUID": "dtk5aygrwhpucdg6vdmdz951w98ebo26",
+              "renderer": null,
+              "controlsHeight": 200
+            },
+            {
+              "type": 1,
+              "title": "Indexer",
+              "controller": {
+                "leftSources": [
+                  {
+                    "type": "stepped",
+                    "logKey": "NT:/AdvantageKit/Indexer/LeftVelocityRPM",
+                    "logType": "Number",
+                    "visible": true,
+                    "options": {
+                      "color": "#2b66a2",
+                      "size": "normal"
+                    }
+                  },
+                  {
+                    "type": "stepped",
+                    "logKey": "NT:/AdvantageKit/Indexer/RightVelocityRPM",
+                    "logType": "Number",
+                    "visible": true,
+                    "options": {
+                      "color": "#e5b31b",
+                      "size": "normal"
+                    }
+                  }
+                ],
+                "rightSources": [
+                  {
+                    "type": "stepped",
+                    "logKey": "NT:/AdvantageKit/Indexer/LeftLeaderCurrentAmps",
+                    "logType": "Number",
+                    "visible": false,
+                    "options": {
+                      "color": "#af2437",
+                      "size": "normal"
+                    }
+                  },
+                  {
+                    "type": "stepped",
+                    "logKey": "NT:/AdvantageKit/Indexer/RightCurrentAmps",
+                    "logType": "Number",
+                    "visible": false,
+                    "options": {
+                      "color": "#80588e",
+                      "size": "normal"
+                    }
+                  }
+                ],
+                "discreteSources": [],
+                "leftLockedRange": null,
+                "rightLockedRange": null,
+                "leftUnitConversion": {
+                  "autoTarget": null,
+                  "preset": null
+                },
+                "rightUnitConversion": {
+                  "autoTarget": null,
+                  "preset": null
+                },
+                "leftFilter": 0,
+                "rightFilter": 0
+              },
+              "controllerUUID": "8ci0d8pvc0f1ks1wila7d3cj7b5mr6xr",
               "renderer": null,
               "controlsHeight": 200
             },
@@ -360,7 +427,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/Drive/Module1/DriveVelocityRadPerSec",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#af2437",
                       "size": "normal"
@@ -370,7 +437,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/Drive/Module2/DriveVelocityRadPerSec",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#e48b32",
                       "size": "normal"
@@ -380,7 +447,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/Drive/Module3/DriveVelocityRadPerSec",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#3b875a",
                       "size": "normal"
@@ -400,7 +467,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/RealOutputs/SwerveStates/Setpoints/1/speed",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#80588e",
                       "size": "normal"
@@ -410,7 +477,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/RealOutputs/SwerveStates/Setpoints/2/speed",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#c0b487",
                       "size": "normal"
@@ -420,7 +487,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/RealOutputs/SwerveStates/Setpoints/3/speed",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#858584",
                       "size": "normal"
@@ -432,7 +499,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/RealOutputs/SwerveStates/Setpoints/0/angle/value",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#af2437",
                       "size": "normal"
@@ -442,7 +509,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/RealOutputs/SwerveStates/Setpoints/1/angle/value",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#80588e",
                       "size": "normal"
@@ -452,7 +519,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/RealOutputs/SwerveStates/Setpoints/2/angle/value",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#e48b32",
                       "size": "normal"
@@ -462,7 +529,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/RealOutputs/SwerveStates/Setpoints/3/angle/value",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#c0b487",
                       "size": "normal"
@@ -472,7 +539,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/Drive/Module0/TurnPosition/value",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#d993aa",
                       "size": "normal"
@@ -482,7 +549,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/Drive/Module1/TurnPosition/value",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#5f4528",
                       "size": "normal"
@@ -492,7 +559,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/Drive/Module2/TurnPosition/value",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#2b66a2",
                       "size": "normal"
@@ -502,7 +569,7 @@
                     "type": "stepped",
                     "logKey": "NT:/AdvantageKit/Drive/Module3/TurnPosition/value",
                     "logType": "Number",
-                    "visible": true,
+                    "visible": false,
                     "options": {
                       "color": "#e5b31b",
                       "size": "normal"
