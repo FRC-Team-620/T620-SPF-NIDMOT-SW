@@ -27,6 +27,10 @@ public class Shooter extends SubsystemBase {
     Logger.processInputs("Shooter", inputs);
     Logger.recordOutput("Shooter/targetVelocityRPM", targetVelocityRPM);
 
+    SmartDashboard.putBoolean(
+        "Shooter/AtIdleSpeed",
+        velocityControlEnabled && targetVelocityRPM == ShooterConstants.shooterIdleRPM);
+
     if (velocityControlEnabled) {
       // Command volts (not duty cycle) so battery sag doesn't shrink the feedforward
       double ffVolts = ShooterConstants.shooterKS + ShooterConstants.shooterKV * targetVelocityRPM;
