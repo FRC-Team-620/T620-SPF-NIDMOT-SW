@@ -5,7 +5,6 @@ import edu.wpi.first.math.filter.Debouncer.DebounceType;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-
 import org.littletonrobotics.junction.Logger;
 
 public class Indexer extends SubsystemBase {
@@ -56,7 +55,7 @@ public class Indexer extends SubsystemBase {
     boolean stalled =
         Math.abs(commandedSpeedDutyCycle) > IndexerConstants.kJamMinCommandDutyCycle
             // && inputs.leaderCurrentAmps > IndexerConstants.kJamCurrentThresholdAmps
-            && Math.abs(inputs.velocityRPM) < IndexerConstants.kJamVelocityThresholdRPM;
+            && Math.abs(inputs.leftVelocityRPM) < IndexerConstants.kJamVelocityThresholdRPM;
 
     if (jamDebouncer.calculate(stalled)) {
       clearingJam = true;
