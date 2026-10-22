@@ -16,6 +16,8 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.XboxController;
@@ -285,8 +287,8 @@ public class RobotContainer {
     drive.setDefaultCommand(
         DriveCommands.joystickDrive(
             drive,
-            () -> driver.getLeftY() * speedModifier,
-            () -> driver.getLeftX() * speedModifier,
+            () -> -driver.getLeftY() * speedModifier,
+            () -> -driver.getLeftX() * speedModifier,
             () -> -driver.getRightX(),
             () ->
                 driver.getRightTriggerAxis() > 0.1 || driver.getLeftTriggerAxis() > 0.1
@@ -305,14 +307,18 @@ public class RobotContainer {
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
 
-    // Reset gyro to 0° when B button is pressed
+    // Reset heading when B is pressed, with the shooter facing away from our driver station
     driver
         .b()
         .onTrue(
             Commands.runOnce(
                     () ->
                         drive.setPose(
-                            new Pose2d(drive.getPose().getTranslation(), Rotation2d.kZero)),
+                            new Pose2d(
+                                drive.getPose().getTranslation(),
+                                DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red
+                                    ? Rotation2d.kZero
+                                    : Rotation2d.k180deg)),
                     drive)
                 .ignoringDisable(true));
   }
