@@ -62,7 +62,7 @@ public class IntakeRoller extends SubsystemBase {
 
     boolean stalled =
         Math.abs(commandedSpeedDutyCycle) > Constants.Intake.kJamMinCommandDutyCycle
-            && inputs.leaderCurrentAmps > Constants.Intake.kJamCurrentThresholdAmps
+            // && inputs.leaderCurrentAmps > Constants.Intake.kJamCurrentThresholdAmps
             && Math.abs(inputs.velocityRPM) < Constants.Intake.kJamVelocityThresholdRPM;
 
     if (jamDebouncer.calculate(stalled)) {
