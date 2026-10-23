@@ -275,14 +275,22 @@ public class RobotContainer {
                 drive,
                 () -> -driver.getLeftY(),
                 () -> -driver.getLeftX(),
-                () -> Rotation2d.fromDegrees(0)));
+                () ->
+                    Rotation2d.fromDegrees(
+                        DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red
+                            ? 0.0
+                            : 180.0)));
     op.rightBumper()
         .whileTrue(
             DriveCommands.joystickDriveAtAngle(
                 drive,
                 () -> -driver.getLeftY(),
                 () -> -driver.getLeftX(),
-                () -> Rotation2d.fromDegrees(0)));
+                () ->
+                    Rotation2d.fromDegrees(
+                        DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red
+                            ? 0.0
+                            : 180.0)));
 
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     // indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
@@ -346,7 +354,11 @@ public class RobotContainer {
                 drive,
                 () -> -driver.getLeftY(),
                 () -> -driver.getLeftX(),
-                () -> Rotation2d.fromDegrees(180)));
+                () ->
+                    Rotation2d.fromDegrees(
+                        DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red
+                            ? 180.0
+                            : 0.0)));
 
     driver
         .a()
