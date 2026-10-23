@@ -266,6 +266,23 @@ public class RobotContainer {
         .whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
     op.rightBumper().whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
 
+    driver
+        .rightBumper()
+        .whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> -driver.getLeftY(),
+                () -> -driver.getLeftX(),
+                () -> Rotation2d.fromDegrees(0)));
+    op
+        .rightBumper()
+        .whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> -driver.getLeftY(),
+                () -> -driver.getLeftX(),
+                () -> Rotation2d.fromDegrees(0)));
+
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     // indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
