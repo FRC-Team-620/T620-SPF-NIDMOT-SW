@@ -321,12 +321,20 @@ public class RobotContainer {
 
     // Lock to 0° when A button is held
 
-    // driver
-    //     .a()
-    //     .whileTrue(
-    //         DriveCommands.joystickDriveAtAngle(
-    //             drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () ->
-    // Rotation2d.kZero));
+    driver
+        .a()
+        .whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> -driver.getLeftY(),
+                () -> -driver.getLeftX(),
+                () -> Rotation2d.fromDegrees(180)));
+
+    driver
+        .a()
+        .whileTrue(
+            HoodCommands.adjustPosition(hood, ShooterConstants.hoodFerryPosition)
+                .andThen(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterFerryRPM)));
 
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));

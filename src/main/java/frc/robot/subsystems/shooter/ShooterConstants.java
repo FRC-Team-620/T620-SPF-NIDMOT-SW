@@ -40,6 +40,7 @@ public class ShooterConstants {
   // -----------------------------------`--------------------------------------
   public static final double hoodStowPosition = -0.1; // to-do : verfiy correct value
   public static final double hoodExtendPosition = -1.25; // to-do: verfiy correct value
+  public static final double hoodFerryPosition = -6.0; // to-do: verfiy correct value
   public static final double hoodMaxPosition = -8.0;
   public static final double hoodMaxOutput = 0.75;
 
@@ -67,6 +68,7 @@ public class ShooterConstants {
   public static final double shooterIdleRPM = 750.0;
   public static final double shooterNearRPM = TestedPoints.Hub.rpm;
   public static final double shooterFarRPM = TestedPoints.Tower.rpm;
+  public static final double shooterFerryRPM = 3000.0;
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
   public static final double shooterKP = 0.0075;
