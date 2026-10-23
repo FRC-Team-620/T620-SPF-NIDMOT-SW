@@ -274,8 +274,7 @@ public class RobotContainer {
                 () -> -driver.getLeftY(),
                 () -> -driver.getLeftX(),
                 () -> Rotation2d.fromDegrees(0)));
-    op
-        .rightBumper()
+    op.rightBumper()
         .whileTrue(
             DriveCommands.joystickDriveAtAngle(
                 drive,
