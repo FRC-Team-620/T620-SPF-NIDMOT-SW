@@ -68,7 +68,7 @@ public class ShooterConstants {
   public static final double shooterIdleRPM = 750.0;
   public static final double shooterNearRPM = TestedPoints.Hub.rpm;
   public static final double shooterFarRPM = TestedPoints.Tower.rpm;
-  public static final double shooterFerryRPM = 3000.0;
+  public static final double shooterFerryRPM = 2500.0;
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
   public static final double shooterKP = 0.0075;
