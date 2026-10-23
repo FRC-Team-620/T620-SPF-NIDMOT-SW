@@ -333,8 +333,13 @@ public class RobotContainer {
     driver
         .a()
         .whileTrue(
-            HoodCommands.adjustPosition(hood, ShooterConstants.hoodFerryPosition)
-                .andThen(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterFerryRPM)));
+            Commands.parallel(
+                ShootingCommands.aimFerry(shooter, hood),
+                Commands.sequence(
+                    Commands.waitSeconds(1.25),
+                    ShootingCommands.yeet(shooter, indexer, intakePivot, intakeRoller))));
+    // HoodCommands.adjustPosition(hood, ShooterConstants.hoodFerryPosition)
+    //     .andThen(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterFerryRPM)));
 
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
