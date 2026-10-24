@@ -26,8 +26,8 @@ public class ShooterConstants {
   // Velocity measurement filter for the built-in Vortex encoder. REV defaults (100 ms period,
   // 64-sample depth) add ~80 ms of lag, so the feedback loop reacts late to shot dips.
   // Lower = less lag but noisier velocity.
-  public static final int velocityMeasurementPeriodMs = 3;
-  public static final int velocityAverageDepth = 10;
+  public static final int velocityMeasurementPeriodMs = 15; // 2x
+  public static final int velocityAverageDepth = 8;
 
   // -------------------------------------------------------------------------
   // Bank inversion — configure once on the real robot
@@ -73,7 +73,7 @@ public class ShooterConstants {
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
   public static final double shooterAutoRPM = 2000;
-  public static final double shooterKP = 0.0075;
+  public static final double shooterKP = 0.011;
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;
   public static final double shooterKS = 0.190783; // volts, static friction offset
