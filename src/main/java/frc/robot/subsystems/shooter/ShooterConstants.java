@@ -60,6 +60,7 @@ public class ShooterConstants {
   // Aim presets: near/far hood angle + shooter RPM pairs for the aim command.
   public static final double hoodNearPosition = TestedPoints.Hub.hoodPosition;
   public static final double hoodFarPosition = TestedPoints.Tower.hoodPosition;
+  public static final double hoodAutoPosition = hoodStowPosition;
 
   // -------------------------------------------------------------------------
   // Shooter velocity control
@@ -69,6 +70,7 @@ public class ShooterConstants {
   public static final double shooterFarRPM = TestedPoints.Tower.rpm;
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
+  public static final double shooterAutoRPM = 2000;
   public static final double shooterKP = 0.0075;
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;

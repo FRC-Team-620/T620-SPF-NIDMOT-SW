@@ -30,10 +30,10 @@ public class Autos {
               drive.setPose(fPose);
             },
             drive),
-        Commands.runOnce(() -> hood.setTargetPosition(ShooterConstants.hoodNearPosition), hood),
+        Commands.runOnce(() -> hood.setTargetPosition(ShooterConstants.hoodAutoPosition), hood),
         Commands.deadline(
             Commands.waitUntil(shooter::isAtTargetVelocity).withTimeout(3.0),
-            ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterNearRPM),
+            ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterAutoRPM),
             IntakePivotCommands.extend(intakePivot)),
         Commands.parallel(
                 ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterNearRPM),
