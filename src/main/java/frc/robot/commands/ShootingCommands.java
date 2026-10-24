@@ -35,6 +35,10 @@ public class ShootingCommands {
     return aim(shooter, hood, ShooterConstants.shooterFarRPM, ShooterConstants.hoodFarPosition);
   }
 
+  public static Command aimFerry(Shooter shooter, Hood hood) {
+    return aim(shooter, hood, ShooterConstants.shooterFerryRPM, ShooterConstants.hoodFerryPosition);
+  }
+
   /**
    * Stows the intake pivot (slowly, so cargo already loaded against the hopper isn't jolted)
    * immediately on press, then once the shooter reaches its aimed velocity, feeds cargo through the
@@ -51,6 +55,27 @@ public class ShootingCommands {
             intakePivot),
         Commands.sequence(
             Commands.waitUntil(shooter::isAtTargetVelocity),
+            Commands.parallel(
+                IndexerCommands.runAtDutyCycle(indexer, 0.85),
+                Commands.runEnd(
+                    () -> intakeRoller.setSpeed(IntakeConstants.rollerFireSpeed),
+                    () -> intakeRoller.setSpeed(0.0),
+                    intakeRoller))));
+  }
+
+  // its ferrying
+  // ShooterCommands.yeet(shooter, hood, indexer, intakePivot, intakeRoller));
+  // HoodCommands.adjustPosition(hood, ShooterConstants.hoodFerryPosition)
+  //     .andThen(ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterFerryRPM)));
+  public static Command yeet(
+      Shooter shooter, Indexer indexer, IntakePivot intakePivot, IntakeRoller intakeRoller) {
+    return Commands.parallel(
+        Commands.runEnd(
+            () -> intakePivot.setTargetPositionSlow(IntakeConstants.pivotStowPosition),
+            () -> intakePivot.setTargetPosition(IntakeConstants.pivotExtendPosition),
+            intakePivot),
+        Commands.sequence(
+            Commands.waitUntil(shooter::isAtFerryVelocity),
             Commands.parallel(
                 IndexerCommands.runAtDutyCycle(indexer, 0.85),
                 Commands.runEnd(

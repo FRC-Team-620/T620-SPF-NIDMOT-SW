@@ -59,6 +59,12 @@ public class Shooter extends SubsystemBase {
             < ShooterConstants.shooterVelocityToleranceRPM;
   }
 
+  public boolean isAtFerryVelocity() {
+    return velocityControlEnabled
+        && Math.abs(inputs.leftVelocityRPM - ShooterConstants.shooterFerryRPM)
+            < ShooterConstants.shooterVelocityToleranceRPM;
+  }
+
   public void setVoltage(double volts) {
     io.setVoltage(volts);
   }

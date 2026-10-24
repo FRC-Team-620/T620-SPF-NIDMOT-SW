@@ -15,6 +15,13 @@ public class HoodCommands {
         hood);
   }
 
+  public static Command setFerryPosition(Hood hood) {
+    return Commands.runEnd(
+        () -> hood.setTargetPosition(ShooterConstants.hoodFerryPosition),
+        hood::stopPositionControl,
+        hood);
+  }
+
   public static Command extend(Hood hood) {
     return Commands.runEnd(
         () -> hood.setTargetPosition(ShooterConstants.hoodExtendPosition),
