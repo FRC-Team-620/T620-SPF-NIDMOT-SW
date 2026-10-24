@@ -250,6 +250,8 @@ public class RobotContainer {
     shooter.setDefaultCommand(
         ShooterCommands.runAtVelocity(shooter, ShooterConstants.shooterIdleRPM));
 
+    hood.setDefaultCommand(HoodCommands.stow(hood));
+
     // Aim: spin the shooter and set the hood for a far/near shot while held; releasing drops the
     // shooter back to idle and restows the hood
     driver.y().whileTrue(ShootingCommands.aimFar(shooter, hood));
