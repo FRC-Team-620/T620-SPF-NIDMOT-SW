@@ -23,6 +23,8 @@ public class Indexer extends SubsystemBase {
 
   @Override
   public void periodic() {
+    // updateJamDetection();
+
     io.updateInputs(inputs);
     Logger.processInputs("Indexer", inputs);
   }

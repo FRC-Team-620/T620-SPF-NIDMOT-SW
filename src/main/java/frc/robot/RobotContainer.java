@@ -268,6 +268,30 @@ public class RobotContainer {
         .whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
     op.rightBumper().whileTrue(ShootingCommands.fire(shooter, indexer, intakePivot, intakeRoller));
 
+    driver
+        .rightBumper()
+        .whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> -driver.getLeftY(),
+                () -> -driver.getLeftX(),
+                () ->
+                    Rotation2d.fromDegrees(
+                        DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red
+                            ? 0.0
+                            : 180.0)));
+    op.rightBumper()
+        .whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> -driver.getLeftY(),
+                () -> -driver.getLeftX(),
+                () ->
+                    Rotation2d.fromDegrees(
+                        DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red
+                            ? 0.0
+                            : 180.0)));
+
     // Indexer tuning via SmartDashboard ("Indexer/Enable", "Indexer/DutyCycle")
     // indexer.setDefaultCommand(IndexerCommands.indexerTuning(indexer));
 
@@ -323,12 +347,27 @@ public class RobotContainer {
 
     // Lock to 0° when A button is held
 
-    // driver
-    //     .a()
-    //     .whileTrue(
-    //         DriveCommands.joystickDriveAtAngle(
-    //             drive, () -> -driver.getLeftY(), () -> -driver.getLeftX(), () ->
-    // Rotation2d.kZero));
+    driver
+        .a()
+        .whileTrue(
+            DriveCommands.joystickDriveAtAngle(
+                drive,
+                () -> -driver.getLeftY(),
+                () -> -driver.getLeftX(),
+                () ->
+                    Rotation2d.fromDegrees(
+                        DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red
+                            ? 180.0
+                            : 0.0)));
+
+    driver
+        .a()
+        .whileTrue(
+            Commands.parallel(
+                ShootingCommands.aimFerry(shooter, hood),
+                Commands.sequence(
+                    Commands.waitSeconds(1.25),
+                    ShootingCommands.yeet(shooter, indexer, intakePivot, intakeRoller))));
 
     // Switch to X pattern when X button is pressed
     driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
