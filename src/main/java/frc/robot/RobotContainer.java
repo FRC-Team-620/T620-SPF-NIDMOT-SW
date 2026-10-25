@@ -37,6 +37,7 @@ import frc.robot.commands.IntakeCommands;
 import frc.robot.commands.IntakePivotCommands;
 import frc.robot.commands.ShooterCommands;
 import frc.robot.commands.ShootingCommands;
+import frc.robot.commands.SnakeMode;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.GyroIO;
 import frc.robot.subsystems.drive.GyroIOPigeon2;
@@ -328,6 +329,8 @@ public class RobotContainer {
     driver
         .rightTrigger()
         .whileTrue(IntakeCommands.intake(intakeRoller, intakePivot, intakeSpeedModifier));
+
+    driver.rightTrigger().whileTrue(new SnakeMode(drive, driver));
     driver
         .leftTrigger()
         .whileTrue(
