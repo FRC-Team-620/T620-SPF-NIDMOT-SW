@@ -30,6 +30,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.HoodCommands;
@@ -330,7 +331,10 @@ public class RobotContainer {
         .rightTrigger()
         .whileTrue(IntakeCommands.intake(intakeRoller, intakePivot, intakeSpeedModifier));
 
-    driver.rightTrigger().whileTrue(new SnakeMode(drive, driver));
+    driver
+        .rightTrigger()
+        .and(new Trigger(() -> Math.abs(driver.getRightX()) < Constants.controllerDeadband))
+        .whileTrue(new SnakeMode(drive, driver));
     driver
         .leftTrigger()
         .whileTrue(

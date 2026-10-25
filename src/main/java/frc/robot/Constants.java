@@ -20,6 +20,7 @@ public final class Constants {
   public static final Mode simMode = Mode.SIM;
   public static final Mode currentMode = RobotBase.isReal() ? Mode.REAL : simMode;
   public static final int stallCurrentBuffer = 10;
+  public static final double controllerDeadband = 0.02; // TODO: tune me
 
   public static final class Intake {
     public static final double kJamMinCommandDutyCycle = 0.1;
