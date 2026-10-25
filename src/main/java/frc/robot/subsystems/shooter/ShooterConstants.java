@@ -20,14 +20,14 @@ public class ShooterConstants {
   public static final IdleMode idleMode = IdleMode.kCoast;
   public static final IdleMode hoodIdleMode = IdleMode.kBrake;
   public static final int currentLimitAmps =
-      40; // was 40, then 60; limits spin-up/recovery acceleration
+      45; // was 40, then 60; limits spin-up/recovery acceleration
   public static final int hoodCurrentLimitAmps = 15; // was 40
 
   // Velocity measurement filter for the built-in Vortex encoder. REV defaults (100 ms period,
   // 64-sample depth) add ~80 ms of lag, so the feedback loop reacts late to shot dips.
   // Lower = less lag but noisier velocity.
-  public static final int velocityMeasurementPeriodMs = 16;
-  public static final int velocityAverageDepth = 2;
+  public static final int velocityMeasurementPeriodMs = 15; // 2x
+  public static final int velocityAverageDepth = 8;
 
   // -------------------------------------------------------------------------
   // Bank inversion — configure once on the real robot
@@ -44,7 +44,7 @@ public class ShooterConstants {
   public static final double hoodMaxPosition = -8.0;
   public static final double hoodMaxOutput = 0.75;
 
-  public static final double hoodAdjustDelta = 0.5;
+  public static final double hoodAdjustDelta = 0.2;
 
   // Motor rotations per hood rotation. Estimate, not measured — shared by sim and 3D poses.
   public static final double hoodGearing = 69.545;
@@ -61,6 +61,7 @@ public class ShooterConstants {
   // Aim presets: near/far hood angle + shooter RPM pairs for the aim command.
   public static final double hoodNearPosition = TestedPoints.Hub.hoodPosition;
   public static final double hoodFarPosition = TestedPoints.Tower.hoodPosition;
+  public static final double hoodAutoPosition = hoodStowPosition;
 
   // -------------------------------------------------------------------------
   // Shooter velocity control
@@ -71,7 +72,8 @@ public class ShooterConstants {
   public static final double shooterFerryRPM = 2500.0;
   // public static final double shooterPresetRPM = 2200.0; // tower
   public static final double shooterPresetRPM = 2000.0; // tower
-  public static final double shooterKP = 0.0075;
+  public static final double shooterAutoRPM = 2000;
+  public static final double shooterKP = 0.012;
   public static final double shooterKI = 0.0;
   public static final double shooterKD = 0.0;
   public static final double shooterKS = 0.190783; // volts, static friction offset
@@ -84,7 +86,8 @@ public class ShooterConstants {
   public static final class TestedPoints {
     public static final class Tower { // bumper againnst line
       public static final double hoodPosition = -4.0;
-      public static final double rpm = 2200.0;
+      // public static final double rpm = 2200.0;
+      public static final double rpm = 2300;
     }
 
     public static final class Hub { // ~1ft from hub, directly against is not a realistic shot angle

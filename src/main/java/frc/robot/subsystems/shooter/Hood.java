@@ -50,7 +50,7 @@ public class Hood extends SubsystemBase {
     targetPosition =
         MathUtil.clamp(
             targetPosition + delta,
-            ShooterConstants.hoodExtendPosition,
+            ShooterConstants.hoodMaxPosition,
             ShooterConstants.hoodStowPosition);
   }
 
