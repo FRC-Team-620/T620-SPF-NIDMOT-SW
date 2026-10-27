@@ -2,6 +2,8 @@ package frc.robot.subsystems.intake;
 
 import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.math.filter.Debouncer.DebounceType;
+import edu.wpi.first.wpilibj.Alert;
+import edu.wpi.first.wpilibj.Alert.AlertType;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -10,12 +12,12 @@ import org.littletonrobotics.junction.Logger;
 public class IntakeRoller extends SubsystemBase {
   private final IntakeRollerIO io;
   private final IntakeRollerIOInputsAutoLogged inputs = new IntakeRollerIOInputsAutoLogged();
-
   private final Debouncer jamDebouncer =
       new Debouncer(Constants.Intake.kJamDetectionSeconds, DebounceType.kRising);
   private double commandedSpeedDutyCycle;
   private boolean clearingJam = false;
   private double jamClearEndTimeSeconds = 0.0;
+  private final Alert jamAlert = new Alert("Intake Roller Jam Detected", AlertType.kWarning);
 
   public IntakeRoller(IntakeRollerIO io) {
     this.io = io;
@@ -53,6 +55,7 @@ public class IntakeRoller extends SubsystemBase {
 
   private void updateJamDetection() {
     if (clearingJam) {
+      jamAlert.set(clearingJam);
       if (Timer.getFPGATimestamp() >= jamClearEndTimeSeconds) {
         clearingJam = false;
         setSpeed(commandedSpeedDutyCycle);
