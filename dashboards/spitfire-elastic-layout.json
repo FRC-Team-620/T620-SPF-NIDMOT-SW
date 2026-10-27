@@ -135,13 +135,6 @@
       }
     },
     {
-      "name": "Autonomous",
-      "grid_layout": {
-        "layouts": [],
-        "containers": []
-      }
-    },
-    {
       "name": "Shot Tuning",
       "grid_layout": {
         "layouts": [],

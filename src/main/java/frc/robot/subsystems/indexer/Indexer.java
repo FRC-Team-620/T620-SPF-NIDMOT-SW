@@ -2,6 +2,7 @@ package frc.robot.subsystems.indexer;
 
 import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.math.filter.Debouncer.DebounceType;
+import edu.wpi.first.wpilibj.Alert;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -10,7 +11,7 @@ import org.littletonrobotics.junction.Logger;
 public class Indexer extends SubsystemBase {
   private final IndexerIO io;
   private final IndexerIOInputsAutoLogged inputs = new IndexerIOInputsAutoLogged();
-
+  private final Alert jamAlert = new Alert("Indexer Jam Detected", Alert.AlertType.kWarning);
   private final Debouncer jamDebouncer =
       new Debouncer(Constants.Intake.kJamDetectionSeconds, DebounceType.kRising);
   private double commandedSpeedDutyCycle;
@@ -47,6 +48,7 @@ public class Indexer extends SubsystemBase {
 
   private void updateJamDetection() {
     if (clearingJam) {
+      jamAlert.set(clearingJam);
       if (Timer.getFPGATimestamp() >= jamClearEndTimeSeconds) {
         clearingJam = false;
         setDutyCycle(commandedSpeedDutyCycle);
