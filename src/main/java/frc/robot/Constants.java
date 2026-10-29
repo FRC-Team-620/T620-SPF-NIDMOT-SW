@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.RobotBase;
 
 /**
@@ -17,6 +19,16 @@ import edu.wpi.first.wpilibj.RobotBase;
 public final class Constants {
   public static final Mode simMode = Mode.SIM;
   public static final Mode currentMode = RobotBase.isReal() ? Mode.REAL : simMode;
+  public static final int stallCurrentBuffer = 10;
+
+  public static final class Intake {
+    public static final double kJamMinCommandDutyCycle = 0.1;
+    public static final double kJamCurrentThresholdAmps = 30.0; // TODO tune (IMPORTANT)
+    public static final double kJamVelocityThresholdRPM = 200.0; // TODO tune (IMPORTANT)
+    public static final double kJamDetectionSeconds = 0.15; // sustained stall time before reacting
+    public static final double kJamReverseDutyCycle = 0.6;
+    public static final double kJamReverseSeconds = 0.2; // how long to run in reverse to clear
+  }
 
   public static enum Mode {
     /** Running on a real robot. */
@@ -27,5 +39,10 @@ public final class Constants {
 
     /** Replaying from a log file. */
     REPLAY
+  }
+
+  public static class Poses {
+    public static final Pose2d hubBLUE = new Pose2d(3.569, 4.051, Rotation2d.fromDegrees(180));
+    public static final Pose2d hubRED = new Pose2d(13.00, 4.051, Rotation2d.fromDegrees(0));
   }
 }

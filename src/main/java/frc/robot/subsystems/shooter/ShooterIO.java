@@ -9,10 +9,14 @@ public interface ShooterIO {
     public double leftVelocityRPM = 0.0;
     public double leftLeaderCurrentAmps = 0.0;
     public double leftFollowerCurrentAmps = 0.0;
+    public double leftLeaderTempCelsius = 0.0;
+    public double leftFollowerTempCelsius = 0.0;
     public double rightAppliedVolts = 0.0;
     public double rightVelocityRPM = 0.0;
     public double rightLeaderCurrentAmps = 0.0;
     public double rightFollowerCurrentAmps = 0.0;
+    public double rightLeaderTempCelsius = 0.0;
+    public double rightFollowerTempCelsius = 0.0;
   }
 
   default void updateInputs(ShooterIOInputs inputs) {}
@@ -20,4 +24,6 @@ public interface ShooterIO {
   default void setDutyCycle(double speed) {}
 
   default void setVoltage(double volts) {}
+
+  default void simulateShot(double fuelSpeedMetersPerSec) {}
 }

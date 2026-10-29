@@ -25,12 +25,17 @@ public class Shooter extends SubsystemBase {
   public void periodic() {
     io.updateInputs(inputs);
     Logger.processInputs("Shooter", inputs);
+    Logger.recordOutput("Shooter/targetVelocityRPM", targetVelocityRPM);
+
+    SmartDashboard.putBoolean(
+        "Shooter/AtIdleSpeed",
+        velocityControlEnabled && targetVelocityRPM == ShooterConstants.shooterIdleRPM);
 
     if (velocityControlEnabled) {
-      double ffDuty =
-          (ShooterConstants.shooterKS + ShooterConstants.shooterKV * targetVelocityRPM) / 12.0;
-      double pidDuty = pid.calculate(inputs.leftVelocityRPM, targetVelocityRPM);
-      io.setDutyCycle(MathUtil.clamp(ffDuty + pidDuty, 0.0, 1.0));
+      // Command volts (not duty cycle) so battery sag doesn't shrink the feedforward
+      double ffVolts = ShooterConstants.shooterKS + ShooterConstants.shooterKV * targetVelocityRPM;
+      double pidVolts = pid.calculate(inputs.leftVelocityRPM, targetVelocityRPM);
+      io.setVoltage(MathUtil.clamp(ffVolts + pidVolts, 0.0, 12.0));
     }
   }
 
@@ -54,6 +59,12 @@ public class Shooter extends SubsystemBase {
             < ShooterConstants.shooterVelocityToleranceRPM;
   }
 
+  public boolean isAtFerryVelocity() {
+    return velocityControlEnabled
+        && Math.abs(inputs.leftVelocityRPM - ShooterConstants.shooterFerryRPM)
+            < ShooterConstants.shooterVelocityToleranceRPM;
+  }
+
   public void setVoltage(double volts) {
     io.setVoltage(volts);
   }
@@ -64,5 +75,9 @@ public class Shooter extends SubsystemBase {
 
   public void stop() {
     io.setDutyCycle(0.0);
+  }
+
+  public void simulateShot(double fuelSpeedMetersPerSec) {
+    io.simulateShot(fuelSpeedMetersPerSec);
   }
 }

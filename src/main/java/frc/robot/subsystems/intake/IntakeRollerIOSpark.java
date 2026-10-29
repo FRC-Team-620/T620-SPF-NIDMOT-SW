@@ -6,6 +6,7 @@ import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
+import frc.robot.Constants;
 
 public class IntakeRollerIOSpark implements IntakeRollerIO {
   private final SparkBase leader = new SparkMax(IntakeConstants.leaderCanId, MotorType.kBrushless);
@@ -16,12 +17,14 @@ public class IntakeRollerIOSpark implements IntakeRollerIO {
     var leaderConfig = new SparkMaxConfig();
     leaderConfig
         .idleMode(IntakeConstants.idleMode)
+        .secondaryCurrentLimit(IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .smartCurrentLimit(IntakeConstants.currentLimitAmps);
 
     var followerConfig = new SparkMaxConfig();
     followerConfig
         .idleMode(IntakeConstants.idleMode)
         .smartCurrentLimit(IntakeConstants.currentLimitAmps)
+        .secondaryCurrentLimit(IntakeConstants.currentLimitAmps + Constants.stallCurrentBuffer)
         .follow(leader, true);
 
     leader.configure(leaderConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
@@ -32,6 +35,7 @@ public class IntakeRollerIOSpark implements IntakeRollerIO {
   @Override
   public void updateInputs(IntakeRollerIOInputs inputs) {
     inputs.appliedVolts = leader.getAppliedOutput() * leader.getBusVoltage();
+    inputs.velocityRPM = leader.getEncoder().getVelocity();
     inputs.leaderCurrentAmps = leader.getOutputCurrent();
     inputs.followerCurrentAmps = follower.getOutputCurrent();
   }
