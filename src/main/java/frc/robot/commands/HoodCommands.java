@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import frc.robot.subsystems.shooter.Hood;
 import frc.robot.subsystems.shooter.ShooterConstants;
-import java.util.function.DoubleSupplier;
 
 public class HoodCommands {
   private HoodCommands() {}
@@ -34,11 +33,12 @@ public class HoodCommands {
     return Commands.runOnce(() -> hood.adjustTargetPosition(delta), hood);
   }
 
-  public static Command autoAim(Hood hood, DoubleSupplier distanceMeters) {
-    return Commands.runEnd(
-        () ->
-            hood.setTargetPosition(ShooterConstants.hoodAngleMap.get(distanceMeters.getAsDouble())),
-        hood::stopPositionControl,
-        hood);
-  }
+  // public static Command autoAim(Hood hood, DoubleSupplier distanceMeters) {
+  //   return Commands.runEnd(
+  //       () ->
+  //
+  // hood.setTargetPosition(ShooterConstants.hoodAngleMap.get(distanceMeters.getAsDouble())),
+  //       hood::stopPositionControl,
+  //       hood);
+  // }
 }
