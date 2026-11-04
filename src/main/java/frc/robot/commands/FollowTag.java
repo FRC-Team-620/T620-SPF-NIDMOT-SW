@@ -28,7 +28,7 @@ import org.photonvision.PhotonCamera;
  * static field layout. This lets the robot track a hand-held tag for bench testing; overrides
  * joystick input while held, and stops once the tag is lost.
  */
-public class AutoAlign extends Command {
+public class FollowTag extends Command {
   private static final double standoffMeters = Units.inchesToMeters(12);
   private static final double translationToleranceMeters = 0.03;
   private static final double thetaToleranceRadians = Math.toRadians(2);
@@ -48,7 +48,7 @@ public class AutoAlign extends Command {
   private boolean targetVisible = false;
   private Pose2d goalPoseRobotRelative = Pose2d.kZero;
 
-  public AutoAlign(Drive drive) {
+  public FollowTag(Drive drive) {
     this.drive = drive;
     this.camera = new PhotonCamera(VisionConstants.camera0Name);
 
