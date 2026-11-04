@@ -7,31 +7,29 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.math.controller.ProfiledPIDController;
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Transform2d;
+import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
-import edu.wpi.first.math.trajectory.TrapezoidProfile;
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.DriveConstants;
 import frc.robot.subsystems.vision.VisionConstants;
 import org.littletonrobotics.junction.Logger;
+import org.photonvision.PhotonCamera;
 
 /**
- * Drives the robot to a parking pose directly in front of the closest alliance scoring AprilTag
- * (tags 9/10 for red, 25/26 for blue on the 2026 Rebuilt field), overriding joystick input while
- * held. Target tag is chosen once at the start of each run, based on whichever of the two tags is
- * nearer to the robot's current pose.
+ * Drives the robot to a pose {@code standoffMeters} in front of whichever AprilTag the camera
+ * currently sees, recomputed from the live PhotonVision detection every cycle rather than the
+ * static field layout. This lets the robot track a hand-held tag for bench testing; overrides
+ * joystick input while held, and stops once the tag is lost.
  */
 public class AutoAlign extends Command {
-  private static final int[] redTagIds = {9, 10};
-  private static final int[] blueTagIds = {25, 26};
-
-  private static final double standoffMeters = 0.6; // distance to park in front of the tag
+  private static final double standoffMeters = Units.inchesToMeters(12);
   private static final double translationToleranceMeters = 0.03;
   private static final double thetaToleranceRadians = Math.toRadians(2);
 
@@ -41,38 +39,22 @@ public class AutoAlign extends Command {
   private static final double thetaKd = 0.0;
 
   private final Drive drive;
+  private final PhotonCamera camera;
 
-  private final ProfiledPIDController xController;
-  private final ProfiledPIDController yController;
-  private final ProfiledPIDController thetaController;
+  private final PIDController xController;
+  private final PIDController yController;
+  private final PIDController thetaController;
 
-  private Pose2d targetPose = Pose2d.kZero;
+  private boolean targetVisible = false;
+  private Pose2d goalPoseRobotRelative = Pose2d.kZero;
 
   public AutoAlign(Drive drive) {
     this.drive = drive;
+    this.camera = new PhotonCamera(VisionConstants.camera0Name);
 
-    xController =
-        new ProfiledPIDController(
-            linearKp,
-            0.0,
-            linearKd,
-            new TrapezoidProfile.Constraints(
-                DriveConstants.maxSpeedMetersPerSec, DriveConstants.maxSpeedMetersPerSec * 2));
-    yController =
-        new ProfiledPIDController(
-            linearKp,
-            0.0,
-            linearKd,
-            new TrapezoidProfile.Constraints(
-                DriveConstants.maxSpeedMetersPerSec, DriveConstants.maxSpeedMetersPerSec * 2));
-    thetaController =
-        new ProfiledPIDController(
-            thetaKp,
-            0.0,
-            thetaKd,
-            new TrapezoidProfile.Constraints(
-                DriveConstants.maxSpeedMetersPerSec / DriveConstants.driveBaseRadius,
-                DriveConstants.maxSpeedMetersPerSec / DriveConstants.driveBaseRadius * 2));
+    xController = new PIDController(linearKp, 0.0, linearKd);
+    yController = new PIDController(linearKp, 0.0, linearKd);
+    thetaController = new PIDController(thetaKp, 0.0, thetaKd);
     thetaController.enableContinuousInput(-Math.PI, Math.PI);
 
     xController.setTolerance(translationToleranceMeters);
@@ -84,29 +66,59 @@ public class AutoAlign extends Command {
 
   @Override
   public void initialize() {
-    boolean isRed =
-        DriverStation.getAlliance().isPresent()
-            && DriverStation.getAlliance().get() == Alliance.Red;
-    targetPose = closestTargetPose(isRed ? redTagIds : blueTagIds, drive.getPose());
-
-    xController.reset(drive.getPose().getX());
-    yController.reset(drive.getPose().getY());
-    thetaController.reset(drive.getPose().getRotation().getRadians());
+    targetVisible = false;
+    xController.reset();
+    yController.reset();
+    thetaController.reset();
   }
 
   @Override
   public void execute() {
-    double xOut = xController.calculate(drive.getPose().getX(), targetPose.getX());
-    double yOut = yController.calculate(drive.getPose().getY(), targetPose.getY());
-    double thetaOut =
-        thetaController.calculate(
-            drive.getPose().getRotation().getRadians(), targetPose.getRotation().getRadians());
+    // Recompute the goal from the latest camera frames, if any arrived this cycle. If no new
+    // frames arrived, keep driving toward the last known goal rather than stopping every cycle
+    // the camera doesn't happen to report a fresh result.
+    for (var result : camera.getAllUnreadResults()) {
+      if (result.hasTargets()) {
+        Transform3d cameraToTag = result.getBestTarget().bestCameraToTarget;
+        Transform3d robotToTag = VisionConstants.robotToCamera0.plus(cameraToTag);
+        Pose2d tagPoseRobotRelative =
+            new Pose2d(
+                robotToTag.getTranslation().toTranslation2d(),
+                robotToTag.getRotation().toRotation2d());
+        goalPoseRobotRelative =
+            tagPoseRobotRelative.transformBy(
+                new Transform2d(standoffMeters, 0.0, Rotation2d.k180deg));
+        targetVisible = true;
+      } else {
+        targetVisible = false;
+      }
+    }
 
-    drive.runVelocity(
-        ChassisSpeeds.fromFieldRelativeSpeeds(
-            new ChassisSpeeds(xOut, yOut, thetaOut), drive.getRotation()));
+    ChassisSpeeds speeds = new ChassisSpeeds();
+    if (targetVisible) {
+      double xOut = xController.calculate(0.0, -goalPoseRobotRelative.getX());
+      double yOut = yController.calculate(0.0, -goalPoseRobotRelative.getY());
+      double thetaOut =
+          thetaController.calculate(0.0, goalPoseRobotRelative.getRotation().getRadians());
 
-    Logger.recordOutput("AutoAlign/TargetPose", targetPose);
+      speeds =
+          new ChassisSpeeds(
+              MathUtil.clamp(
+                  xOut, -DriveConstants.maxSpeedMetersPerSec, DriveConstants.maxSpeedMetersPerSec),
+              MathUtil.clamp(
+                  yOut, -DriveConstants.maxSpeedMetersPerSec, DriveConstants.maxSpeedMetersPerSec),
+              MathUtil.clamp(
+                  thetaOut,
+                  -DriveConstants.maxSpeedMetersPerSec / DriveConstants.driveBaseRadius,
+                  DriveConstants.maxSpeedMetersPerSec / DriveConstants.driveBaseRadius));
+    }
+
+    // speeds are already expressed in the robot's own frame (computed relative to the live tag
+    // detection), so they're sent directly without a field-relative conversion.
+    drive.runVelocity(speeds);
+
+    Logger.recordOutput("AutoAlign/TargetVisible", targetVisible);
+    Logger.recordOutput("AutoAlign/GoalPoseRobotRelative", goalPoseRobotRelative);
     Logger.recordOutput("AutoAlign/AtGoal", atGoal());
   }
 
@@ -117,31 +129,9 @@ public class AutoAlign extends Command {
 
   /** Returns true once the robot is within tolerance of the target pose. */
   public boolean atGoal() {
-    return xController.atGoal() && yController.atGoal() && thetaController.atGoal();
-  }
-
-  /**
-   * Returns the parking pose {@code standoffMeters} in front of whichever tag in {@code tagIds} is
-   * closest to {@code currentPose}, facing back toward the tag. Falls back to {@code currentPose}
-   * if none of the tags are present in the field layout.
-   */
-  private static Pose2d closestTargetPose(int[] tagIds, Pose2d currentPose) {
-    Pose2d closest = null;
-    double closestDistance = Double.POSITIVE_INFINITY;
-    for (int id : tagIds) {
-      var tagPose = VisionConstants.aprilTagLayout.getTagPose(id);
-      if (tagPose.isEmpty()) continue;
-      Pose2d candidate =
-          tagPose
-              .get()
-              .toPose2d()
-              .transformBy(new Transform2d(standoffMeters, 0.0, Rotation2d.k180deg));
-      double distance = candidate.getTranslation().getDistance(currentPose.getTranslation());
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closest = candidate;
-      }
-    }
-    return closest != null ? closest : currentPose;
+    return targetVisible
+        && xController.atSetpoint()
+        && yController.atSetpoint()
+        && thetaController.atSetpoint();
   }
 }
