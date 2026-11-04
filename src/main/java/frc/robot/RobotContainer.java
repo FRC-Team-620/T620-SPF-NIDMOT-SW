@@ -30,6 +30,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
+import frc.robot.commands.AutoAlign;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.HoodCommands;
@@ -371,8 +372,8 @@ public class RobotContainer {
                     Commands.waitSeconds(1.25),
                     ShootingCommands.yeet(shooter, indexer, intakePivot, intakeRoller))));
 
-    // Switch to X pattern when X button is pressed
-    driver.x().onTrue(Commands.runOnce(drive::stopWithX, drive));
+    // Auto-align to the nearest alliance scoring AprilTag while X is held
+    driver.x().whileTrue(new AutoAlign(drive));
 
     // Reset heading when B is pressed, with the shooter facing away from our driver station
     driver
