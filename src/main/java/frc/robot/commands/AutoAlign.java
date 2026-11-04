@@ -84,9 +84,7 @@ public class AutoAlign extends Command {
 
   @Override
   public void initialize() {
-    boolean isRed =
-        DriverStation.getAlliance().isPresent()
-            && DriverStation.getAlliance().get() == Alliance.Red;
+    boolean isRed = DriverStation.getAlliance().orElse(Alliance.Blue) == Alliance.Red;
     targetPose = closestTargetPose(isRed ? redTagIds : blueTagIds, drive.getPose());
 
     xController.reset(drive.getPose().getX());
@@ -100,7 +98,8 @@ public class AutoAlign extends Command {
     double yOut = yController.calculate(drive.getPose().getY(), targetPose.getY());
     double thetaOut =
         thetaController.calculate(
-            drive.getPose().getRotation().getRadians(), targetPose.getRotation().getRadians());
+            drive.getPose().getRotation().plus(new Rotation2d(Math.PI)).getRadians(),
+            targetPose.getRotation().getRadians());
 
     drive.runVelocity(
         ChassisSpeeds.fromFieldRelativeSpeeds(

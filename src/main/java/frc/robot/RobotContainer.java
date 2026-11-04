@@ -15,6 +15,7 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Transform2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
@@ -65,6 +66,7 @@ import frc.robot.subsystems.shooter.ShooterConstants;
 import frc.robot.subsystems.shooter.ShooterIO;
 import frc.robot.subsystems.shooter.ShooterIOSim;
 import frc.robot.subsystems.shooter.ShooterIOSpark;
+import frc.robot.subsystems.vision.VisionConstants;
 import frc.robot.util.BallTracker;
 import frc.robot.util.FuelSim;
 import org.littletonrobotics.junction.Logger;
@@ -237,6 +239,17 @@ public class RobotContainer {
           "Test/IntakeRoller/SimulateJam",
           Commands.startEnd(
                   () -> intakeRoller.setSimJammed(true), () -> intakeRoller.setSimJammed(false))
+              .ignoringDisable(true));
+
+      // Sim-only: teleport the simulated robot a couple meters in front of an AutoAlign target tag
+      // so X can be tested immediately instead of first driving across the whole field.
+      SmartDashboard.putData(
+          "Test/AutoAlign/TeleportNearRedTag",
+          Commands.runOnce(() -> drive.setPose(autoAlignTestApproachPose(9)), drive)
+              .ignoringDisable(true));
+      SmartDashboard.putData(
+          "Test/AutoAlign/TeleportNearBlueTag",
+          Commands.runOnce(() -> drive.setPose(autoAlignTestApproachPose(25)), drive)
               .ignoringDisable(true));
     }
     SmartDashboard.putData("Test/Hood/Stow", HoodCommands.stow(hood));
@@ -491,5 +504,17 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     return autoChooser.get();
+  }
+
+  /**
+   * Sim-testing helper: a pose a couple meters in front of the given AprilTag, facing it, used to
+   * start the simulated robot close enough to an AutoAlign target to quickly see it converge.
+   */
+  private static Pose2d autoAlignTestApproachPose(int tagId) {
+    return VisionConstants.aprilTagLayout
+        .getTagPose(tagId)
+        .orElseThrow()
+        .toPose2d()
+        .transformBy(new Transform2d(2.0, 0.0, Rotation2d.k180deg));
   }
 }
