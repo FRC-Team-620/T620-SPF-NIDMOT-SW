@@ -258,7 +258,7 @@ public class RobotContainer {
     op.b().whileTrue(ShootingCommands.aimNear(shooter, hood));
     // Op A toggles idle: off = stopped, on = 750 RPM default resumes
     op.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
-    driver.a().toggleOnTrue(ShooterCommands.stopShooter(shooter));
+    driver.button(8).toggleOnTrue(ShooterCommands.stopShooter(shooter));
     // Command cmd = new Wait().then()
     // Fire: stow the intake (slowly, to avoid jolting loaded cargo), then once the shooter is at
     // its aimed velocity, feed cargo through the indexer and intake roller. Hold an aim button
